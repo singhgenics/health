@@ -35,7 +35,6 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 button, a, [onclick] { touch-action: manipulation; }
-body { touch-action: pan-y; }
 body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; min-height: 100vh; }
 
 /* HEADER */
@@ -45,6 +44,7 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, Bl
 .client-tag { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 12px; color: var(--muted); white-space: nowrap; }
 .phase-pills { display: flex; gap: 6px; margin-left: auto; }
 .phase-pill { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 5px 16px; font-size: 12px; font-weight: 600; cursor: pointer; color: var(--muted); transition: all .2s; white-space: nowrap; }
+.ps { display: none; }
 .phase-pill.active { background: var(--blue); border-color: var(--blue); color: #fff; }
 .phase-pill:hover:not(.active) { border-color: var(--blue); color: var(--blue); }
 
@@ -276,7 +276,9 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
   .header { padding: 10px 14px; padding-top: calc(10px + env(safe-area-inset-top)); gap: 8px; }
   .client-tag { display: none; }
   .phase-pills { order: 3; width: 100%; gap: 4px; }
-  .phase-pill { flex: 1; text-align: center; font-size: 10px; padding: 6px 4px; }
+  .phase-pill { flex: 1; text-align: center; font-size: 11px; padding: 7px 4px; }
+  .pl { display: none; }
+  .ps { display: inline; }
 
   /* Swap top tabs for bottom nav */
   .tabs { display: none; }
@@ -412,9 +414,9 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
     <span id="theme-icon">☀️</span>
   </button>
   <div class="phase-pills">
-    <div class="phase-pill active" onclick="setPhase(1)">Phase 1 · Wk 1–4</div>
-    <div class="phase-pill" onclick="setPhase(2)">Phase 2 · Wk 5–8</div>
-    <div class="phase-pill" onclick="setPhase(3)">Phase 3 · Wk 9–12</div>
+    <div class="phase-pill active" onclick="setPhase(1)"><span class="pl">Phase 1 · Wk 1–4</span><span class="ps">Phase 1</span></div>
+    <div class="phase-pill" onclick="setPhase(2)"><span class="pl">Phase 2 · Wk 5–8</span><span class="ps">Phase 2</span></div>
+    <div class="phase-pill" onclick="setPhase(3)"><span class="pl">Phase 3 · Wk 9–12</span><span class="ps">Phase 3</span></div>
   </div>
 </div>
 
