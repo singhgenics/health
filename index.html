@@ -301,7 +301,6 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
   .day-btn { min-width: 0; flex: 1; padding: 8px 6px; }
   .day-btn .db-name { font-size: 11px; }
   .ex-table-wrap { display: none; }
-  .ex-cards { display: grid !important; }
   .workout-header { padding: 14px; }
   .wh-title { font-size: 17px; }
   .muscle-tags { display: none; }
@@ -354,7 +353,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 [data-theme="light"] .logo span { color: var(--blue); }
 
 /* ===== EXERCISE CARDS (mobile) ===== */
-.ex-cards { display: none; gap: 10px; margin-bottom: 16px; }
+.ex-cards { display: grid; gap: 10px; margin-bottom: 16px; }
 .ex-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
 .ex-card-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
 .ex-card-info { flex: 1; min-width: 0; }
@@ -367,6 +366,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 .rest-btn-full:active { transform: scale(0.98); }
 
 /* ===== BOTTOM NAV ===== */
+@media (min-width: 769px) { .ex-cards { display: none; } }
 .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--border); padding: 6px 0; padding-bottom: calc(6px + env(safe-area-inset-bottom)); z-index: 100; justify-content: space-around; align-items: center; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .bn-item { display: flex; flex-direction: column; align-items: center; gap: 3px; background: transparent; border: none; color: var(--muted); cursor: pointer; padding: 6px 14px; min-width: 60px; font-size: 10px; font-weight: 600; transition: color .15s; -webkit-tap-highlight-color: transparent; }
 .bn-item svg { width: 22px; height: 22px; stroke-width: 1.8; }
@@ -846,10 +846,13 @@ const weekTimeline = [
   { w:12, p:"p3", type:"DELOAD", deload:true }
 ];
 
+const TABS = ['overview','training','nutrition','tracking'];
+
 // ==================== STATE ====================
 let currentPhase = 1;
 let currentDay = 0;
 let currentMealDay = 0;
+let currentTab = 'overview';
 let timerInterval = null;
 let timerTotal = 0;
 let timerRemaining = 0;
@@ -917,7 +920,9 @@ function animateBar(id, pct) {
 
 // ==================== TABS ====================
 function setTab(name) {
-  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['overview','training','nutrition','tracking'][i]===name));
+  if(name === currentTab) return;
+  currentTab = name;
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', TABS[i]===name));
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');
   document.querySelectorAll('.bn-item').forEach(b => b.classList.toggle('active', b.dataset.tab===name));
@@ -952,6 +957,16 @@ function renderWeekTimeline() {
       <div class="wc-num">W${w.w}</div>
       <div class="wc-type">${w.type}</div>
     </div>`).join('');
+}
+
+// ==================== HELPERS ====================
+function formatRestLabel(sec) {
+  return sec >= 60 ? `${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}` : `0:${sec}`;
+}
+function buildBadges(ex, phase) {
+  const p2 = ex.sets[1] > ex.sets[0] && phase >= 2 ? `<span class="p2-badge">+${ex.sets[1]-ex.sets[0]} set P2</span>` : '';
+  const p3 = ex.p3note && phase === 3 ? `<span class="p3-badge">P3: ${ex.p3note}</span>` : '';
+  return { p2, p3 };
 }
 
 // ==================== TRAINING ====================
@@ -1021,14 +1036,13 @@ function renderWorkout() {
   const exRows = w.exercises.map((ex,i) => {
     const sets = ex.sets[p-1];
     const restSec = ex.rest;
-    const restLabel = restSec >= 60 ? `${restSec/60}:00` : `0:${restSec}`;
-    const p2change = ex.sets[1] > ex.sets[0] ? `<span class="p2-badge">+${ex.sets[1]-ex.sets[0]} set P2</span>` : '';
-    const p3badge = ex.p3note ? `<span class="p3-badge">P3: ${ex.p3note}</span>` : '';
+    const restLabel = formatRestLabel(restSec);
+    const { p2, p3 } = buildBadges(ex, p);
     return `<tr class="${ex.type}-row">
       <td><div class="ex-num ${ex.type}">${i+1}</div></td>
       <td>
         <div class="ex-name">${ex.name}<span class="ex-type-tag ${ex.type}">${ex.type}</span></div>
-        ${p>=2?p2change:''}${p===3?p3badge:''}
+        ${p2}${p3}
         <div class="ex-cue">${ex.cue}</div>
       </td>
       <td><span class="sets-chip">${sets} × ${ex.reps}</span></td>
@@ -1298,15 +1312,14 @@ function renderExCards(exercises, phase) {
   return exercises.map((ex, i) => {
     const sets = ex.sets[phase-1];
     const restSec = ex.rest;
-    const restLabel = restSec >= 60 ? `${Math.floor(restSec/60)}:${String(restSec%60).padStart(2,'0')}` : `0:${restSec}`;
-    const p2badge = ex.sets[1] > ex.sets[0] && phase >= 2 ? `<span class="p2-badge">+${ex.sets[1]-ex.sets[0]} set P2</span>` : '';
-    const p3badge = ex.p3note && phase === 3 ? `<span class="p3-badge">P3: ${ex.p3note}</span>` : '';
+    const restLabel = formatRestLabel(restSec);
+    const { p2, p3 } = buildBadges(ex, phase);
     return `<div class="ex-card">
       <div class="ex-card-header">
         <div class="ex-num ${ex.type}">${i+1}</div>
         <div class="ex-card-info">
           <div class="ex-card-name">${ex.name}<span class="ex-type-tag ${ex.type}" style="margin-left:6px">${ex.type}</span></div>
-          <div style="margin-top:4px">${p2badge}${p3badge}</div>
+          <div style="margin-top:4px">${p2}${p3}</div>
         </div>
       </div>
       <div class="ex-card-stats">
@@ -1327,16 +1340,15 @@ function renderExCards(exercises, phase) {
 
 // ==================== SWIPE GESTURES ====================
 (function() {
-  const tabs = ['overview','training','nutrition','tracking'];
   let sx = 0, sy = 0;
   document.addEventListener('touchstart', e => { sx = e.changedTouches[0].clientX; sy = e.changedTouches[0].clientY; }, {passive:true});
   document.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - sx;
     const dy = e.changedTouches[0].clientY - sy;
     if(Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-    const cur = tabs.findIndex(t => document.getElementById('tab-'+t).classList.contains('active'));
-    if(dx < 0 && cur < tabs.length-1) setTab(tabs[cur+1]);
-    if(dx > 0 && cur > 0) setTab(tabs[cur-1]);
+    const cur = TABS.indexOf(currentTab);
+    if(dx < 0 && cur < TABS.length-1) setTab(TABS[cur+1]);
+    if(dx > 0 && cur > 0) setTab(TABS[cur-1]);
   }, {passive:true});
 })();
 
