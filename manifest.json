@@ -1,0 +1,44 @@
+{
+  "name": "RecompSys — 12-Week Body Recomposition",
+  "short_name": "RecompSys",
+  "description": "12-week body recomposition training and nutrition system for experienced lifters",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0b14",
+  "theme_color": "#0b0b14",
+  "categories": ["health", "fitness", "sports"],
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Today's Training",
+      "short_name": "Training",
+      "description": "Open today's workout",
+      "url": "./?tab=training",
+      "icons": [{ "src": "icons/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Meal Plan",
+      "short_name": "Nutrition",
+      "description": "Open nutrition plan",
+      "url": "./?tab=nutrition",
+      "icons": [{ "src": "icons/icon.svg", "sizes": "any" }]
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}
