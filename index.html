@@ -270,19 +270,55 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 .note-box strong { color: var(--blue); }
 
 @media (max-width: 768px) {
-  .header { flex-wrap: wrap; gap: 10px; padding: 10px 14px; }
-  .week-grid { grid-template-columns: repeat(4, 1fr); }
+  /* Header */
+  .header { padding: 10px 14px; gap: 8px; }
+  .client-tag { display: none; }
+  .phase-pills { order: 3; width: 100%; gap: 4px; }
+  .phase-pill { flex: 1; text-align: center; font-size: 10px; padding: 6px 4px; }
+
+  /* Swap top tabs for bottom nav */
+  .tabs { display: none; }
+  .bottom-nav { display: flex; }
+  main { padding: 12px; padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .stat-card .value { font-size: 22px; }
+
+  /* Overview grids */
+  .week-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .day-card { padding: 8px 4px; }
+  .day-card .session-name { font-size: 11px; }
   .timeline { grid-template-columns: 1fr; }
-  .recipe-cols { grid-template-columns: 1fr; }
   .week-timeline { grid-template-columns: repeat(6, 1fr); }
-  main { padding: 12px; }
-  .phase-pills { order: 3; width: 100%; }
-  .phase-pill { flex: 1; text-align: center; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .ex-table th:last-child, .ex-table td:last-child { display: none; }
-  .total-row { gap: 12px; }
+
+  /* Training */
+  .day-nav { gap: 6px; }
+  .day-btn { min-width: 0; flex: 1; padding: 8px 6px; }
+  .day-btn .db-name { font-size: 11px; }
+  .ex-table-wrap { display: none; }
+  .ex-cards { display: grid !important; }
+  .workout-header { padding: 14px; }
+  .wh-title { font-size: 17px; }
+  .muscle-tags { display: none; }
+
+  /* Nutrition */
+  .meal-day-nav { flex-direction: column; }
+  .meal-day-btn { text-align: center; padding: 12px; }
+  .total-row { flex-wrap: wrap; gap: 14px; }
   .total-cal { margin-left: 0; }
-  .timer-overlay { bottom: 16px; right: 16px; }
+  .total-cal .tc-val { font-size: 28px; }
+  .recipe-cols { grid-template-columns: 1fr; }
+
+  /* Timer + safe area */
+  .timer-overlay { bottom: calc(80px + env(safe-area-inset-bottom)); right: 12px; }
+  .timer-box { min-width: 140px; padding: 16px; }
+  .timer-count { font-size: 40px; }
+
+  /* Misc */
+  .plateau-grid { grid-template-columns: 1fr; }
+  .note-box { font-size: 11px; }
+  .section-title { font-size: 14px; }
 }
 
 /* ===== LIGHT THEME ===== */
@@ -312,6 +348,26 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 [data-theme="light"] .week-cell.p2 { background: rgba(40,160,90,0.06); }
 [data-theme="light"] .week-cell.p3 { background: rgba(122,82,224,0.06); }
 [data-theme="light"] .logo span { color: var(--blue); }
+
+/* ===== EXERCISE CARDS (mobile) ===== */
+.ex-cards { display: none; gap: 10px; margin-bottom: 16px; }
+.ex-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+.ex-card-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.ex-card-info { flex: 1; min-width: 0; }
+.ex-card-name { font-size: 14px; font-weight: 700; line-height: 1.3; }
+.ex-card-stats { display: flex; gap: 8px; margin: 10px 0; }
+.ex-stat-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 0; text-align: center; flex: 1; }
+.esi-val { font-size: 15px; font-weight: 700; }
+.esi-label { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.rest-btn-full { width: 100%; padding: 11px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--green); font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; margin-top: 6px; }
+.rest-btn-full:active { transform: scale(0.98); }
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--border); padding: 6px 0; padding-bottom: calc(6px + env(safe-area-inset-bottom)); z-index: 100; justify-content: space-around; align-items: center; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.bn-item { display: flex; flex-direction: column; align-items: center; gap: 3px; background: transparent; border: none; color: var(--muted); cursor: pointer; padding: 6px 14px; min-width: 60px; font-size: 10px; font-weight: 600; transition: color .15s; -webkit-tap-highlight-color: transparent; }
+.bn-item svg { width: 22px; height: 22px; stroke-width: 1.8; }
+.bn-item.active { color: var(--blue); }
+.bn-item.active svg { stroke-width: 2.5; }
 
 /* ===== THEME TOGGLE & INSTALL ===== */
 .theme-toggle {
@@ -561,6 +617,26 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 </div>
 
 </main>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="bn-item active" onclick="setTab('overview')" data-tab="overview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span>Overview</span>
+  </button>
+  <button class="bn-item" onclick="setTab('training')" data-tab="training">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 4v16M18 4v16M4 8h4M16 8h4M4 16h4M16 16h4"/></svg>
+    <span>Training</span>
+  </button>
+  <button class="bn-item" onclick="setTab('nutrition')" data-tab="nutrition">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+    <span>Nutrition</span>
+  </button>
+  <button class="bn-item" onclick="setTab('tracking')" data-tab="tracking">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    <span>Tracking</span>
+  </button>
+</nav>
 
 <!-- REST TIMER -->
 <div class="timer-overlay" id="timer-overlay">
@@ -840,6 +916,8 @@ function setTab(name) {
   document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['overview','training','nutrition','tracking'][i]===name));
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');
+  document.querySelectorAll('.bn-item').forEach(b => b.classList.toggle('active', b.dataset.tab===name));
+  window.scrollTo({top:0, behavior:'smooth'});
   if(name==='overview') updatePhaseUI();
   if(name==='training') { renderWorkout(); }
   if(name==='nutrition') { updatePhaseUI(); renderMeals(); }
@@ -963,12 +1041,13 @@ function renderWorkout() {
       <div class="muscle-tags">${muscleTags}</div>
     </div>
     ${s.cardio ? cardioHTML : ''}
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px">
+    <div class="ex-table-wrap" style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px">
       <table class="ex-table">
         <thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead>
         <tbody>${exRows}</tbody>
       </table>
     </div>
+    <div class="ex-cards">${renderExCards(w.exercises, p)}</div>
     ${currentDay===5 ? `<div class="cardio-block"><h4>Saturday LISS — Fasted Recommended</h4>
       <div class="cardio-details">
         <div class="cardio-stat"><div class="cs-val" style="color:var(--green)">${[35,40,45][currentPhase-1]}</div><div class="cs-label">Minutes</div></div>
@@ -1209,6 +1288,53 @@ function playDone() {
     osc.stop(ctx.currentTime+i*0.15+0.4);
   });
 }
+
+// ==================== EXERCISE CARDS ====================
+function renderExCards(exercises, phase) {
+  return exercises.map((ex, i) => {
+    const sets = ex.sets[phase-1];
+    const restSec = ex.rest;
+    const restLabel = restSec >= 60 ? `${Math.floor(restSec/60)}:${String(restSec%60).padStart(2,'0')}` : `0:${restSec}`;
+    const p2badge = ex.sets[1] > ex.sets[0] && phase >= 2 ? `<span class="p2-badge">+${ex.sets[1]-ex.sets[0]} set P2</span>` : '';
+    const p3badge = ex.p3note && phase === 3 ? `<span class="p3-badge">P3: ${ex.p3note}</span>` : '';
+    return `<div class="ex-card">
+      <div class="ex-card-header">
+        <div class="ex-num ${ex.type}">${i+1}</div>
+        <div class="ex-card-info">
+          <div class="ex-card-name">${ex.name}<span class="ex-type-tag ${ex.type}" style="margin-left:6px">${ex.type}</span></div>
+          <div style="margin-top:4px">${p2badge}${p3badge}</div>
+        </div>
+      </div>
+      <div class="ex-card-stats">
+        <div class="ex-stat-item">
+          <div class="esi-val">${sets} × ${ex.reps}</div>
+          <div class="esi-label">Sets × Reps</div>
+        </div>
+        <div class="ex-stat-item">
+          <div class="esi-val">${restLabel}</div>
+          <div class="esi-label">Rest</div>
+        </div>
+      </div>
+      <div class="ex-cue" style="font-size:12px;color:var(--muted);margin-bottom:6px">${ex.cue}</div>
+      <button class="rest-btn-full" onclick="startTimer(${restSec})">⏱ Start ${restLabel} Rest Timer</button>
+    </div>`;
+  }).join('');
+}
+
+// ==================== SWIPE GESTURES ====================
+(function() {
+  const tabs = ['overview','training','nutrition','tracking'];
+  let sx = 0, sy = 0;
+  document.addEventListener('touchstart', e => { sx = e.changedTouches[0].clientX; sy = e.changedTouches[0].clientY; }, {passive:true});
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = e.changedTouches[0].clientY - sy;
+    if(Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    const cur = tabs.findIndex(t => document.getElementById('tab-'+t).classList.contains('active'));
+    if(dx < 0 && cur < tabs.length-1) setTab(tabs[cur+1]);
+    if(dx > 0 && cur > 0) setTab(tabs[cur-1]);
+  }, {passive:true});
+})();
 
 // ==================== THEME ====================
 function toggleTheme() {
