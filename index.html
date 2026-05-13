@@ -149,8 +149,9 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 .hiit-round.rest { background: #3fba7422; color: var(--green); }
 
 /* NUTRITION TAB */
-.meal-day-nav { display: flex; gap: 10px; margin-bottom: 20px; }
-.meal-day-btn { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .2s; }
+.meal-day-nav { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
+.meal-day-nav::-webkit-scrollbar { display: none; }
+.meal-day-btn { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .2s; flex-shrink: 0; white-space: nowrap; }
 .meal-day-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; }
 .meal-day-btn:hover:not(.active) { border-color: var(--orange); color: var(--orange); }
 .meals-grid { display: grid; gap: 12px; margin-bottom: 24px; }
@@ -306,8 +307,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
   .muscle-tags { display: none; }
 
   /* Nutrition */
-  .meal-day-nav { flex-direction: column; }
-  .meal-day-btn { text-align: center; padding: 12px; }
+  .meal-day-btn { padding: 9px 14px; font-size: 12px; }
   .total-row { flex-wrap: wrap; gap: 14px; }
   .total-cal { margin-left: 0; }
   .total-cal .tc-val { font-size: 28px; }
@@ -556,9 +556,13 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
   </div>
 
   <div class="meal-day-nav">
-    <div class="meal-day-btn active" onclick="setMealDay(0)">Day 1 — Training (Legs/Push)</div>
-    <div class="meal-day-btn" onclick="setMealDay(1)">Day 2 — Rest / LISS</div>
-    <div class="meal-day-btn" onclick="setMealDay(2)">Day 3 — Training + HIIT</div>
+    <div class="meal-day-btn active" onclick="setMealDay(0)"><span class="pl">Mon — Push A</span><span class="ps">Mon</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(1)"><span class="pl">Tue — Pull + LISS</span><span class="ps">Tue</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(2)"><span class="pl">Wed — Legs</span><span class="ps">Wed</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(3)"><span class="pl">Thu — Push B + HIIT</span><span class="ps">Thu</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(4)"><span class="pl">Fri — Pull B</span><span class="ps">Fri</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(5)"><span class="pl">Sat — LISS</span><span class="ps">Sat</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(6)"><span class="pl">Sun — Rest</span><span class="ps">Sun</span></div>
   </div>
 
   <div class="meals-grid" id="meals-grid"></div>
@@ -735,39 +739,87 @@ const workouts = {
 
 const mealDays = [
   {
-    label:"Training Day — Legs/Push (Phase 1)",
-    note:"On heavy leg days, add 50g dry rice to Meal 3 if energy is low.",
+    label:"Monday — Push A (Chest, Shoulders, Triceps)",
+    note:"Training day. Carbs are front-loaded around the workout. Don't skip Meal 1.",
     meals:[
-      { n:1, time:"7:00 AM", label:"Breakfast / Pre-Workout", items:["4 whole eggs (scrambled or omelette)","100g rolled oats (dry weight, cooked in water)","1 medium banana (120g)","Black coffee or green tea"], p:38, c:82, f:24, cal:692 },
-      { n:2, time:"10:00 AM", label:"Post-Workout Meal", items:["250g chicken breast (grilled)","180g white rice (dry weight)","Large salad — cucumber, tomato, onion, green chili","1 tsp olive oil dressing"], p:58, c:65, f:8, cal:572 },
-      { n:3, time:"1:00 PM", label:"Lunch", items:["300g pomfret or surmai fillet (grilled)","2 medium whole wheat chapatis","150g dal (moong/toor)","Mixed sabzi (1 cup)"], p:62, c:60, f:12, cal:600 },
-      { n:4, time:"4:00 PM", label:"Afternoon Snack", items:["250g prawns — dry masala prep","150g sweet potato (boiled)","Small onion-tomato kachumber"], p:50, c:27, f:6, cal:362 },
-      { n:5, time:"7:30 PM", label:"Dinner", items:["250g chicken thigh (boneless, grilled)","Stir-fried vegetables (broccoli, capsicum, onion) — 2 cups","80g brown rice (dry) or 3 small chapatis","1 tsp ghee"], p:52, c:45, f:18, cal:550 },
-      { n:6, time:"9:30 PM", label:"Before Bed", items:["5 egg whites (boiled or pan-fried no oil)","200g low-fat curd (dahi)","20g almonds or walnuts"], p:42, c:12, f:18, cal:374 }
+      { n:1, time:"6:45 AM", label:"Pre-Workout Breakfast", items:["4 whole eggs (scrambled or omelette)","70g oats — dry weight, cooked with water","1 medium banana (120g)","Black coffee (unsweetened)"], p:35, c:74, f:20, cal:612 },
+      { n:2, time:"9:30 AM", label:"Post-Workout Meal", items:["250g chicken breast (grilled or pan-seared)","120g basmati rice — dry weight, cooked","Cucumber + tomato + onion salad (unlimited)","1 tsp olive oil + fresh lemon"], p:60, c:95, f:8, cal:700 },
+      { n:3, time:"1:00 PM", label:"Lunch", items:["200g surmai (kingfish) fillet — grilled dry masala","2 whole wheat chapatis (30g each)","Stir-fried spinach + capsicum + onion (1.5 cups)","100g low-fat curd (raita with cucumber)"], p:48, c:38, f:9, cal:429 },
+      { n:4, time:"4:30 PM", label:"Afternoon Snack", items:["1 medium apple (150g)","200g low-fat dahi","10g almonds (7–8 pieces)"], p:9, c:32, f:8, cal:236 },
+      { n:5, time:"7:30 PM", label:"Dinner", items:["200g chicken thigh — boneless, grilled","Stir-fry broccoli + French beans + capsicum (2 cups)","2 small whole wheat chapatis","1 tsp ghee"], p:37, c:38, f:20, cal:476 },
+      { n:6, time:"9:30 PM", label:"Pre-Bed", items:["6 egg whites (boiled or no-oil omelette)","200g low-fat dahi","15g walnuts"], p:33, c:12, f:14, cal:302 }
     ]
   },
   {
-    label:"Rest Day / LISS Saturday",
-    note:"Rest days are naturally lower carb. No need to adjust — just follow the plan.",
+    label:"Tuesday — Pull A + LISS (Back, Biceps + 30-min cardio)",
+    note:"LISS (brisk walk or cycle) in the morning, weights in the evening. Slightly lower carbs today.",
     meals:[
-      { n:1, time:"8:00 AM", label:"Breakfast", items:["6 whole eggs (scrambled)","2 slices whole wheat bread","Black coffee"], p:44, c:26, f:32, cal:568 },
-      { n:2, time:"10:30 AM", label:"Mid-Morning", items:["300g kingfish (surmai) grilled","1 cup green salad","Lemon juice + salt dressing"], p:66, c:5, f:9, cal:369 },
-      { n:3, time:"1:00 PM", label:"Lunch", items:["250g chicken breast","120g basmati rice (dry)","Stir-fried spinach or local greens","Half cup dal"], p:62, c:48, f:10, cal:530 },
-      { n:4, time:"4:00 PM", label:"Afternoon Snack", items:["250g prawns (steamed or light masala)","1 cup vegetable soup (no cornflour)","Green chutney (unlimited)"], p:50, c:8, f:4, cal:268 },
-      { n:5, time:"7:30 PM", label:"Dinner", items:["300g mackerel (bangda) or sardines — grilled","2 whole wheat chapatis (small)","Vegetable sabzi (unlimited)","Raita (curd + cucumber, 100g)"], p:62, c:38, f:18, cal:558 },
-      { n:6, time:"9:30 PM", label:"Before Bed", items:["200g low-fat paneer or 6 egg whites","15g peanut butter (or almonds)"], p:38, c:6, f:18, cal:334 }
+      { n:1, time:"7:00 AM", label:"Pre-LISS Breakfast", items:["4 boiled eggs","2 slices whole wheat toast","1 orange or 2 small guavas","Black coffee"], p:30, c:40, f:20, cal:456 },
+      { n:2, time:"10:30 AM", label:"Mid-Morning", items:["250g surmai (kingfish) grilled — dry masala","Large salad: cucumber, tomato, onion, fresh coriander","Rock salt + lemon dressing"], p:55, c:6, f:7, cal:311 },
+      { n:3, time:"1:00 PM", label:"Lunch", items:["250g chicken breast (grilled)","100g brown rice — dry weight, cooked","Stir-fried palak (spinach) + garlic + mushroom","100g moong dal (cooked)"], p:62, c:65, f:8, cal:572 },
+      { n:4, time:"5:00 PM", label:"Pre-Training Snack", items:["1 medium banana","200g low-fat dahi"], p:8, c:36, f:4, cal:212 },
+      { n:5, time:"8:00 PM", label:"Post-Training Dinner", items:["250g rawas (Indian salmon) — grilled","2 whole wheat chapatis","Stir-fry capsicum + broccoli + onion (2 cups)","1 tsp ghee"], p:55, c:36, f:18, cal:526 },
+      { n:6, time:"10:00 PM", label:"Pre-Bed", items:["6 egg whites (boiled)","200g low-fat dahi","15g almonds"], p:33, c:12, f:13, cal:297 }
     ]
   },
   {
-    label:"High Volume Training + HIIT (Phase 2)",
-    note:"High output day — calories come in higher. This is intentional. Weekly average stays at target.",
+    label:"Wednesday — Legs (Squats, RDL, Leg Press)",
+    note:"Heaviest day, highest carbs. Add 25g rice to Meal 2 if energy is low going into the session.",
     meals:[
-      { n:1, time:"6:30 AM", label:"Pre-Workout", items:["4 whole eggs","80g oats","1 banana","1 tsp honey in black coffee"], p:35, c:72, f:22, cal:628 },
-      { n:2, time:"10:00 AM", label:"Post-Workout", items:["300g chicken breast","160g white rice (dry)","Tomato-onion salad","Salt + lime"], p:69, c:58, f:7, cal:587 },
-      { n:3, time:"1:30 PM", label:"Lunch", items:["300g surmai fillet (grilled with local spices)","100g Goan red rice or regular rice","Half cup dal fry","1 tsp coconut oil in cooking"], p:66, c:40, f:13, cal:549 },
-      { n:4, time:"4:00 PM", label:"Post-HIIT Snack", items:["300g tiger prawns (stir-fried minimal oil)","100g boiled potato or sweet potato"], p:72, c:20, f:7, cal:435 },
-      { n:5, time:"7:30 PM", label:"Dinner", items:["250g chicken thigh (boneless)","Mixed greens, broccoli, green beans stir-fry","2 chapatis","1 tsp ghee"], p:46, c:34, f:22, cal:518 },
-      { n:6, time:"9:30 PM", label:"Before Bed", items:["6 egg whites (boiled)","200g dahi (curd)","20g cashews or almonds"], p:43, c:14, f:20, cal:408 }
+      { n:1, time:"7:00 AM", label:"Pre-Workout Breakfast", items:["4 whole eggs (scrambled)","80g oats — dry weight, cooked with water","1 medium banana","Black coffee"], p:36, c:83, f:20, cal:644 },
+      { n:2, time:"10:30 AM", label:"Post-Workout Meal", items:["300g chicken breast (grilled)","120g white rice — dry weight, cooked","Tomato + cucumber + onion salad","1 tsp olive oil + lime"], p:72, c:95, f:8, cal:752 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["200g pomfret (paplet) fillet — grilled","2 whole wheat chapatis","French beans + capsicum + onion sabzi (1.5 cups)","100g toor dal (cooked)"], p:44, c:50, f:8, cal:452 },
+      { n:4, time:"5:00 PM", label:"Afternoon Snack", items:["150g papaya (sliced)","200g low-fat dahi"], p:7, c:36, f:4, cal:208 },
+      { n:5, time:"7:30 PM", label:"Dinner", items:["200g chicken thigh — boneless, grilled","Stir-fry broccoli + French beans + carrot (2 cups)","2 small whole wheat chapatis","1 tsp ghee"], p:36, c:36, f:20, cal:464 },
+      { n:6, time:"9:30 PM", label:"Pre-Bed", items:["6 egg whites (boiled)","200g low-fat dahi","15g cashews"], p:33, c:14, f:12, cal:296 }
+    ]
+  },
+  {
+    label:"Thursday — Push B + HIIT (OHP focus + 15-min HIIT)",
+    note:"HIIT after weights — max 15 min. Meal 4 (post-HIIT) is critical: prawns are the ideal recovery protein.",
+    meals:[
+      { n:1, time:"7:00 AM", label:"Pre-Workout Breakfast", items:["4 whole eggs (omelette, minimal oil)","70g oats — dry weight, cooked","1 medium apple","Black coffee"], p:35, c:74, f:22, cal:626 },
+      { n:2, time:"10:30 AM", label:"Post-Workout Meal", items:["200g chicken breast (grilled)","100g basmati rice — dry weight, cooked","Cucumber + tomato salad","1 tsp olive oil"], p:46, c:78, f:6, cal:562 },
+      { n:3, time:"1:00 PM", label:"Lunch", items:["200g surmai (kingfish) grilled","2 whole wheat chapatis","Stir-fried spinach + mushroom + garlic (1.5 cups)","100g moong dal"], p:48, c:44, f:9, cal:453 },
+      { n:4, time:"4:30 PM", label:"Post-HIIT Snack", items:["200g tiger prawns — steamed or light masala","100g sweet potato (boiled)","Small onion + tomato kachumber"], p:48, c:22, f:2, cal:300 },
+      { n:5, time:"7:30 PM", label:"Dinner", items:["200g chicken thigh — boneless, grilled","Stir-fry broccoli + capsicum + French beans (2 cups)","2 small whole wheat chapatis","1 tsp ghee"], p:36, c:36, f:20, cal:464 },
+      { n:6, time:"9:30 PM", label:"Pre-Bed", items:["6 egg whites (boiled)","200g low-fat dahi","20g almonds"], p:33, c:12, f:16, cal:320 }
+    ]
+  },
+  {
+    label:"Friday — Pull B (Deadlifts, Back, Biceps)",
+    note:"Heavy compound day. Recovery starts tonight — prioritize Meal 6 and 8+ hours of sleep.",
+    meals:[
+      { n:1, time:"7:00 AM", label:"Pre-Workout Breakfast", items:["4 whole eggs (scrambled)","70g oats — dry weight, cooked","1 medium banana","Black coffee"], p:35, c:74, f:20, cal:612 },
+      { n:2, time:"10:30 AM", label:"Post-Workout Meal", items:["250g chicken breast (grilled)","120g basmati rice — dry weight, cooked","Cucumber + tomato + onion salad","1 tsp olive oil + lemon"], p:60, c:95, f:8, cal:700 },
+      { n:3, time:"1:00 PM", label:"Lunch", items:["200g surmai (kingfish) grilled — dry masala","2 whole wheat chapatis","Stir-fried moringa leaves (drumstick) or palak + onion","100g low-fat dahi"], p:48, c:38, f:9, cal:430 },
+      { n:4, time:"4:30 PM", label:"Afternoon Snack", items:["150g papaya or 1 orange","200g low-fat dahi","10g walnuts"], p:8, c:32, f:8, cal:232 },
+      { n:5, time:"7:30 PM", label:"Dinner", items:["200g rawas (Indian salmon) — grilled","Stir-fry broccoli + capsicum + spinach (2 cups)","2 whole wheat chapatis","1 tsp ghee"], p:44, c:36, f:20, cal:500 },
+      { n:6, time:"10:00 PM", label:"Pre-Bed", items:["6 egg whites (boiled)","200g low-fat dahi","15g almonds"], p:33, c:12, f:13, cal:297 }
+    ]
+  },
+  {
+    label:"Saturday — LISS / Active Recovery (45-min walk or swim)",
+    note:"Lower carb day. Light LISS only — no heavy training. Fish and prawns lead today.",
+    meals:[
+      { n:1, time:"8:00 AM", label:"Breakfast", items:["4 boiled eggs","2 slices whole wheat toast","2 small guavas or 1 orange","Black coffee"], p:30, c:40, f:20, cal:456 },
+      { n:2, time:"10:30 AM", label:"Mid-Morning", items:["200g surmai (kingfish) grilled","Large salad: cucumber, tomato, onion, fresh coriander","Lemon + rock salt dressing"], p:44, c:6, f:6, cal:257 },
+      { n:3, time:"1:00 PM", label:"Lunch", items:["200g chicken breast (grilled or tandoori)","100g brown rice — dry weight","Stir-fried palak + garlic + mushroom (2 cups)","100g moong dal"], p:48, c:60, f:7, cal:495 },
+      { n:4, time:"4:30 PM", label:"Afternoon Snack", items:["200g prawns — steamed or light masala","1 cup clear vegetable soup (no cornflour)","Green chutney (unlimited)"], p:48, c:8, f:4, cal:256 },
+      { n:5, time:"7:30 PM", label:"Dinner", items:["200g pomfret (paplet) or rawas — grilled","2 small whole wheat chapatis","Beans + capsicum + brinjal sabzi (2 cups)","100g low-fat dahi"], p:46, c:36, f:10, cal:418 },
+      { n:6, time:"9:30 PM", label:"Pre-Bed", items:["6 egg whites (boiled)","200g low-fat dahi","15g almonds"], p:33, c:12, f:13, cal:297 }
+    ]
+  },
+  {
+    label:"Sunday — Full Rest Day",
+    note:"Complete rest. Lowest calorie day of the week. Focus on protein, vegetables, and hydration.",
+    meals:[
+      { n:1, time:"8:30 AM", label:"Breakfast", items:["4 boiled eggs","2 slices whole wheat toast","150g papaya (sliced)","Green tea"], p:30, c:48, f:20, cal:488 },
+      { n:2, time:"11:00 AM", label:"Mid-Morning", items:["200g surmai (kingfish) grilled","Salad: cucumber + tomato + coriander (unlimited)","Lemon + rock salt"], p:44, c:4, f:6, cal:248 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["200g chicken breast (grilled)","2 whole wheat chapatis","Stir-fried palak + capsicum + onion (2 cups)","100g moong dal"], p:50, c:48, f:7, cal:455 },
+      { n:4, time:"4:30 PM", label:"Afternoon Snack", items:["1 small banana or 2 guavas","200g low-fat dahi"], p:7, c:38, f:4, cal:216 },
+      { n:5, time:"7:30 PM", label:"Dinner", items:["200g prawns — light masala","Large mixed salad: cucumber, tomato, onion, spinach (unlimited)","2 small whole wheat chapatis","1 tsp ghee"], p:48, c:34, f:8, cal:400 },
+      { n:6, time:"9:30 PM", label:"Pre-Bed", items:["6 egg whites (boiled)","200g low-fat dahi"], p:33, c:10, f:4, cal:208 }
     ]
   }
 ];
