@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>RecompSys — 12-Week Program</title>
 <meta name="description" content="12-week body recomposition training and nutrition system">
-<meta name="theme-color" content="#0b0b14" id="meta-theme-color">
+<meta name="theme-color" content="#0a0f0d" id="meta-theme-color">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="RecompSys">
@@ -19,19 +19,19 @@
 </script>
 <style>
 :root {
-  --bg: #0b0b14;
-  --surface: #13131f;
-  --card: #1a1a2e;
-  --border: #252542;
-  --blue: #5b8def;
-  --orange: #ff7c3e;
-  --green: #3fba74;
-  --purple: #9b6dff;
+  --bg: #0a0f0d;
+  --surface: #111a15;
+  --card: #162019;
+  --border: #1e3024;
+  --blue: #10b981;
+  --orange: #f59e0b;
+  --green: #34d399;
+  --purple: #a78bfa;
   --red: #f05c5c;
-  --text: #e0e0f0;
-  --muted: #7777a0;
-  --compound: #5b8def22;
-  --isolation: #ff7c3e18;
+  --text: #e0f0e8;
+  --muted: #6b8f77;
+  --compound: #10b98122;
+  --isolation: #f59e0b1a;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 button, a, [onclick] { touch-action: manipulation; }
@@ -326,30 +326,30 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 
 /* ===== LIGHT THEME ===== */
 [data-theme="light"] {
-  --bg: #f0f2f7;
+  --bg: #f0f7f4;
   --surface: #ffffff;
-  --card: #f7f8fc;
-  --border: #dce0ec;
-  --blue: #3a72d8;
-  --orange: #e0652e;
-  --green: #28a05a;
-  --purple: #7a52e0;
-  --red: #d44040;
-  --text: #18182a;
-  --muted: #5566a0;
-  --compound: rgba(58,114,216,0.07);
-  --isolation: rgba(224,101,46,0.07);
+  --card: #f4faf7;
+  --border: #c2ddd0;
+  --blue: #059669;
+  --orange: #d97706;
+  --green: #10b981;
+  --purple: #7c3aed;
+  --red: #dc2626;
+  --text: #0a1f14;
+  --muted: #4d7a62;
+  --compound: rgba(5,150,105,0.07);
+  --isolation: rgba(217,119,6,0.07);
 }
 [data-theme="light"] .macro-bar-track { background: rgba(0,0,0,0.08); }
 [data-theme="light"] .ex-table td { border-bottom-color: rgba(0,0,0,0.05); }
 [data-theme="light"] .meal-items li::before { color: #cccccc; }
 [data-theme="light"] .timer-box { box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-[data-theme="light"] .hiit-round.rest { background: rgba(40,160,90,0.15); }
-[data-theme="light"] .hiit-round.sprint { background: rgba(224,101,46,0.15); }
-[data-theme="light"] .checklist-item.checked .check-text { color: #99aabb; }
-[data-theme="light"] .week-cell.p1 { background: rgba(58,114,216,0.06); }
-[data-theme="light"] .week-cell.p2 { background: rgba(40,160,90,0.06); }
-[data-theme="light"] .week-cell.p3 { background: rgba(122,82,224,0.06); }
+[data-theme="light"] .hiit-round.rest { background: rgba(5,150,105,0.15); }
+[data-theme="light"] .hiit-round.sprint { background: rgba(217,119,6,0.15); }
+[data-theme="light"] .checklist-item.checked .check-text { color: #88aa99; }
+[data-theme="light"] .week-cell.p1 { background: rgba(5,150,105,0.06); }
+[data-theme="light"] .week-cell.p2 { background: rgba(52,211,153,0.06); }
+[data-theme="light"] .week-cell.p3 { background: rgba(124,58,237,0.06); }
 [data-theme="light"] .logo span { color: var(--blue); }
 
 /* ===== EXERCISE CARDS (mobile) ===== */
@@ -1406,7 +1406,7 @@ function toggleTheme() {
   const next = isLight ? 'dark' : 'light';
   html.setAttribute('data-theme', next);
   document.getElementById('theme-icon').textContent = next === 'light' ? '🌙' : '☀️';
-  document.getElementById('meta-theme-color').content = next === 'light' ? '#ffffff' : '#0b0b14';
+  document.getElementById('meta-theme-color').content = next === 'light' ? '#f0f7f4' : '#0a0f0d';
   localStorage.setItem('theme', next);
 }
 
@@ -1455,7 +1455,7 @@ if('serviceWorker' in navigator) {
   const saved = localStorage.getItem('theme') || 'dark';
   const icon = document.getElementById('theme-icon');
   if(icon) icon.textContent = saved === 'light' ? '🌙' : '☀️';
-  document.getElementById('meta-theme-color').content = saved === 'light' ? '#ffffff' : '#0b0b14';
+  document.getElementById('meta-theme-color').content = saved === 'light' ? '#f0f7f4' : '#0a0f0d';
 })();
 
 // ==================== BOOT ====================
