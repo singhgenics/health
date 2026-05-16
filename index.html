@@ -847,22 +847,22 @@ const mealDays = [
   },
   {
     label:"Saturday — LISS / Active Recovery (45-min walk or swim)",
-    note:"Lower carb, lower calorie day. 45 min of walking or swimming is all. Fish and prawns dominate today.",
+    note:"Lower carb, lower calorie day. 45 min of walking or swimming is all. Paneer at lunch — easy to make, keeps you full.",
     meals:[
       { n:1, time:"8:00 AM", label:"Breakfast", items:["2 boiled eggs","Black coffee"], p:12, c:1, f:10, cal:142 },
       { n:2, time:"11:00 AM", label:"Mid-Morning", items:["300g surmai (kingfish) grilled","Large salad: cucumber, tomato, onion, coriander (unlimited)"], p:66, c:6, f:9, cal:369 },
-      { n:3, time:"1:30 PM", label:"Lunch", items:["200g chicken breast (grilled)","2 whole wheat chapatis","Palak + garlic + mushroom stir-fry (2 cups) + 100g moong dal"], p:50, c:46, f:7, cal:451 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["150g low-fat paneer — bhurji or grilled cubes","2 whole wheat chapatis","Palak + garlic + onion stir-fry (2 cups)","100g moong dal"], p:42, c:50, f:18, cal:532 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g prawns — steamed or light masala","1 cup clear vegetable soup"], p:48, c:8, f:4, cal:256 },
       { n:5, time:"8:00 PM", label:"Dinner", items:["200g pomfret (paplet) or bangda grilled","Stir-fry French beans + capsicum + brinjal (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:44, c:36, f:16, cal:464 }
     ]
   },
   {
     label:"Sunday — Full Rest Day",
-    note:"Complete rest. Lightest day of the week. Focus on hydration, vegetables, and recovery.",
+    note:"Complete rest. Lightest day of the week. Palak paneer at lunch — comfort food that still hits your protein.",
     meals:[
       { n:1, time:"8:30 AM", label:"Breakfast", items:["2 boiled eggs","150g papaya or 1 orange","Green tea"], p:12, c:29, f:10, cal:254 },
       { n:2, time:"11:30 AM", label:"Mid-Morning", items:["250g surmai (kingfish) grilled","Cucumber + tomato + coriander salad (unlimited)"], p:55, c:4, f:7, cal:299 },
-      { n:3, time:"1:30 PM", label:"Lunch", items:["200g chicken breast (grilled)","2 whole wheat chapatis","Palak + capsicum + onion stir-fry (2 cups)"], p:48, c:36, f:7, cal:399 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["200g low-fat paneer — palak paneer style (minimal oil)","2 whole wheat chapatis","Stir-fried palak + capsicum + onion (2 cups)"], p:40, c:36, f:18, cal:464 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","1 banana"], p:7, c:38, f:4, cal:216 },
       { n:5, time:"8:00 PM", label:"Dinner", items:["200g prawns — light masala","Mixed salad: cucumber, tomato, onion, spinach (unlimited)","2 whole wheat chapatis + 1 tsp ghee"], p:48, c:34, f:8, cal:396 }
     ]
@@ -899,6 +899,12 @@ const recipes = [
     serving:"1 serving", macros:{p:33,c:2,f:6,cal:194},
     ingredients:["8 egg whites","1 whole egg","Handful fresh spinach (palak)","Green chili + coriander","Salt + pepper","Cooking spray or 0.5 tsp oil"],
     method:["Whisk eggs together with salt and pepper","Heat non-stick pan medium-high, spray with oil","Add spinach, green chili — wilt 30 sec","Pour egg mix, let set 2 min","Fold and plate — eat within 5 min of cooking"]
+  },
+  {
+    icon:"🧀", name:"Paneer Bhurji (Spiced Scrambled Paneer)",
+    serving:"150g low-fat paneer", macros:{p:28,c:10,f:14,cal:278},
+    ingredients:["150g low-fat paneer (crumbled)","1 medium onion (finely chopped)","1 medium tomato (chopped)","1 green chili (chopped)","0.5 tsp turmeric","0.5 tsp cumin seeds","0.5 tsp red chili powder","1 tsp ginger-garlic paste","Fresh coriander to finish","Salt to taste","0.5 tsp oil"],
+    method:["Heat pan on medium, add oil and cumin seeds — let them splutter","Add onion, cook 3 min until golden","Add ginger-garlic paste + green chili, stir 1 min","Add tomato + all spices, cook until oil separates (2–3 min)","Add crumbled paneer, toss to coat — cook 3 min on medium","Finish with coriander, serve immediately with chapati"]
   }
 ];
 
@@ -911,7 +917,8 @@ const proteinSources = [
   { name:"Tiger Prawns", local:"Mande Kolmbi", p:24, f:1, cal:106, notes:"Leanest protein per gram. Excellent post-HIIT." },
   { name:"Regular Prawns", local:"Kolmbi", p:20, f:1, cal:90, notes:"Budget-friendly, very lean. Great for volume." },
   { name:"Chicken Breast", local:"—", p:23, f:2.5, cal:120, notes:"Most consistent, available daily from butcher." },
-  { name:"Chicken Thigh", local:"—", p:18, f:9, cal:160, notes:"More flavour. Higher fat — count carefully." }
+  { name:"Chicken Thigh", local:"—", p:18, f:9, cal:160, notes:"More flavour. Higher fat — count carefully." },
+  { name:"Paneer (Low-fat)", local:"Chena / Lo-fat Paneer", p:18, f:8, cal:149, notes:"Best on rest days. Use low-fat variety. Bhurji, tikka, or palak paneer." }
 ];
 
 const checklistItems = [
