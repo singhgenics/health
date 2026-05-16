@@ -364,6 +364,143 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
   .section-title { font-size: 14px; }
 }
 
+/* ===== TODAY CARD ===== */
+.today-card { background: linear-gradient(135deg, rgba(16,185,129,.08), rgba(245,158,11,.08)); border: 1px solid var(--blue); border-radius: 14px; padding: 20px; margin-bottom: 24px; }
+.today-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.today-card-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--blue); }
+.today-btn-go { background: linear-gradient(135deg, var(--blue), #34d399); border: none; border-radius: 8px; padding: 7px 16px; font-size: 12px; font-weight: 700; color: #fff; cursor: pointer; transition: all .25s cubic-bezier(.34,1.56,.64,1); box-shadow: 0 3px 10px var(--glow-blue); font-family: inherit; }
+.today-btn-go:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 6px 18px var(--glow-blue); }
+.today-btn-go:active { transform: scale(.95); }
+.today-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.today-block { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 13px 15px; }
+.today-block-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }
+.today-block-name { font-size: 15px; font-weight: 700; }
+.today-block-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+/* ===== SUPPLEMENT CARD ===== */
+.supp-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px; }
+.supp-card-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 14px; }
+.supp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.supp-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 10px; text-align: center; transition: all .2s cubic-bezier(.4,0,.2,1); }
+.supp-item:hover { border-color: var(--blue); transform: translateY(-2px); box-shadow: 0 6px 18px var(--glow-blue); }
+.supp-icon { font-size: 20px; margin-bottom: 7px; }
+.supp-name { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
+.supp-dose { font-size: 13px; color: var(--blue); font-weight: 700; margin-bottom: 3px; }
+.supp-timing { font-size: 10px; color: var(--muted); }
+
+/* ===== DELOAD GUIDE ===== */
+.deload-card { background: rgba(245,158,11,.06); border: 1px solid rgba(245,158,11,.25); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px; }
+.deload-card-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--orange); margin-bottom: 14px; }
+.deload-rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.deload-rule { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.dr-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+.dr-val { font-size: 13px; font-weight: 700; color: var(--text); }
+.dr-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* ===== 12-WEEK HEATMAP ===== */
+.heatmap-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+.heatmap-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.heatmap-sub { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+.hm-legend { display: flex; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
+.hm-leg { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+.hm-dot { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+.hm-dot.done { background: var(--blue); box-shadow: 0 0 5px var(--glow-blue); }
+.hm-dot.missed { background: var(--red); opacity: .7; }
+.hm-dot.rest { background: rgba(255,255,255,.15); }
+.hm-dot.future { border: 1px solid var(--border); }
+.hm-day-labels { display: flex; gap: 3px; padding-left: 49px; margin-bottom: 5px; }
+.hm-day-labels span { flex: 1; text-align: center; font-size: 9px; color: var(--muted); font-weight: 600; }
+.heatmap-grid { display: grid; gap: 5px; }
+.hm-row { display: flex; align-items: center; gap: 5px; }
+.hm-wlabel { width: 44px; font-size: 10px; color: var(--muted); flex-shrink: 0; font-weight: 600; }
+.hm-cells { display: flex; gap: 3px; flex: 1; }
+.hm-cell { flex: 1; height: 26px; border-radius: 4px; cursor: pointer; border: 1px solid transparent; transition: all .15s cubic-bezier(.34,1.56,.64,1); }
+.hm-cell[data-state="future"] { background: rgba(255,255,255,.04); border-color: var(--border); }
+.hm-cell[data-state="rest"] { background: rgba(255,255,255,.1); border-color: transparent; cursor: default; opacity: .35; }
+.hm-cell[data-state="done"] { background: var(--blue); box-shadow: 0 0 8px var(--glow-blue); }
+.hm-cell[data-state="missed"] { background: var(--red); opacity: .65; }
+.hm-cell:hover:not([data-state="rest"]) { transform: scale(1.2); z-index: 2; position: relative; }
+.hm-cell:active:not([data-state="rest"]) { transform: scale(.88) !important; }
+
+/* ===== WORKOUT LOG ===== */
+.log-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+.log-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+.log-form-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 8px; margin-bottom: 14px; align-items: center; }
+.log-input { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; font-size: 13px; color: var(--text); outline: none; transition: border-color .2s, box-shadow .2s; width: 100%; font-family: inherit; }
+.log-input:focus { border-color: var(--blue); box-shadow: 0 0 0 2px var(--glow-blue); }
+.log-input::placeholder { color: var(--muted); }
+.log-submit { background: linear-gradient(135deg, var(--blue), #34d399); border: none; border-radius: 8px; padding: 10px 18px; font-size: 13px; font-weight: 700; color: #fff; cursor: pointer; white-space: nowrap; transition: all .22s cubic-bezier(.34,1.56,.64,1); font-family: inherit; }
+.log-submit:hover { transform: translateY(-1px); box-shadow: 0 4px 14px var(--glow-blue); }
+.log-submit:active { transform: scale(.95); }
+.log-entries { display: grid; gap: 6px; max-height: 300px; overflow-y: auto; }
+.log-entry { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
+.log-entry-ex { font-size: 13px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.log-chip { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; font-size: 11px; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+.log-chip.pr-chip { color: var(--blue); }
+.log-chip.wt-chip { color: var(--orange); }
+.log-entry-date { font-size: 10px; color: var(--muted); flex-shrink: 0; }
+.log-entry-del { background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 0; transition: color .15s; flex-shrink: 0; }
+.log-entry-del:hover { color: var(--red); }
+.log-empty { font-size: 13px; color: var(--muted); text-align: center; padding: 28px 16px; border: 1px dashed var(--border); border-radius: 8px; }
+
+/* ===== BODY MEASUREMENTS ===== */
+.measure-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+.measure-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+.measure-form { display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 8px; margin-bottom: 14px; align-items: end; }
+.mf-field label { display: block; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+.measure-chart-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 12px 6px; margin-bottom: 14px; }
+.measure-chart-wrap svg { display: block; width: 100%; overflow: visible; }
+.measure-history { display: grid; gap: 6px; max-height: 240px; overflow-y: auto; }
+.measure-row { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 12px; }
+.mr-date { font-size: 11px; color: var(--muted); flex-shrink: 0; width: 80px; }
+.mr-stats { display: flex; gap: 14px; flex: 1; flex-wrap: wrap; }
+.mr-stat { text-align: center; }
+.mr-stat-val { font-size: 14px; font-weight: 700; }
+.mr-stat-lab { font-size: 9px; color: var(--muted); text-transform: uppercase; }
+.mr-del { background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 16px; transition: color .15s; flex-shrink: 0; }
+.mr-del:hover { color: var(--red); }
+
+/* ===== MACRO QUICK-ADD ===== */
+.macro-add-card { background: var(--card); border: 1px solid rgba(16,185,129,.3); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px; }
+.mac-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.mac-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--blue); }
+.mac-reset { background: transparent; border: 1px solid var(--border); border-radius: 7px; padding: 5px 12px; font-size: 11px; color: var(--muted); cursor: pointer; transition: all .15s; font-family: inherit; }
+.mac-reset:hover { border-color: var(--red); color: var(--red); }
+.mac-bars { display: grid; gap: 9px; margin-bottom: 14px; }
+.mac-bar-row { display: flex; align-items: center; gap: 10px; }
+.mac-bar-label { width: 64px; font-size: 12px; color: var(--muted); }
+.mac-bar-track { flex: 1; height: 9px; background: rgba(255,255,255,.06); border-radius: 5px; overflow: hidden; }
+.mac-bar-fill { height: 100%; border-radius: 5px; transition: width .5s cubic-bezier(.4,0,.2,1); }
+.mac-bar-val { width: 90px; text-align: right; font-size: 12px; font-weight: 700; }
+.mac-form { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 8px; align-items: center; }
+
+/* ===== NOTIFICATION ===== */
+.notif-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+.notif-btn { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .22s cubic-bezier(.34,1.56,.64,1); font-family: inherit; }
+.notif-btn:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); box-shadow: 0 4px 14px var(--glow-blue); }
+.notif-btn.granted { border-color: var(--green); color: var(--green); background: rgba(52,211,153,.06); }
+.notif-btn:active { transform: scale(.96); }
+
+/* ===== HEADER TODAY BUTTON ===== */
+.hdr-today { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 7px 14px; font-size: 12px; font-weight: 700; color: var(--text); cursor: pointer; transition: all .25s cubic-bezier(.34,1.56,.64,1); white-space: nowrap; flex-shrink: 0; font-family: inherit; }
+.hdr-today:hover { border-color: var(--blue); color: var(--blue); box-shadow: 0 4px 14px var(--glow-blue); transform: translateY(-1px); }
+.hdr-today:active { transform: scale(.94); }
+
+/* ===== RESPONSIVE ADDITIONS ===== */
+@media (max-width: 768px) {
+  .today-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .supp-grid { grid-template-columns: repeat(2, 1fr); }
+  .deload-rules { grid-template-columns: repeat(2, 1fr); }
+  .log-form-row { grid-template-columns: 1fr 1fr; }
+  .log-form-row input:first-child { grid-column: 1 / -1; }
+  .log-form-row button { grid-column: 1 / -1; }
+  .measure-form { grid-template-columns: repeat(2, 1fr); }
+  .measure-form button { grid-column: 1 / -1; }
+  .mac-form { grid-template-columns: 1fr 1fr 1fr; }
+  .mac-form button { grid-column: 1 / -1; }
+  .hdr-today { padding: 7px 10px; font-size: 11px; }
+}
+
 /* ===== LIGHT THEME ===== */
 [data-theme="light"] {
   --bg: #f0f7f4;
@@ -462,6 +599,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
   <div class="logo">RECOMP<span>SYS</span></div>
   <div class="client-tag">12-Week Recomposition Program</div>
   <button class="install-btn" id="install-btn" onclick="installApp()">⬇ Install App</button>
+  <button class="hdr-today" onclick="goToToday()">📅 Today</button>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
     <span id="theme-icon">☀️</span>
   </button>
@@ -484,6 +622,8 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 
 <!-- ===== OVERVIEW ===== -->
 <div id="tab-overview" class="tab-content active">
+
+  <div id="today-card" class="today-card"></div>
 
   <div class="stats-grid">
     <div class="stat-card">
@@ -538,6 +678,37 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
     <div class="note-box" style="margin-top:16px"><strong>Carb cycling built-in:</strong> Training days target full carb allocation. Rest days naturally come in 60–70g lower. No spreadsheet needed — just follow the meal plan.</div>
   </div>
 
+  <!-- Supplement Stack -->
+  <div class="supp-card">
+    <div class="supp-card-title">Daily Supplement Stack</div>
+    <div class="supp-grid">
+      <div class="supp-item">
+        <div class="supp-icon">💪</div>
+        <div class="supp-name">Creatine</div>
+        <div class="supp-dose">5g / day</div>
+        <div class="supp-timing">Post-workout or morning</div>
+      </div>
+      <div class="supp-item">
+        <div class="supp-icon">☕</div>
+        <div class="supp-name">Pre-Workout</div>
+        <div class="supp-dose">1 black coffee</div>
+        <div class="supp-timing">45 min before training</div>
+      </div>
+      <div class="supp-item">
+        <div class="supp-icon">🐟</div>
+        <div class="supp-name">Omega-3</div>
+        <div class="supp-dose">2–3g EPA+DHA</div>
+        <div class="supp-timing">With lunch or dinner</div>
+      </div>
+      <div class="supp-item">
+        <div class="supp-icon">💧</div>
+        <div class="supp-name">Hydration</div>
+        <div class="supp-dose">3–4L / day</div>
+        <div class="supp-timing">Pinch salt pre-workout</div>
+      </div>
+    </div>
+  </div>
+
   <div class="section-title">Weekly Schedule</div>
   <div class="week-grid" id="week-grid"></div>
 
@@ -560,6 +731,19 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
       <div class="weeks">Weeks 9–12</div>
       <div class="deficit">−500 kcal/day</div>
       <div class="focus">Peak Burn · PR attempts · Drop sets · 80 min cardio/wk</div>
+    </div>
+  </div>
+
+  <!-- Deload Guide -->
+  <div class="deload-card">
+    <div class="deload-card-title">Deload Protocol — Weeks 4, 8 &amp; 12</div>
+    <div class="deload-rules">
+      <div class="deload-rule"><div class="dr-label">Volume</div><div class="dr-val">40% of normal</div><div class="dr-sub">2–3 sets instead of 4–5</div></div>
+      <div class="deload-rule"><div class="dr-label">Intensity</div><div class="dr-val">60–70% of 1RM</div><div class="dr-sub">Focus on form, not load</div></div>
+      <div class="deload-rule"><div class="dr-label">Cardio</div><div class="dr-val">15 min LISS only</div><div class="dr-sub">No HIIT — or skip entirely</div></div>
+      <div class="deload-rule"><div class="dr-label">Calories</div><div class="dr-val">Full TDEE (3,100)</div><div class="dr-sub">No deficit during deload week</div></div>
+      <div class="deload-rule"><div class="dr-label">Sleep</div><div class="dr-val">8+ hours</div><div class="dr-sub">CNS recovery priority</div></div>
+      <div class="deload-rule"><div class="dr-label">Mindset</div><div class="dr-val">Earn the next phase</div><div class="dr-sub">Deloads make PRs possible</div></div>
     </div>
   </div>
 
@@ -604,6 +788,21 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
         <div class="amount macro-f">95g</div>
         <div class="kcal">855 kcal</div>
       </div>
+    </div>
+  </div>
+
+  <!-- Macro Quick-Add -->
+  <div class="macro-add-card">
+    <div class="mac-header">
+      <div class="mac-title">Today's Macro Tracker</div>
+      <button class="mac-reset" onclick="resetMacroDay()">Reset Day</button>
+    </div>
+    <div class="mac-bars" id="mac-bars"></div>
+    <div class="mac-form">
+      <input class="log-input" id="ma-p" type="number" placeholder="Protein (g)" min="0" step="1">
+      <input class="log-input" id="ma-c" type="number" placeholder="Carbs (g)" min="0" step="1">
+      <input class="log-input" id="ma-f" type="number" placeholder="Fat (g)" min="0" step="1">
+      <button class="log-submit" onclick="addMacroEntry()">+ Add</button>
     </div>
   </div>
 
@@ -652,6 +851,11 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 <!-- ===== TRACKING ===== -->
 <div id="tab-tracking" class="tab-content">
 
+  <div class="notif-row">
+    <div style="font-size:15px;font-weight:700">Tracking &amp; Progress</div>
+    <button class="notif-btn" id="notif-btn" onclick="requestNotifications()">🔔 Enable Reminders</button>
+  </div>
+
   <div class="checklist-card">
     <h3>Weekly Check-In Checklist <span style="font-size:12px;color:var(--muted);font-weight:400">(resets each session)</span></h3>
     <div id="checklist-container"></div>
@@ -659,6 +863,51 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
       <button onclick="resetChecklist()" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:12px;color:var(--muted);cursor:pointer">Reset</button>
       <div id="checklist-score" style="display:flex;align-items:center;font-size:13px;color:var(--muted);gap:6px"></div>
     </div>
+  </div>
+
+  <!-- 12-Week Heatmap -->
+  <div class="heatmap-card">
+    <h3>12-Week Progress Heatmap</h3>
+    <div class="heatmap-sub">Tap a cell to mark as Done or Missed. Sat/Sun are rest days.</div>
+    <div class="hm-legend">
+      <div class="hm-leg"><div class="hm-dot done"></div> Done</div>
+      <div class="hm-leg"><div class="hm-dot missed"></div> Missed</div>
+      <div class="hm-leg"><div class="hm-dot rest"></div> Rest</div>
+      <div class="hm-leg"><div class="hm-dot future"></div> Upcoming</div>
+    </div>
+    <div class="hm-day-labels">
+      <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+    </div>
+    <div class="heatmap-grid" id="heatmap-grid"></div>
+  </div>
+
+  <!-- Workout Log -->
+  <div class="log-card">
+    <h3>Workout Log</h3>
+    <div class="log-form-row">
+      <input class="log-input" id="log-ex" placeholder="Exercise name (e.g. Bench Press)">
+      <input class="log-input" id="log-sets" type="number" placeholder="Sets" min="1">
+      <input class="log-input" id="log-reps" placeholder="Reps">
+      <input class="log-input" id="log-weight" type="number" placeholder="kg" min="0" step="0.5">
+      <button class="log-submit" onclick="addLogEntry()">+ Log</button>
+    </div>
+    <div class="log-entries" id="log-entries"></div>
+  </div>
+
+  <!-- Body Measurements -->
+  <div class="measure-card">
+    <h3>Body Measurements</h3>
+    <div class="measure-form">
+      <div class="mf-field"><label>Weight (kg)</label><input class="log-input" id="m-weight" type="number" placeholder="80.5" step="0.1" min="0"></div>
+      <div class="mf-field"><label>Waist (cm)</label><input class="log-input" id="m-waist" type="number" placeholder="85" min="0"></div>
+      <div class="mf-field"><label>Chest (cm)</label><input class="log-input" id="m-chest" type="number" placeholder="100" min="0"></div>
+      <div class="mf-field"><label>Arm (cm)</label><input class="log-input" id="m-arm" type="number" placeholder="36" min="0"></div>
+      <button class="log-submit" onclick="addMeasure()">+ Save</button>
+    </div>
+    <div class="measure-chart-wrap">
+      <svg id="measure-chart" viewBox="0 0 600 80" height="80" preserveAspectRatio="none"></svg>
+    </div>
+    <div class="measure-history" id="measure-history"></div>
   </div>
 
   <div class="section-title">Plateau Decision Protocols</div>
@@ -968,6 +1217,12 @@ function init() {
   renderChecklist();
   renderPlateaus();
   renderDetailTimeline();
+  renderTodayCard();
+  renderHeatmap();
+  renderWorkoutLog();
+  renderMeasures();
+  renderMacroAdd();
+  setupNotifications();
   updatePhaseUI();
 }
 
@@ -1028,7 +1283,7 @@ function setTab(name) {
   window.scrollTo({top:0, behavior:'smooth'});
   if(name==='overview') updatePhaseUI();
   if(name==='training') { renderWorkout(); }
-  if(name==='nutrition') { updatePhaseUI(); renderMeals(); }
+  if(name==='nutrition') { updatePhaseUI(); renderMeals(); renderMacroAdd(); }
 }
 
 // ==================== WEEK GRID ====================
@@ -1509,6 +1764,313 @@ if('serviceWorker' in navigator) {
   if(icon) icon.textContent = saved === 'light' ? '🌙' : '☀️';
   document.getElementById('meta-theme-color').content = saved === 'light' ? '#f0f7f4' : '#0a0f0d';
 })();
+
+// ==================== TODAY CARD ====================
+function parseMealHour(timeStr) {
+  const m = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!m) return 0;
+  let h = parseInt(m[1]);
+  const min = parseInt(m[2]);
+  if (m[3].toUpperCase() === 'PM' && h !== 12) h += 12;
+  if (m[3].toUpperCase() === 'AM' && h === 12) h = 0;
+  return h + min / 60;
+}
+
+function renderTodayCard() {
+  const el = document.getElementById('today-card');
+  if (!el) return;
+  const d = new Date();
+  const dow = d.getDay(); // 0=Sun, 1=Mon...6=Sat
+  const mealDayIdx = dow === 0 ? 6 : dow - 1; // Mon=0...Sun=6
+  const dayData = mealDays[mealDayIdx];
+  const schedData = schedule[mealDayIdx];
+  const currentHour = d.getHours() + d.getMinutes() / 60;
+  const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  let nextMeal = dayData.meals[dayData.meals.length - 1];
+  let nextMealLabel = 'Done for today';
+  for (const m of dayData.meals) {
+    if (parseMealHour(m.time) > currentHour) { nextMeal = m; break; }
+  }
+
+  const isTrainingDay = dow >= 1 && dow <= 5;
+  const sessionColor = isTrainingDay ? 'var(--blue)' : 'var(--muted)';
+
+  el.innerHTML = `
+    <div class="today-card-header">
+      <div class="today-card-title">Today — ${dayNames[dow]}</div>
+      <button class="today-btn-go" onclick="goToToday()">Go to Today →</button>
+    </div>
+    <div class="today-grid">
+      <div class="today-block">
+        <div class="today-block-label">Today's Session</div>
+        <div class="today-block-name" style="color:${sessionColor}">${schedData.session}</div>
+        <div class="today-block-sub">${schedData.focus}</div>
+      </div>
+      <div class="today-block">
+        <div class="today-block-label">Next Meal</div>
+        <div class="today-block-name" style="color:var(--orange)">${nextMeal.label}</div>
+        <div class="today-block-sub">${nextMeal.time} · ${nextMeal.cal} kcal</div>
+      </div>
+    </div>`;
+}
+
+function goToToday() {
+  const dow = new Date().getDay(); // 0=Sun, 1=Mon...6=Sat
+  const mealDayIdx = dow === 0 ? 6 : dow - 1;
+  setMealDay(mealDayIdx);
+  if (dow >= 1 && dow <= 5) {
+    setTab('training');
+    setDay(dow - 1);
+  } else {
+    setTab('nutrition');
+  }
+}
+
+// ==================== HEATMAP ====================
+function getHeatmapData() {
+  try { return JSON.parse(localStorage.getItem('recomp_heatmap') || '{}'); } catch { return {}; }
+}
+function saveHeatmapData(data) {
+  localStorage.setItem('recomp_heatmap', JSON.stringify(data));
+}
+
+function renderHeatmap() {
+  const el = document.getElementById('heatmap-grid');
+  if (!el) return;
+  const data = getHeatmapData();
+  let html = '';
+  for (let w = 0; w < 12; w++) {
+    const isDeload = w === 3 || w === 7 || w === 11;
+    html += `<div class="hm-row">
+      <div class="hm-wlabel" style="${isDeload ? 'color:var(--orange)' : ''}">Wk ${w+1}${isDeload ? ' ↓' : ''}</div>
+      <div class="hm-cells">`;
+    for (let d = 0; d < 7; d++) {
+      const key = `${w}_${d}`;
+      const isRest = d >= 5;
+      const state = data[key] || (isRest ? 'rest' : 'future');
+      html += `<div class="hm-cell" data-state="${state}" data-key="${key}" onclick="toggleHmCell('${key}',${isRest})" title="W${w+1} ${['M','T','W','T','F','Sa','Su'][d]}"></div>`;
+    }
+    html += `</div></div>`;
+  }
+  el.innerHTML = html;
+}
+
+function toggleHmCell(key, isRest) {
+  const data = getHeatmapData();
+  if (isRest) {
+    data[key] = data[key] === 'done' ? 'rest' : 'done';
+  } else {
+    const cycle = { future: 'done', done: 'missed', missed: 'future' };
+    const cur = data[key] || 'future';
+    data[key] = cycle[cur] || 'future';
+  }
+  saveHeatmapData(data);
+  renderHeatmap();
+}
+
+// ==================== WORKOUT LOG ====================
+function getWorkoutLog() {
+  try { return JSON.parse(localStorage.getItem('recomp_log') || '[]'); } catch { return []; }
+}
+function saveWorkoutLog(log) { localStorage.setItem('recomp_log', JSON.stringify(log)); }
+
+function addLogEntry() {
+  const ex = document.getElementById('log-ex')?.value.trim();
+  const sets = document.getElementById('log-sets')?.value.trim();
+  const reps = document.getElementById('log-reps')?.value.trim();
+  const weight = document.getElementById('log-weight')?.value.trim();
+  if (!ex) return;
+  const log = getWorkoutLog();
+  log.unshift({
+    id: Date.now(),
+    ex, sets, reps, weight,
+    date: new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short' })
+  });
+  saveWorkoutLog(log.slice(0, 150));
+  ['log-ex','log-sets','log-reps','log-weight'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+  renderWorkoutLog();
+}
+
+function deleteLogEntry(id) {
+  saveWorkoutLog(getWorkoutLog().filter(e => e.id !== id));
+  renderWorkoutLog();
+}
+
+function renderWorkoutLog() {
+  const el = document.getElementById('log-entries');
+  if (!el) return;
+  const log = getWorkoutLog();
+  if (!log.length) {
+    el.innerHTML = '<div class="log-empty">No entries yet — log your first set above</div>';
+    return;
+  }
+  el.innerHTML = log.slice(0, 30).map(e => `
+    <div class="log-entry">
+      <div class="log-entry-ex">${e.ex}</div>
+      ${(e.sets||e.reps) ? `<span class="log-chip pr-chip">${e.sets||'?'}×${e.reps||'?'}</span>` : ''}
+      ${e.weight ? `<span class="log-chip wt-chip">${e.weight}kg</span>` : ''}
+      <div class="log-entry-date">${e.date}</div>
+      <button class="log-entry-del" onclick="deleteLogEntry(${e.id})">×</button>
+    </div>`).join('');
+}
+
+// ==================== BODY MEASUREMENTS ====================
+function getMeasures() {
+  try { return JSON.parse(localStorage.getItem('recomp_measures') || '[]'); } catch { return []; }
+}
+function saveMeasures(m) { localStorage.setItem('recomp_measures', JSON.stringify(m)); }
+
+function addMeasure() {
+  const weight = parseFloat(document.getElementById('m-weight')?.value) || null;
+  const waist = parseFloat(document.getElementById('m-waist')?.value) || null;
+  const chest = parseFloat(document.getElementById('m-chest')?.value) || null;
+  const arm = parseFloat(document.getElementById('m-arm')?.value) || null;
+  if (!weight && !waist && !chest && !arm) return;
+  const measures = getMeasures();
+  measures.push({
+    id: Date.now(),
+    date: new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short' }),
+    weight, waist, chest, arm
+  });
+  saveMeasures(measures.slice(-30));
+  ['m-weight','m-waist','m-chest','m-arm'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+  renderMeasures();
+}
+
+function deleteMeasure(id) {
+  saveMeasures(getMeasures().filter(m => m.id !== id));
+  renderMeasures();
+}
+
+function renderMiniChart(svgEl, measures) {
+  const weights = measures.filter(m => m.weight != null);
+  if (weights.length < 2) {
+    svgEl.innerHTML = `<text x="50%" y="50%" text-anchor="middle" fill="var(--muted)" font-size="11" dominant-baseline="middle">${weights.length < 1 ? 'Log measurements to see weight chart' : 'Log 2+ entries to see trend'}</text>`;
+    return;
+  }
+  const W = 600, H = 80, pad = 24;
+  const vals = weights.map(m => m.weight);
+  const minV = Math.min(...vals), maxV = Math.max(...vals);
+  const range = maxV - minV || 1;
+  const pts = weights.map((m, i) => {
+    const x = pad + (i / (weights.length - 1)) * (W - 2 * pad);
+    const y = pad + (1 - (m.weight - minV) / range) * (H - 2 * pad);
+    return { x, y, v: m.weight };
+  });
+  const polyline = pts.map(p => `${p.x},${p.y}`).join(' ');
+  const area = `${pts[0].x},${H} ` + pts.map(p => `${p.x},${p.y}`).join(' ') + ` ${pts[pts.length-1].x},${H}`;
+  svgEl.innerHTML = `
+    <defs><linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--blue)" stop-opacity=".25"/><stop offset="100%" stop-color="var(--blue)" stop-opacity="0"/></linearGradient></defs>
+    <polygon points="${area}" fill="url(#chartGrad)"/>
+    <polyline points="${polyline}" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    ${pts.map(p => `<circle cx="${p.x}" cy="${p.y}" r="3.5" fill="var(--blue)" stroke="var(--surface)" stroke-width="1.5"/>`).join('')}
+    <text x="${pts[0].x}" y="${H-2}" font-size="9" fill="var(--muted)" text-anchor="middle">${minV}kg</text>
+    <text x="${pts[pts.length-1].x}" y="${H-2}" font-size="9" fill="var(--muted)" text-anchor="middle">${maxV}kg</text>`;
+}
+
+function renderMeasures() {
+  const chartEl = document.getElementById('measure-chart');
+  const el = document.getElementById('measure-history');
+  const measures = getMeasures();
+  if (chartEl) renderMiniChart(chartEl, measures);
+  if (!el) return;
+  if (!measures.length) {
+    el.innerHTML = '<div class="log-empty">No measurements yet — log your first entry above</div>';
+    return;
+  }
+  el.innerHTML = [...measures].reverse().slice(0, 12).map(m => `
+    <div class="measure-row">
+      <div class="mr-date">${m.date}</div>
+      <div class="mr-stats">
+        ${m.weight != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--blue)">${m.weight}</div><div class="mr-stat-lab">kg</div></div>` : ''}
+        ${m.waist != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--orange)">${m.waist}</div><div class="mr-stat-lab">Waist</div></div>` : ''}
+        ${m.chest != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--green)">${m.chest}</div><div class="mr-stat-lab">Chest</div></div>` : ''}
+        ${m.arm != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--purple)">${m.arm}</div><div class="mr-stat-lab">Arm</div></div>` : ''}
+      </div>
+      <button class="mr-del" onclick="deleteMeasure(${m.id})">×</button>
+    </div>`).join('');
+}
+
+// ==================== MACRO QUICK-ADD ====================
+function getMacroDay() {
+  try { return JSON.parse(localStorage.getItem('recomp_macro_day') || 'null'); } catch { return null; }
+}
+function saveMacroDay(data) { localStorage.setItem('recomp_macro_day', JSON.stringify(data)); }
+
+function checkMacroDayReset() {
+  const d = getMacroDay();
+  const today = new Date().toDateString();
+  if (!d || d.date !== today) saveMacroDay({ date: today, p: 0, c: 0, f: 0 });
+}
+
+function addMacroEntry() {
+  checkMacroDayReset();
+  const d = getMacroDay();
+  const p = parseFloat(document.getElementById('ma-p')?.value) || 0;
+  const c = parseFloat(document.getElementById('ma-c')?.value) || 0;
+  const f = parseFloat(document.getElementById('ma-f')?.value) || 0;
+  if (!p && !c && !f) return;
+  d.p = Math.round((d.p || 0) + p);
+  d.c = Math.round((d.c || 0) + c);
+  d.f = Math.round((d.f || 0) + f);
+  saveMacroDay(d);
+  ['ma-p','ma-c','ma-f'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+  renderMacroAdd();
+}
+
+function resetMacroDay() {
+  saveMacroDay({ date: new Date().toDateString(), p: 0, c: 0, f: 0 });
+  renderMacroAdd();
+}
+
+function renderMacroAdd() {
+  const el = document.getElementById('mac-bars');
+  if (!el) return;
+  checkMacroDayReset();
+  const d = getMacroDay();
+  const ph = phases[currentPhase - 1];
+  const bars = [
+    { key:'p', label:'Protein', color:'var(--blue)', target:ph.protein },
+    { key:'c', label:'Carbs', color:'var(--green)', target:ph.carbs },
+    { key:'f', label:'Fat', color:'var(--orange)', target:ph.fat }
+  ];
+  el.innerHTML = bars.map(b => {
+    const cur = d[b.key] || 0;
+    const pct = Math.min(100, (cur / b.target) * 100);
+    const over = cur > b.target;
+    return `<div class="mac-bar-row">
+      <div class="mac-bar-label">${b.label}</div>
+      <div class="mac-bar-track"><div class="mac-bar-fill" style="width:${pct}%;background:${over?'var(--red)':b.color}"></div></div>
+      <div class="mac-bar-val" style="color:${over?'var(--red)':b.color}">${cur} / ${b.target}g</div>
+    </div>`;
+  }).join('');
+}
+
+// ==================== PUSH NOTIFICATIONS ====================
+function setupNotifications() {
+  const btn = document.getElementById('notif-btn');
+  if (!btn || !('Notification' in window)) { if(btn) btn.style.display = 'none'; return; }
+  if (Notification.permission === 'granted') {
+    btn.classList.add('granted');
+    btn.innerHTML = '🔔 Reminders On';
+  }
+}
+
+function requestNotifications() {
+  if (!('Notification' in window)) { showToast('Notifications not supported in this browser'); return; }
+  if (Notification.permission === 'granted') { showToast('Reminders already enabled!'); return; }
+  Notification.requestPermission().then(perm => {
+    const btn = document.getElementById('notif-btn');
+    if (perm === 'granted') {
+      if (btn) { btn.classList.add('granted'); btn.innerHTML = '🔔 Reminders On'; }
+      new Notification('RecompSys 💪', { body: 'Meal & workout reminders enabled. Stay consistent!', icon: './icons/icon.svg' });
+      showToast('Reminders enabled! Your browser will alert you at meal times.');
+    } else {
+      showToast('Notifications blocked — enable them in browser settings');
+    }
+  });
+}
 
 // ==================== BOOT ====================
 document.addEventListener('DOMContentLoaded', () => {
