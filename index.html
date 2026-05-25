@@ -501,6 +501,78 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
   .hdr-today { padding: 7px 10px; font-size: 11px; }
 }
 
+/* ===== WATER TRACKER ===== */
+.water-card { background: var(--card); border: 1px solid rgba(16,185,129,.25); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px; }
+.water-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.water-sub { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.water-cups { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.water-cup { width: 38px; height: 38px; border-radius: 8px; border: 1.5px solid var(--border); background: transparent; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: all .2s cubic-bezier(.34,1.56,.64,1); }
+.water-cup.filled { border-color: var(--blue); background: rgba(16,185,129,.15); transform: scale(1.08); }
+.water-cup:active { transform: scale(.92); }
+.water-total { font-size: 13px; color: var(--muted); }
+.water-total strong { color: var(--blue); }
+
+/* ===== 1RM CALCULATOR ===== */
+.orm-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-top: 16px; }
+.orm-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.orm-sub { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.orm-form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; margin-bottom: 12px; }
+.orm-result { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 13px; color: var(--muted); display: none; }
+.orm-result.show { display: block; }
+.orm-result strong { color: var(--orange); font-size: 22px; }
+.orm-result .orm-breakdown { margin-top: 8px; display: flex; gap: 12px; flex-wrap: wrap; }
+.orm-pct { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 11px; color: var(--muted); }
+.orm-pct span { color: var(--text); font-weight: 700; }
+
+/* ===== SESSION RPE ===== */
+.rpe-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px; }
+.rpe-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.rpe-sub { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.rpe-buttons { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.rpe-btn { width: 40px; height: 40px; border-radius: 8px; border: 1.5px solid var(--border); background: transparent; font-size: 13px; font-weight: 700; cursor: pointer; color: var(--muted); transition: all .2s cubic-bezier(.34,1.56,.64,1); font-family: inherit; }
+.rpe-btn.selected { transform: scale(1.1); }
+.rpe-btn[data-rpe="1"],.rpe-btn[data-rpe="2"],.rpe-btn[data-rpe="3"] { --rc: var(--green); }
+.rpe-btn[data-rpe="4"],.rpe-btn[data-rpe="5"],.rpe-btn[data-rpe="6"] { --rc: var(--blue); }
+.rpe-btn[data-rpe="7"],.rpe-btn[data-rpe="8"] { --rc: var(--orange); }
+.rpe-btn[data-rpe="9"],.rpe-btn[data-rpe="10"] { --rc: var(--red); }
+.rpe-btn.selected { border-color: var(--rc); background: color-mix(in srgb, var(--rc) 15%, transparent); color: var(--rc); box-shadow: 0 0 12px color-mix(in srgb, var(--rc) 35%, transparent); }
+.rpe-history { font-size: 12px; color: var(--muted); }
+.rpe-history span { display: inline-block; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; margin: 2px; }
+
+/* ===== WEEKLY HEATMAP STATS ===== */
+.hm-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 16px; }
+.hm-stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; }
+.hm-stat-val { font-size: 20px; font-weight: 800; }
+.hm-stat-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-top: 2px; }
+
+/* ===== MEASUREMENT DELTA ===== */
+.measure-delta { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 5px; margin-left: 6px; }
+.measure-delta.pos { background: rgba(240,92,92,.12); color: var(--red); }
+.measure-delta.neg { background: rgba(52,211,153,.12); color: var(--green); }
+.measure-delta.neu { background: var(--surface); color: var(--muted); }
+
+/* ===== SHOPPING LIST ===== */
+.shop-btn { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .22s cubic-bezier(.34,1.56,.64,1); font-family: inherit; margin-bottom: 16px; width: 100%; justify-content: center; }
+.shop-btn:hover { border-color: var(--green); color: var(--green); box-shadow: 0 4px 14px var(--glow-green); transform: translateY(-1px); }
+.shop-btn:active { transform: scale(.97); }
+.shop-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 999; align-items: flex-end; justify-content: center; }
+.shop-modal.open { display: flex; }
+.shop-sheet { background: var(--surface); border-radius: 20px 20px 0 0; padding: 24px 20px 40px; width: 100%; max-width: 600px; max-height: 80vh; overflow-y: auto; animation: slideUp .3s cubic-bezier(.34,1.56,.64,1); }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.shop-sheet h3 { font-size: 17px; font-weight: 800; margin-bottom: 16px; }
+.shop-category { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 14px 0 8px; }
+.shop-item { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.shop-item:last-child { border-bottom: none; }
+.shop-check { width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid var(--border); background: transparent; cursor: pointer; flex-shrink: 0; appearance: none; accent-color: var(--blue); }
+.shop-check:checked { background: var(--blue); border-color: var(--blue); }
+.shop-close { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; font-size: 14px; font-weight: 700; color: var(--text); cursor: pointer; margin-top: 20px; font-family: inherit; }
+
+@media (max-width: 768px) {
+  .orm-form { grid-template-columns: 1fr 1fr; }
+  .orm-form button { grid-column: 1 / -1; }
+  .hm-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ===== LIGHT THEME ===== */
 [data-theme="light"] {
   --bg: #f0f7f4;
@@ -762,6 +834,17 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
     <strong>Phase 1 Focus:</strong> Establish working weights. Use 70–80% of true 1RM on compounds. Lock in technique before adding load. Track every set in a logbook.
   </div>
 
+  <div class="orm-card">
+    <h3>1RM Calculator</h3>
+    <div class="orm-sub">Epley formula — enter what you lifted and for how many reps</div>
+    <div class="orm-form">
+      <input class="log-input" id="orm-weight" type="number" placeholder="Weight (kg)" min="0" step="0.5">
+      <input class="log-input" id="orm-reps" type="number" placeholder="Reps" min="1" max="30">
+      <button class="log-submit" onclick="calc1RM()">Calculate</button>
+    </div>
+    <div class="orm-result" id="orm-result"></div>
+  </div>
+
 </div>
 
 <!-- ===== NUTRITION ===== -->
@@ -811,7 +894,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
     <div class="meal-day-btn" onclick="setMealDay(1)"><span class="pl">Tue — Pull + LISS</span><span class="ps">Tue</span></div>
     <div class="meal-day-btn" onclick="setMealDay(2)"><span class="pl">Wed — Legs</span><span class="ps">Wed</span></div>
     <div class="meal-day-btn" onclick="setMealDay(3)"><span class="pl">Thu — Push B + HIIT</span><span class="ps">Thu</span></div>
-    <div class="meal-day-btn" onclick="setMealDay(4)"><span class="pl">Fri — Pull B</span><span class="ps">Fri</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(4)"><span class="pl">Fri — Legs B</span><span class="ps">Fri</span></div>
     <div class="meal-day-btn" onclick="setMealDay(5)"><span class="pl">Sat — LISS</span><span class="ps">Sat</span></div>
     <div class="meal-day-btn" onclick="setMealDay(6)"><span class="pl">Sun — Rest</span><span class="ps">Sun</span></div>
   </div>
@@ -819,6 +902,8 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
   <div class="meals-grid" id="meals-grid"></div>
 
   <div class="daily-total" id="daily-total"></div>
+
+  <button class="shop-btn" onclick="openShoppingList()">🛒 Generate Weekly Shopping List</button>
 
   <hr class="section-divider">
 
@@ -865,6 +950,22 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
     </div>
   </div>
 
+  <!-- Water Tracker -->
+  <div class="water-card">
+    <h3>Daily Water Intake</h3>
+    <div class="water-sub">Goal: 3L / day — tap each cup (250ml)</div>
+    <div class="water-cups" id="water-cups"></div>
+    <div class="water-total" id="water-total">0 / 3,000 ml consumed</div>
+  </div>
+
+  <!-- Session RPE -->
+  <div class="rpe-card">
+    <h3>Session RPE Logger</h3>
+    <div class="rpe-sub">Rate today's session difficulty (1 = very easy, 10 = max effort)</div>
+    <div class="rpe-buttons" id="rpe-buttons"></div>
+    <div class="rpe-history" id="rpe-history"></div>
+  </div>
+
   <!-- 12-Week Heatmap -->
   <div class="heatmap-card">
     <h3>12-Week Progress Heatmap</h3>
@@ -879,6 +980,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
       <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
     </div>
     <div class="heatmap-grid" id="heatmap-grid"></div>
+    <div class="hm-stats" id="hm-stats"></div>
   </div>
 
   <!-- Workout Log -->
@@ -921,6 +1023,15 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 </div>
 
 </main>
+
+<!-- SHOPPING LIST MODAL -->
+<div class="shop-modal" id="shop-modal" onclick="if(event.target===this)closeShoppingList()">
+  <div class="shop-sheet">
+    <h3>🛒 Weekly Shopping List</h3>
+    <div id="shop-list-content"></div>
+    <button class="shop-close" onclick="closeShoppingList()">Close</button>
+  </div>
+</div>
 
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
@@ -971,8 +1082,8 @@ const schedule = [
   { day:"Tue", short:"T", session:"Pull A", focus:"Back / Vertical", muscles:["Back","Biceps","Rear Delts"], cardio:{type:"LISS",p1:20,p2:25,p3:30} },
   { day:"Wed", short:"W", session:"Legs A", focus:"Quad Dominant", muscles:["Quads","Hamstrings","Glutes","Calves"], cardio:null },
   { day:"Thu", short:"Th", session:"Push B", focus:"Shoulder Dominant", muscles:["Shoulders","Chest","Triceps"], cardio:{type:"HIIT",p1:20,p2:20,p3:20} },
-  { day:"Fri", short:"F", session:"Pull B", focus:"Posterior Chain", muscles:["Back","Hamstrings","Biceps","Abs"], cardio:null },
-  { day:"Sat", short:"Sa", session:"Rest / LISS", focus:"Active Recovery", muscles:[], cardio:{type:"LISS",p1:35,p2:40,p3:45} },
+  { day:"Fri", short:"F", session:"Legs B", focus:"Glute & Hamstring Dominant", muscles:["Glutes","Hamstrings","Quads","Calves"], cardio:null },
+  { day:"Sat", short:"Sa", session:"LISS + Pull", focus:"Active Recovery · Optional abbreviated Pull B", muscles:[], cardio:{type:"LISS",p1:35,p2:40,p3:45} },
   { day:"Sun", short:"Su", session:"Full Rest", focus:"Recovery", muscles:[], cardio:null }
 ];
 
@@ -994,21 +1105,24 @@ const workouts = {
       { name:"Weighted Pull-Ups", type:"compound", sets:[4,5,5], reps:"4–8", rest:180, cue:"Dead hang start, pull elbows to hip pockets", p3note:"PR attempt weeks 9 & 11" },
       { name:"Barbell Bent-Over Row (overhand)", type:"compound", sets:[4,5,5], reps:"5–7", rest:180, cue:"Chest up, bar to lower sternum", p3note:null },
       { name:"Cable Seated Row (wide-grip bar)", type:"compound", sets:[3,4,4], reps:"10–12", rest:90, cue:"Drive elbows back and up", p3note:null },
-      { name:"Single-Arm Dumbbell Row", type:"compound", sets:[3,3,3], reps:"10–12", rest:60, cue:"Elbow stays close to body", p3note:null },
+      { name:"Lat Pulldown (wide overhand)", type:"compound", sets:[3,4,4], reps:"10–12", rest:90, cue:"Chest up, pull bar to upper chest — don't lean back excessively", p3note:null },
       { name:"Face Pulls (rope, high pulley)", type:"isolation", sets:[3,3,3], reps:"15–20", rest:60, cue:"Thumbs toward ears at end position", p3note:"Drop set" },
       { name:"Barbell Standing Curl", type:"compound", sets:[3,3,3], reps:"8–10", rest:90, cue:"Supinate fully at top", p3note:null },
-      { name:"Hammer Curl (alternating)", type:"isolation", sets:[3,3,3], reps:"10–12", rest:60, cue:"Control the eccentric", p3note:"Drop set" }
+      { name:"Hammer Curl (alternating)", type:"isolation", sets:[3,3,3], reps:"10–12", rest:60, cue:"Control the eccentric", p3note:"Drop set" },
+      { name:"Pallof Press (cable, half-kneeling)", type:"isolation", sets:[3,3,3], reps:"12 each side", rest:60, cue:"Press out fully — don't let the cable rotate you. Anti-rotation core work.", p3note:null }
     ]
   },
   2: { // Wednesday
+    dayNote: "Conventional Deadlift is the primary mover today — treat it like a max-effort lift even in Phase 1. Squat is secondary; don't let ego carry over from Pull A. CNS is fresh mid-week — use it.",
     exercises: [
-      { name:"Barbell Back Squat", type:"compound", sets:[5,6,6], reps:"4–6", rest:180, cue:"Below parallel, knees track toes", p3note:"PR attempt weeks 9 & 11" },
+      { name:"Conventional Deadlift", type:"compound", sets:[4,5,5], reps:"3–5", rest:240, cue:"Reset between reps — brace before pulling. Bar over mid-foot, lat tension before the pull.", p3note:"PR attempt weeks 9 & 11" },
+      { name:"Barbell Back Squat", type:"compound", sets:[3,4,4], reps:"6–8", rest:180, cue:"Below parallel, knees track toes. Secondary today — controlled and crisp.", p3note:null },
       { name:"Leg Press", type:"compound", sets:[3,4,4], reps:"10–12", rest:90, cue:"Full ROM, no lockout at top", p3note:null },
       { name:"Bulgarian Split Squat (DB)", type:"compound", sets:[3,3,3], reps:"8–10 ea", rest:90, cue:"Front knee over toes, torso upright", p3note:null },
       { name:"Leg Extension", type:"isolation", sets:[3,3,3], reps:"12–15", rest:60, cue:"Pause 1 sec at top", p3note:"Drop set" },
-      { name:"Romanian Deadlift (barbell)", type:"compound", sets:[4,4,4], reps:"8–10", rest:90, cue:"Feel the hamstring stretch, bar stays close", p3note:null },
       { name:"Lying Leg Curl", type:"isolation", sets:[3,3,3], reps:"12–15", rest:60, cue:"Don't let hips rise", p3note:"Drop set" },
-      { name:"Standing Calf Raise", type:"isolation", sets:[4,4,4], reps:"15–20", rest:60, cue:"Full stretch at bottom — 1 sec pause", p3note:null }
+      { name:"Standing Calf Raise", type:"isolation", sets:[4,4,4], reps:"15–20", rest:60, cue:"Full stretch at bottom — 1 sec pause", p3note:null },
+      { name:"Ab Wheel Rollout", type:"isolation", sets:[3,3,4], reps:"8–12", rest:60, cue:"Hips don't drop — full body tension from knees. Pull in with abs, not arms.", p3note:"Add 1 rep per session" }
     ]
   },
   3: { // Thursday
@@ -1016,7 +1130,7 @@ const workouts = {
     exercises: [
       { name:"Barbell Overhead Press (standing)", type:"compound", sets:[4,5,5], reps:"4–6", rest:180, cue:"Brace core, don't hyperextend lower back", p3note:"PR attempt weeks 9 & 11" },
       { name:"Incline Barbell Press", type:"compound", sets:[4,5,5], reps:"8–10", rest:90, cue:"30–45° incline, not too steep", p3note:null },
-      { name:"Arnold Press (seated)", type:"compound", sets:[3,4,4], reps:"10–12", rest:90, cue:"Full rotation of wrist through movement", p3note:null },
+      { name:"Close-Grip Bench Press", type:"compound", sets:[3,4,4], reps:"8–10", rest:90, cue:"Hands shoulder-width or narrower. Elbows tucked — lower to low chest, not neck.", p3note:null },
       { name:"DB Lateral Raise (bilateral)", type:"isolation", sets:[4,4,4], reps:"15–20", rest:60, cue:"Slight internal rotation — pinkies up", p3note:"Drop set" },
       { name:"Rear Delt Cable Fly (low pulley)", type:"isolation", sets:[3,3,3], reps:"15–20", rest:60, cue:"Keep arms almost straight", p3note:"Drop set" },
       { name:"Decline Dumbbell Press", type:"compound", sets:[3,3,3], reps:"10–12", rest:90, cue:"Targets lower pec thickness", p3note:null },
@@ -1024,16 +1138,16 @@ const workouts = {
       { name:"Overhead Rope Tricep Extension", type:"isolation", sets:[3,3,3], reps:"12–15", rest:60, cue:"Full stretch overhead, long head emphasis", p3note:"Drop set" }
     ]
   },
-  4: { // Friday
+  4: { // Friday — Legs B
+    dayNote: "Legs B is hamstring and glute focused — different stimulus to Wednesday. Don't chase the same weights. Hip Thrust is the primary compound. Take it seriously.",
     exercises: [
-      { name:"Conventional Deadlift", type:"compound", sets:[4,5,5], reps:"3–5", rest:240, cue:"Reset between reps, brace hard before pulling", p3note:"PR attempt weeks 9 & 11" },
-      { name:"Chest-Supported Incline Row (DB)", type:"compound", sets:[3,4,4], reps:"10–12", rest:90, cue:"Eliminates lower back from the equation", p3note:null },
-      { name:"Cable Seated Row (close V-bar)", type:"compound", sets:[3,4,4], reps:"10–12", rest:90, cue:"Squeeze shoulder blades at peak contraction", p3note:null },
-      { name:"Lat Pulldown (close underhand grip)", type:"compound", sets:[3,3,3], reps:"10–12", rest:90, cue:"Lean back slightly, pull to upper chest", p3note:null },
-      { name:"EZ-Bar Preacher Curl", type:"compound", sets:[3,3,3], reps:"8–10", rest:90, cue:"Full extension at bottom — feel the stretch", p3note:null },
-      { name:"Incline Dumbbell Curl", type:"isolation", sets:[3,3,3], reps:"10–12", rest:60, cue:"Shoulder behind torso — full bicep stretch", p3note:"Drop set" },
-      { name:"Hanging Leg Raise", type:"isolation", sets:[3,3,3], reps:"12–15", rest:60, cue:"No momentum, posterior pelvic tilt at top", p3note:null },
-      { name:"Cable Crunch", type:"isolation", sets:[3,3,3], reps:"15", rest:60, cue:"Round the spine — don't just hinge at hip", p3note:null }
+      { name:"Hip Thrust (Barbell)", type:"compound", sets:[4,4,5], reps:"8–12", rest:90, cue:"Drive through heels, squeeze glutes hard at top. Shin vertical. Upper back on bench, chin tucked.", p3note:"Drop set on final set" },
+      { name:"Walking Lunge (Dumbbell)", type:"compound", sets:[3,3,4], reps:"12 each leg", rest:90, cue:"Long stride, front knee over toes, back knee close to floor.", p3note:null },
+      { name:"Seated Leg Curl", type:"isolation", sets:[4,4,4], reps:"10–12", rest:60, cue:"Pause 1 sec at peak contraction.", p3note:"Drop set" },
+      { name:"Good Morning (Barbell)", type:"compound", sets:[3,3,3], reps:"10–12", rest:90, cue:"Hinge at hip with soft knee — light weight only, perfect form.", p3note:null },
+      { name:"Leg Press (high rep)", type:"compound", sets:[3,3,3], reps:"15–20", rest:60, cue:"Narrower stance, feet lower on plate. Pump finish.", p3note:null },
+      { name:"Nordic Hamstring Curl", type:"isolation", sets:[3,3,3], reps:"5–8", rest:90, cue:"Lower as slowly as possible — 4+ sec eccentric. That's the work.", p3note:"Add 1 rep per session" },
+      { name:"Seated Calf Raise", type:"isolation", sets:[4,4,4], reps:"15–20", rest:60, cue:"Targets soleus. Full ROM — pause at bottom stretch.", p3note:null }
     ]
   }
 };
@@ -1084,8 +1198,8 @@ const mealDays = [
     ]
   },
   {
-    label:"Friday — Pull B (Deadlifts, Back, Biceps)",
-    note:"Deadlift day. Bangda at lunch loads omega-3 for overnight recovery. Prawns at dinner keep fat low going into the weekend.",
+    label:"Friday — Legs B (Hip Thrust, Hamstrings, Glutes)",
+    note:"Second leg session — glute and hamstring focused. Bangda at lunch loads omega-3 for overnight recovery. Prawns at dinner keep fat low going into the weekend.",
     meals:[
       { n:1, time:"7:00 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
       { n:2, time:"10:30 AM", label:"Post-Workout", items:["300g chicken breast (grilled)","120g basmati rice — dry wt","Cucumber + onion salad"], p:72, c:95, f:9, cal:781 },
@@ -1219,6 +1333,9 @@ function init() {
   renderMeasures();
   renderMacroAdd();
   setupNotifications();
+  renderWaterTracker();
+  renderRPE();
+  renderHeatmapStats();
   updatePhaseUI();
 }
 
@@ -1323,7 +1440,7 @@ function buildBadges(ex, phase) {
 function renderDayNav() {
   const nav = document.getElementById('day-nav');
   const days = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
-  const subs = ['Push A','Pull A','Legs A','Push B','Pull B'];
+  const subs = ['Push A','Pull A','Legs A','Push B','Legs B'];
   nav.innerHTML = days.map((d,i) => `
     <div class="day-btn ${i===currentDay?'active':''}" onclick="setDay(${i})">
       <div class="db-day">${d}</div>
@@ -1408,6 +1525,7 @@ function renderWorkout() {
       </div>
       <div class="muscle-tags">${muscleTags}</div>
     </div>
+    ${w.dayNote ? `<div class="note-box" style="margin-bottom:16px;border-left:3px solid var(--orange);padding-left:12px"><strong>Session Note:</strong> ${w.dayNote}</div>` : ''}
     ${s.cardio ? cardioHTML : ''}
     <div class="ex-table-wrap" style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px">
       <table class="ex-table">
@@ -1863,6 +1981,7 @@ function toggleHmCell(key, isRest) {
   }
   saveHeatmapData(data);
   renderHeatmap();
+  renderHeatmapStats();
 }
 
 // ==================== WORKOUT LOG ====================
@@ -1965,29 +2084,6 @@ function renderMiniChart(svgEl, measures) {
     <text x="${pts[pts.length-1].x}" y="${H-2}" font-size="9" fill="var(--muted)" text-anchor="middle">${maxV}kg</text>`;
 }
 
-function renderMeasures() {
-  const chartEl = document.getElementById('measure-chart');
-  const el = document.getElementById('measure-history');
-  const measures = getMeasures();
-  if (chartEl) renderMiniChart(chartEl, measures);
-  if (!el) return;
-  if (!measures.length) {
-    el.innerHTML = '<div class="log-empty">No measurements yet — log your first entry above</div>';
-    return;
-  }
-  el.innerHTML = [...measures].reverse().slice(0, 12).map(m => `
-    <div class="measure-row">
-      <div class="mr-date">${m.date}</div>
-      <div class="mr-stats">
-        ${m.weight != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--blue)">${m.weight}</div><div class="mr-stat-lab">kg</div></div>` : ''}
-        ${m.waist != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--orange)">${m.waist}</div><div class="mr-stat-lab">Waist</div></div>` : ''}
-        ${m.chest != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--green)">${m.chest}</div><div class="mr-stat-lab">Chest</div></div>` : ''}
-        ${m.arm != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--purple)">${m.arm}</div><div class="mr-stat-lab">Arm</div></div>` : ''}
-      </div>
-      <button class="mr-del" onclick="deleteMeasure(${m.id})">×</button>
-    </div>`).join('');
-}
-
 // ==================== MACRO QUICK-ADD ====================
 function getMacroDay() {
   try { return JSON.parse(localStorage.getItem('recomp_macro_day') || 'null'); } catch { return null; }
@@ -2066,6 +2162,234 @@ function requestNotifications() {
       showToast('Notifications blocked — enable them in browser settings');
     }
   });
+}
+
+// ==================== WATER TRACKER ====================
+function getWaterData() {
+  const today = new Date().toDateString();
+  try {
+    const d = JSON.parse(localStorage.getItem('recomp_water') || 'null');
+    if (d && d.date === today) return d;
+  } catch {}
+  return { date: today, cups: 0 };
+}
+function saveWaterData(d) { localStorage.setItem('recomp_water', JSON.stringify(d)); }
+
+function renderWaterTracker() {
+  const cupsEl = document.getElementById('water-cups');
+  const totalEl = document.getElementById('water-total');
+  if (!cupsEl) return;
+  const d = getWaterData();
+  const TOTAL = 12;
+  cupsEl.innerHTML = Array.from({length: TOTAL}, (_, i) => `
+    <button class="water-cup ${i < d.cups ? 'filled' : ''}" onclick="toggleWaterCup(${i})" title="${(i+1)*250}ml">💧</button>
+  `).join('');
+  if (totalEl) {
+    const ml = d.cups * 250;
+    totalEl.innerHTML = `<strong>${ml.toLocaleString()} ml</strong> / 3,000 ml — ${d.cups} of ${TOTAL} cups`;
+  }
+}
+
+function toggleWaterCup(i) {
+  const d = getWaterData();
+  d.cups = (i < d.cups) ? i : i + 1;
+  saveWaterData(d);
+  renderWaterTracker();
+}
+
+// ==================== SESSION RPE ====================
+function getRpeLog() {
+  try { return JSON.parse(localStorage.getItem('recomp_rpe') || '[]'); } catch { return []; }
+}
+function saveRpeLog(log) { localStorage.setItem('recomp_rpe', JSON.stringify(log)); }
+
+function renderRPE() {
+  const btnsEl = document.getElementById('rpe-buttons');
+  const histEl = document.getElementById('rpe-history');
+  if (!btnsEl) return;
+  const log = getRpeLog();
+  const today = new Date().toDateString();
+  const todayEntry = log.find(e => e.date === today);
+  btnsEl.innerHTML = Array.from({length: 10}, (_, i) => {
+    const v = i + 1;
+    const sel = todayEntry && todayEntry.rpe === v;
+    return `<button class="rpe-btn ${sel ? 'selected' : ''}" data-rpe="${v}" onclick="logRPE(${v})">${v}</button>`;
+  }).join('');
+  if (histEl) {
+    const recent = [...log].reverse().slice(0, 7);
+    if (!recent.length) { histEl.innerHTML = '<span style="font-size:12px;color:var(--muted)">No sessions logged yet</span>'; return; }
+    const rpeLabels = {1:'Easy',2:'Easy',3:'Moderate',4:'Moderate',5:'Challenging',6:'Hard',7:'Hard',8:'Very Hard',9:'Max',10:'Limit'};
+    histEl.innerHTML = recent.map(e => `<span title="${e.date}">RPE ${e.rpe} <em style="font-style:normal;opacity:.7">${rpeLabels[e.rpe]||''}</em></span>`).join('');
+  }
+}
+
+function logRPE(v) {
+  const log = getRpeLog();
+  const today = new Date().toDateString();
+  const idx = log.findIndex(e => e.date === today);
+  if (idx >= 0) log[idx].rpe = v; else log.push({ date: today, rpe: v });
+  saveRpeLog(log);
+  renderRPE();
+  const labels = {1:'Super easy',2:'Very easy',3:'Easy',4:'Moderate',5:'Challenging',6:'Hard',7:'Very hard',8:'Brutal',9:'Near max',10:'Absolute limit'};
+  showToast(`RPE ${v} logged — ${labels[v]}`);
+}
+
+// ==================== HEATMAP STATS ====================
+function renderHeatmapStats() {
+  const el = document.getElementById('hm-stats');
+  if (!el) return;
+  const data = getHeatmapData();
+  let done = 0, missed = 0, streak = 0, maxStreak = 0;
+  const keys = Object.keys(data).sort();
+  keys.forEach(k => {
+    if (data[k] === 'done') done++;
+    else if (data[k] === 'missed') missed++;
+  });
+  let cur = 0;
+  keys.forEach(k => {
+    if (data[k] === 'done') { cur++; if (cur > maxStreak) maxStreak = cur; streak = cur; }
+    else if (data[k] === 'missed') { cur = 0; }
+  });
+  const adherence = (done + missed) > 0 ? Math.round((done / (done + missed)) * 100) : 0;
+  el.innerHTML = `
+    <div class="hm-stat"><div class="hm-stat-val" style="color:var(--green)">${done}</div><div class="hm-stat-lbl">Done</div></div>
+    <div class="hm-stat"><div class="hm-stat-val" style="color:var(--red)">${missed}</div><div class="hm-stat-lbl">Missed</div></div>
+    <div class="hm-stat"><div class="hm-stat-val" style="color:var(--blue)">${streak}</div><div class="hm-stat-lbl">Streak</div></div>
+    <div class="hm-stat"><div class="hm-stat-val" style="color:var(--orange)">${adherence}%</div><div class="hm-stat-lbl">Adherence</div></div>
+  `;
+}
+
+// ==================== 1RM CALCULATOR ====================
+function calc1RM() {
+  const w = parseFloat(document.getElementById('orm-weight')?.value);
+  const r = parseInt(document.getElementById('orm-reps')?.value);
+  const el = document.getElementById('orm-result');
+  if (!el) return;
+  if (!w || !r || r < 1 || w <= 0) { el.className = 'orm-result'; el.innerHTML = ''; return; }
+  if (r === 1) {
+    el.innerHTML = `<strong>${w}kg</strong> is your 1RM (single rep)`;
+    el.className = 'orm-result show'; return;
+  }
+  const orm = Math.round(w * (1 + r / 30) * 10) / 10;
+  const pcts = [90, 80, 70, 60];
+  const breakdown = pcts.map(p => `<div class="orm-pct">${p}% — <span>${Math.round(orm * p / 100 * 2) / 2}kg</span></div>`).join('');
+  el.className = 'orm-result show';
+  el.innerHTML = `Estimated 1RM: <strong>${orm}kg</strong><br><span style="font-size:11px;color:var(--muted)">Based on ${w}kg × ${r} reps</span>
+    <div class="orm-breakdown">${breakdown}</div>`;
+}
+
+// ==================== MEASUREMENT DELTA (patch renderMeasures) ====================
+function renderMeasures() {
+  const chartEl = document.getElementById('measure-chart');
+  const el = document.getElementById('measure-history');
+  const measures = getMeasures();
+  if (chartEl) renderMiniChart(chartEl, measures);
+  if (!el) return;
+  if (!measures.length) {
+    el.innerHTML = '<div class="log-empty">No measurements yet — log your first entry above</div>';
+    return;
+  }
+  const first = measures[0];
+  function delta(field, cur) {
+    if (first[field] == null || cur == null || cur === first[field]) return '<span class="measure-delta neu">—</span>';
+    const diff = Math.round((cur - first[field]) * 10) / 10;
+    const sign = diff > 0 ? '+' : '';
+    const cls = (field === 'weight' || field === 'waist') ? (diff > 0 ? 'pos' : 'neg') : (diff > 0 ? 'neg' : 'pos');
+    return `<span class="measure-delta ${cls}">${sign}${diff}</span>`;
+  }
+  el.innerHTML = [...measures].reverse().slice(0, 12).map(m => `
+    <div class="measure-row">
+      <div class="mr-date">${m.date}</div>
+      <div class="mr-stats">
+        ${m.weight != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--blue)">${m.weight}${delta('weight', m.weight)}</div><div class="mr-stat-lab">kg</div></div>` : ''}
+        ${m.waist != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--orange)">${m.waist}${delta('waist', m.waist)}</div><div class="mr-stat-lab">Waist</div></div>` : ''}
+        ${m.chest != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--green)">${m.chest}${delta('chest', m.chest)}</div><div class="mr-stat-lab">Chest</div></div>` : ''}
+        ${m.arm != null ? `<div class="mr-stat"><div class="mr-stat-val" style="color:var(--purple)">${m.arm}${delta('arm', m.arm)}</div><div class="mr-stat-lab">Arm</div></div>` : ''}
+      </div>
+      <button class="mr-del" onclick="deleteMeasure(${m.id})">×</button>
+    </div>`).join('');
+}
+
+// ==================== SHOPPING LIST ====================
+const weeklyShoppingList = {
+  "Proteins": [
+    "Lepo (Lady Fish / Kane) — ~1.4 kg for the week (Mon, Wed, Thu lunches + Sat mid-morning)",
+    "Bangda (Mackerel) — ~1 kg for the week (Tue morning, Fri lunch, Sat dinner, Sun morning)",
+    "Prawns (Kolmbi, regular) — ~1.2 kg for the week (Tue dinner, Thu snack, Fri dinner, Sat snack, Sun dinner)",
+    "Chicken Breast — ~1.6 kg (Mon–Fri post-workout + lunches)",
+    "Chicken Thigh (boneless) — ~700g (Mon, Wed, Thu dinner)",
+    "Low-fat Paneer — ~350g (Sat lunch + Sun lunch)",
+    "Eggs — 1 dozen (Sat/Sun breakfast + egg white omelette option)"
+  ],
+  "Grains & Carbs": [
+    "Basmati / White Rice — 500g",
+    "Brown Rice — 200g",
+    "Whole Wheat Chapati (atta) — 1 kg bag",
+    "Sweet Potato — 200g (Thu snack)",
+    "Banana — 7 (one per training day pre-workout)",
+    "Dates — small pack (Wed pre-workout boost)"
+  ],
+  "Vegetables": [
+    "Spinach (Palak) — 2 large bunches",
+    "Broccoli — 2 heads",
+    "Capsicum (mixed) — 500g",
+    "Onions — 1 kg",
+    "Tomatoes — 1 kg",
+    "Cucumber — 4–5",
+    "French Beans — 250g",
+    "Mushrooms — 200g",
+    "Carrot — 2–3",
+    "Brinjal — 1–2",
+    "Moringa leaves (drumstick leaves) — if available, 1 bunch",
+    "Garlic — 2 heads",
+    "Green Chili — 1 pack",
+    "Fresh Coriander — 2 bunches"
+  ],
+  "Dairy & Fats": [
+    "Low-fat Curd (Dahi) — 1 kg tub",
+    "Ghee — small jar (1 tsp/dinner)",
+    "Coconut Oil — small bottle (for Goan dishes only)"
+  ],
+  "Fruits": [
+    "Apple or Orange — 4–5",
+    "Guavas — 6–8",
+    "Papaya — 1 medium"
+  ],
+  "Pantry / Spices": [
+    "Black Coffee / Instant Coffee",
+    "Turmeric (Haldi)",
+    "Kashmiri Red Chili Powder",
+    "Garam Masala",
+    "Cumin Seeds + Powder",
+    "Coriander Powder",
+    "Ginger-Garlic Paste",
+    "Rice Flour (for Bangda crispiness)",
+    "Curry Leaves — fresh pack",
+    "Moong Dal — 150g",
+    "Lemon / Lime — 6–8"
+  ]
+};
+
+function openShoppingList() {
+  const modal = document.getElementById('shop-modal');
+  const content = document.getElementById('shop-list-content');
+  if (!modal || !content) return;
+  content.innerHTML = Object.entries(weeklyShoppingList).map(([cat, items]) => `
+    <div class="shop-category">${cat}</div>
+    ${items.map(item => `
+      <label class="shop-item">
+        <input type="checkbox" class="shop-check">
+        <span>${item}</span>
+      </label>`).join('')}
+  `).join('');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeShoppingList() {
+  const modal = document.getElementById('shop-modal');
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 // ==================== BOOT ====================
