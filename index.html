@@ -675,7 +675,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
         <div class="kcal">855 kcal</div>
       </div>
     </div>
-    <div class="note-box" style="margin-top:16px"><strong>Carb cycling built-in:</strong> Training days target full carb allocation. Rest days naturally come in 60–70g lower. No spreadsheet needed — just follow the meal plan. <strong>Fish rotation:</strong> Lepo (Mon–Sun lunches) · Bangda (Sat dinner only) · Prawns (Tue/Fri/Sat/Sun dinners).</div>
+    <div class="note-box" style="margin-top:16px"><strong>Carb cycling built-in:</strong> Training days target full carb allocation. Rest days naturally come in 60–70g lower. <strong>Fish rotation:</strong> Lepo (Mon/Wed/Thu lunch, Sat morning) · Bangda (Tue morning, Fri lunch, Sat dinner, Sun morning) · Prawns (Tue/Thu/Fri/Sat/Sun dinners).</div>
   </div>
 
   <!-- Supplement Stack -->
@@ -1052,13 +1052,13 @@ const mealDays = [
   },
   {
     label:"Tuesday — Pull A + LISS (Back, Biceps + 30-min cardio)",
-    note:"LISS in the morning, weights in the evening. Lepo at mid-morning fuels the evening session — eat it fully. Prawns at dinner keep fat near zero after training.",
+    note:"Bangda mid-morning is your omega-3 hit on a lighter activity day — the fat is well-timed. Prawns at dinner keep it lean after weights.",
     meals:[
       { n:1, time:"7:00 AM", label:"Pre-LISS", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
-      { n:2, time:"10:30 AM", label:"Mid-Morning", items:["300g Lepo (lady fish) grilled","Cucumber + tomato + coriander salad (unlimited)"], p:60, c:6, f:9, cal:321 },
+      { n:2, time:"10:30 AM", label:"Mid-Morning", items:["200g Bangda (mackerel) — dry masala grilled","Cucumber + tomato + coriander salad (unlimited)"], p:40, c:6, f:26, cal:406 },
       { n:3, time:"1:30 PM", label:"Lunch", items:["250g chicken breast (grilled)","100g brown rice — dry wt","Stir-fried palak + garlic + mushroom (2 cups)"], p:62, c:68, f:8, cal:592 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","1 orange or 2 guavas"], p:7, c:26, f:4, cal:168 },
-      { n:5, time:"8:30 PM", label:"Post-Training Dinner", items:["250g tiger prawns — steamed or light masala","2 whole wheat chapatis + 1 tsp ghee","Capsicum + broccoli + onion stir-fry (2 cups)"], p:60, c:36, f:12, cal:476 }
+      { n:5, time:"8:30 PM", label:"Post-Training Dinner", items:["250g prawns — steamed or light masala","2 whole wheat chapatis + 1 tsp ghee","Capsicum + broccoli + onion stir-fry (2 cups)"], p:50, c:36, f:12, cal:454 }
     ]
   },
   {
@@ -1074,24 +1074,24 @@ const mealDays = [
   },
   {
     label:"Thursday — Push B + HIIT (OHP focus + 15-min HIIT)",
-    note:"HIIT after weights — max 15 min. Meal 4 is the post-HIIT window: tiger prawns are perfect here — zero fat, fast protein, done in 5 min.",
+    note:"HIIT after weights — max 15 min. Meal 4 is the post-HIIT window: prawns are perfect here — near-zero fat, fast protein, cooks in under 5 min.",
     meals:[
       { n:1, time:"7:00 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
       { n:2, time:"10:30 AM", label:"Post-Workout", items:["250g chicken breast (grilled)","100g basmati rice — dry wt","Cucumber + tomato salad"], p:60, c:78, f:7, cal:620 },
       { n:3, time:"1:00 PM", label:"Lunch", items:["300g Lepo (lady fish) grilled","2 whole wheat chapatis","Spinach + mushroom + garlic stir-fry (2 cups)"], p:60, c:36, f:9, cal:465 },
-      { n:4, time:"5:00 PM", label:"Post-HIIT Snack", items:["250g tiger prawns — steamed or light masala","100g sweet potato (boiled)","Onion + tomato kachumber"], p:60, c:22, f:3, cal:356 },
+      { n:4, time:"5:00 PM", label:"Post-HIIT Snack", items:["250g prawns — steamed or light masala","100g sweet potato (boiled)","Onion + tomato kachumber"], p:50, c:22, f:3, cal:336 },
       { n:5, time:"8:00 PM", label:"Dinner", items:["200g chicken thigh (boneless, grilled)","Stir-fry broccoli + capsicum + French beans (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:36, c:36, f:20, cal:464 }
     ]
   },
   {
     label:"Friday — Pull B (Deadlifts, Back, Biceps)",
-    note:"Heavy deadlift day. Tiger prawns at dinner give fast lean protein without spiking fat before sleep. Don't skip — recovery starts at Meal 5.",
+    note:"Deadlift day. Bangda at lunch loads omega-3 for overnight recovery. Prawns at dinner keep fat low going into the weekend.",
     meals:[
       { n:1, time:"7:00 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
       { n:2, time:"10:30 AM", label:"Post-Workout", items:["300g chicken breast (grilled)","120g basmati rice — dry wt","Cucumber + onion salad"], p:72, c:95, f:9, cal:781 },
-      { n:3, time:"1:30 PM", label:"Lunch", items:["300g Lepo (lady fish) grilled — dry masala","2 whole wheat chapatis","Moringa leaves or palak + onion stir-fry (2 cups)"], p:60, c:36, f:9, cal:465 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["200g Bangda (mackerel) — dry masala grilled","2 whole wheat chapatis","Moringa leaves or palak + onion stir-fry (2 cups)"], p:40, c:36, f:32, cal:550 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","1 apple or orange"], p:7, c:30, f:4, cal:184 },
-      { n:5, time:"8:00 PM", label:"Dinner", items:["250g tiger prawns — grilled or light masala","Stir-fry capsicum + spinach + mushroom (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:60, c:36, f:12, cal:476 }
+      { n:5, time:"8:00 PM", label:"Dinner", items:["250g prawns — grilled or light masala","Stir-fry capsicum + spinach + mushroom (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:50, c:36, f:12, cal:454 }
     ]
   },
   {
@@ -1101,19 +1101,19 @@ const mealDays = [
       { n:1, time:"8:00 AM", label:"Breakfast", items:["2 boiled eggs","Black coffee"], p:12, c:1, f:10, cal:142 },
       { n:2, time:"11:00 AM", label:"Mid-Morning", items:["300g Lepo (lady fish) grilled","Large salad: cucumber, tomato, onion, coriander (unlimited)"], p:60, c:6, f:9, cal:321 },
       { n:3, time:"1:30 PM", label:"Lunch", items:["150g low-fat paneer — bhurji or grilled cubes","2 whole wheat chapatis","Palak + garlic + onion stir-fry (2 cups)","100g moong dal"], p:42, c:50, f:18, cal:532 },
-      { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g prawns — steamed or light masala","1 cup clear vegetable soup"], p:48, c:8, f:4, cal:256 },
+      { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g prawns — steamed or light masala","1 cup clear vegetable soup"], p:40, c:8, f:2, cal:228 },
       { n:5, time:"8:00 PM", label:"Dinner", items:["200g Bangda (mackerel) — dry spice grilled","Stir-fry French beans + capsicum + brinjal (2 cups)","1 whole wheat chapati"], p:43, c:18, f:28, cal:490 }
     ]
   },
   {
     label:"Sunday — Full Rest Day",
-    note:"Complete rest. Lepo mid-morning keeps protein solid on the lightest day. Palak paneer at lunch — comfort food that still hits your targets.",
+    note:"Full rest — Bangda mid-morning is perfect here, rest day fat budget is wide open. Palak paneer at lunch is comfort food that still hits your targets.",
     meals:[
       { n:1, time:"8:30 AM", label:"Breakfast", items:["2 boiled eggs","150g papaya or 1 orange","Green tea"], p:12, c:29, f:10, cal:254 },
-      { n:2, time:"11:30 AM", label:"Mid-Morning", items:["300g Lepo (lady fish) grilled","Cucumber + tomato + coriander salad (unlimited)"], p:60, c:6, f:9, cal:321 },
+      { n:2, time:"11:30 AM", label:"Mid-Morning", items:["200g Bangda (mackerel) — dry masala grilled","Cucumber + tomato + coriander salad (unlimited)"], p:40, c:6, f:26, cal:406 },
       { n:3, time:"1:30 PM", label:"Lunch", items:["200g low-fat paneer — palak paneer style (minimal oil)","2 whole wheat chapatis","Stir-fried palak + capsicum + onion (2 cups)"], p:40, c:36, f:18, cal:464 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","1 banana"], p:7, c:38, f:4, cal:216 },
-      { n:5, time:"8:00 PM", label:"Dinner", items:["200g prawns — light masala","Mixed salad: cucumber, tomato, onion, spinach (unlimited)","2 whole wheat chapatis + 1 tsp ghee"], p:48, c:34, f:8, cal:396 }
+      { n:5, time:"8:00 PM", label:"Dinner", items:["200g prawns — light masala","Mixed salad: cucumber, tomato, onion, spinach (unlimited)","2 whole wheat chapatis + 1 tsp ghee"], p:40, c:34, f:10, cal:380 }
     ]
   }
 ];
@@ -1158,13 +1158,12 @@ const recipes = [
 ];
 
 const proteinSources = [
-  { name:"Lepo (Lady Fish)", local:"Lepo / Kane", p:20, f:3, cal:107, notes:"Your primary fish. Lean, white, mild. Grills in 3 min per side. Use Mon–Sun lunches." },
-  { name:"Mackerel", local:"Bangda", p:20, f:13, cal:200, notes:"Saturday dinner only — high fat (26g/200g) but excellent omega-3. Don't use on training days." },
-  { name:"Tiger Prawns", local:"Mande Kolmbi", p:24, f:1, cal:106, notes:"Leanest protein per gram. Best post-HIIT and Friday/Tuesday dinners." },
-  { name:"Regular Prawns", local:"Kolmbi", p:20, f:1, cal:90, notes:"Budget option. Very lean. Good for Saturday snack and Sunday dinner." },
+  { name:"Lepo (Lady Fish)", local:"Lepo / Kane", p:20, f:3, cal:107, notes:"Lean white fish — Mon, Wed, Thu lunches + Sat mid-morning. Grills in 3 min per side on a hot pan." },
+  { name:"Mackerel", local:"Bangda", p:20, f:13, cal:200, notes:"Tue mid-morning, Fri lunch, Sat dinner, Sun mid-morning. 26g fat per 200g — great omega-3 hit on LISS/rest days." },
+  { name:"Prawns", local:"Kolmbi", p:20, f:1, cal:90, notes:"Near-zero fat. Tue dinner, Thu post-HIIT, Fri dinner, Sat snack, Sun dinner. Versatile — steamed or sukka masala." },
   { name:"Chicken Breast", local:"—", p:23, f:2.5, cal:120, notes:"Post-workout staple Mon–Fri. Buy fresh daily from butcher." },
-  { name:"Chicken Thigh", local:"—", p:18, f:9, cal:160, notes:"Dinner protein Mon/Wed/Thu. More flavour — count the extra fat." },
-  { name:"Paneer (Low-fat)", local:"Chena / Lo-fat Paneer", p:18, f:8, cal:149, notes:"Sat lunch + Sun lunch. Always buy low-fat variety. Bhurji or palak paneer style." }
+  { name:"Chicken Thigh", local:"—", p:18, f:9, cal:160, notes:"Dinner protein Mon/Wed/Thu. More flavour — count the extra fat carefully." },
+  { name:"Paneer (Low-fat)", local:"Chena / Lo-fat Paneer", p:18, f:8, cal:149, notes:"Sat lunch + Sun lunch. Always buy low-fat variety. Bhurji or palak paneer." }
 ];
 
 const checklistItems = [
