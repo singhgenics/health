@@ -581,20 +581,20 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 .measure-delta.neu { background: var(--surface); color: var(--muted); }
 
 /* ===== SHOPPING LIST ===== */
-.shop-btn { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .22s cubic-bezier(.34,1.56,.64,1); font-family: inherit; margin-bottom: 16px; width: 100%; justify-content: center; }
-.shop-btn:hover { border-color: var(--green); color: var(--green); box-shadow: 0 4px 14px var(--glow-green); transform: translateY(-1px); }
-.shop-btn:active { transform: scale(.97); }
-.shop-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 999; align-items: flex-end; justify-content: center; }
-.shop-modal.open { display: flex; }
-.shop-sheet { background: var(--surface); border-radius: 20px 20px 0 0; padding: 24px 20px 40px; width: 100%; max-width: 600px; max-height: 80vh; overflow-y: auto; animation: slideUp .3s cubic-bezier(.34,1.56,.64,1); }
-@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-.shop-sheet h3 { font-size: 17px; font-weight: 800; margin-bottom: 16px; }
-.shop-category { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 14px 0 8px; }
-.shop-item { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.grocery-section { margin-top: 8px; }
+.grocery-week-tabs { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.grocery-week-tab { padding: 6px 16px; border-radius: 20px; border: 1.5px solid var(--border); background: transparent; color: var(--muted); font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit; transition: all .2s; }
+.grocery-week-tab.active { border-color: var(--blue); background: var(--blue); color: #fff; }
+.grocery-phase-note { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--blue); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
+.grocery-category { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 16px 0 8px; }
+.grocery-category:first-of-type { margin-top: 0; }
+.shop-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
 .shop-item:last-child { border-bottom: none; }
-.shop-check { width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid var(--border); background: transparent; cursor: pointer; flex-shrink: 0; appearance: none; accent-color: var(--blue); }
+.shop-check { width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid var(--border); background: transparent; cursor: pointer; flex-shrink: 0; appearance: none; accent-color: var(--blue); margin-top: 2px; }
 .shop-check:checked { background: var(--blue); border-color: var(--blue); }
-.shop-close { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; font-size: 14px; font-weight: 700; color: var(--text); cursor: pointer; margin-top: 20px; font-family: inherit; }
+.shop-item-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.shop-item-detail { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.shop-qty { font-size: 12px; font-weight: 700; color: var(--green); white-space: nowrap; margin-left: auto; padding-left: 12px; flex-shrink: 0; }
 
 @media (max-width: 768px) {
   .orm-form { grid-template-columns: 1fr 1fr; }
@@ -932,7 +932,10 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 
   <div class="daily-total" id="daily-total"></div>
 
-  <button class="shop-btn" onclick="openShoppingList()">🛒 Generate Weekly Shopping List</button>
+  <hr class="section-divider">
+
+  <div class="section-title">🛒 Weekly Grocery List</div>
+  <div class="grocery-section" id="grocery-section"></div>
 
   <hr class="section-divider">
 
@@ -1062,15 +1065,6 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 </div>
 
 </main>
-
-<!-- SHOPPING LIST MODAL -->
-<div class="shop-modal" id="shop-modal" onclick="if(event.target===this)closeShoppingList()">
-  <div class="shop-sheet">
-    <h3>🛒 Weekly Shopping List</h3>
-    <div id="shop-list-content"></div>
-    <button class="shop-close" onclick="closeShoppingList()">Close</button>
-  </div>
-</div>
 
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
@@ -1377,6 +1371,7 @@ function init() {
   renderRPE();
   renderHeatmapStats();
   renderStrengthChart();
+  renderGroceryList();
   updatePhaseUI();
 }
 
@@ -1437,7 +1432,7 @@ function setTab(name) {
   window.scrollTo({top:0, behavior:'smooth'});
   if(name==='overview') updatePhaseUI();
   if(name==='training') { renderWorkout(); }
-  if(name==='nutrition') { updatePhaseUI(); renderMeals(); renderMacroAdd(); }
+  if(name==='nutrition') { updatePhaseUI(); renderMeals(); renderMacroAdd(); renderGroceryList(); }
 }
 
 // ==================== WEEK GRID ====================
@@ -2462,46 +2457,37 @@ const groceryList = {
   ]
 };
 
-function openShoppingList() {
-  const modal = document.getElementById('shop-modal');
-  const content = document.getElementById('shop-list-content');
-  if (!modal || !content) return;
+let grocerySelectedWeek = 0;
 
-  let selectedWeek = 0;
-
-  function renderList() {
-    const wk = groceryWeeks[selectedWeek];
-    content.innerHTML = `
-      <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-        ${groceryWeeks.map((w, i) => `
-          <button onclick="__shopWeek(${i})" style="padding:6px 14px;border-radius:20px;border:1.5px solid ${i===selectedWeek?'var(--blue)':'var(--border)'};background:${i===selectedWeek?'var(--blue)':'transparent'};color:${i===selectedWeek?'#fff':'var(--muted)'};font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s">${w.label}</button>
-        `).join('')}
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--muted);margin-bottom:16px">${wk.note}</div>
-      ${Object.entries(groceryList).map(([cat, items]) => `
-        <div class="shop-category">${cat}</div>
-        ${items.map(item => `
-          <label class="shop-item">
-            <input type="checkbox" class="shop-check">
-            <div style="flex:1">
-              <div style="font-size:13px;font-weight:600;color:var(--text)">${item.item}</div>
-              <div style="font-size:11px;color:var(--muted);margin-top:2px">${item.qty} &nbsp;·&nbsp; ${item.detail}</div>
-            </div>
-          </label>`).join('')}
+function renderGroceryList() {
+  const el = document.getElementById('grocery-section');
+  if (!el) return;
+  const wk = groceryWeeks[grocerySelectedWeek];
+  el.innerHTML = `
+    <div class="grocery-week-tabs">
+      ${groceryWeeks.map((w, i) => `
+        <button class="grocery-week-tab ${i===grocerySelectedWeek?'active':''}" onclick="setGroceryWeek(${i})">${w.label} <span style="font-size:10px;opacity:.7">${w.phase}</span></button>
       `).join('')}
-    `;
-  }
-
-  window.__shopWeek = function(i) { selectedWeek = i; renderList(); };
-  renderList();
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+    </div>
+    <div class="grocery-phase-note">${wk.note}</div>
+    ${Object.entries(groceryList).map(([cat, items]) => `
+      <div class="grocery-category">${cat}</div>
+      ${items.map(item => `
+        <label class="shop-item">
+          <input type="checkbox" class="shop-check">
+          <div style="flex:1;min-width:0">
+            <div class="shop-item-name">${item.item}</div>
+            <div class="shop-item-detail">${item.detail}</div>
+          </div>
+          <div class="shop-qty">${item.qty}</div>
+        </label>`).join('')}
+    `).join('')}
+  `;
 }
 
-function closeShoppingList() {
-  const modal = document.getElementById('shop-modal');
-  if (modal) modal.classList.remove('open');
-  document.body.style.overflow = '';
+function setGroceryWeek(i) {
+  grocerySelectedWeek = i;
+  renderGroceryList();
 }
 
 // ==================== STRENGTH CHART ====================
