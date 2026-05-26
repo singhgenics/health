@@ -1195,9 +1195,9 @@ const workouts = {
 const mealDays = [
   {
     label:"Monday — Chest + LISS (Bench, Incline, Flies + 20-min walk)",
-    note:"Chest day. Big post-workout meal with rice — that's your primary fuel. LISS goes after weights. Lepo at lunch is lean protein that won't drag you down in the afternoon.",
+    note:"Workout starts 8:15 AM. Eat Meal 1 at 7:30 — 45 min before you lift. Post-workout meal by 9:30 AM before hunger peaks. LISS after weights. Lepo at lunch keeps afternoon energy steady.",
     meals:[
-      { n:1, time:"6:45 AM", label:"Pre-Workout", items:["1 banana","Black coffee (unsweetened)"], p:1, c:27, f:0, cal:108 },
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee (unsweetened)"], p:1, c:27, f:0, cal:108 },
       { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast (grilled)","120g basmati rice — dry wt, cooked","Cucumber + tomato + onion salad"], p:72, c:95, f:9, cal:781 },
       { n:3, time:"1:30 PM", label:"Lunch", items:["300g Lepo (lady fish) — dry masala grilled","2 whole wheat chapatis","Stir-fried spinach + capsicum + onion (2 cups)"], p:60, c:36, f:9, cal:465 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd (dahi)","1 apple or 2 guavas"], p:7, c:30, f:4, cal:184 },
@@ -1206,21 +1206,21 @@ const mealDays = [
   },
   {
     label:"Tuesday — Back (Pull-Ups, Rows, Lats)",
-    note:"Back day — no cardio, full recovery for tomorrow's shoulders. Bangda mid-morning is your omega-3 hit. Prawns at dinner keep it lean without loading fat before the rest period.",
+    note:"Workout starts 8:15 AM. Meal 1 at 7:30 AM, post-workout by 9:30 AM. No cardio today — full recovery for shoulders tomorrow. Bangda post-workout is your omega-3 hit for the week.",
     meals:[
-      { n:1, time:"7:00 AM", label:"Pre-LISS", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
-      { n:2, time:"10:30 AM", label:"Mid-Morning", items:["200g Bangda (mackerel) — dry masala grilled","Cucumber + tomato + coriander salad (unlimited)"], p:40, c:6, f:26, cal:406 },
-      { n:3, time:"1:30 PM", label:"Lunch", items:["250g chicken breast (grilled)","100g brown rice — dry wt","Stir-fried palak + garlic + mushroom (2 cups)"], p:62, c:68, f:8, cal:592 },
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["200g Bangda (mackerel) — dry masala grilled","Cucumber + tomato + coriander salad (unlimited)"], p:40, c:6, f:26, cal:406 },
+      { n:3, time:"1:00 PM", label:"Lunch", items:["250g chicken breast (grilled)","100g brown rice — dry wt","Stir-fried palak + garlic + mushroom (2 cups)"], p:62, c:68, f:8, cal:592 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","1 orange or 2 guavas"], p:7, c:26, f:4, cal:168 },
       { n:5, time:"8:30 PM", label:"Post-Training Dinner", items:["250g prawns — steamed or light masala","2 whole wheat chapatis + 1 tsp ghee","Capsicum + broccoli + onion stir-fry (2 cups)"], p:50, c:36, f:12, cal:454 }
     ]
   },
   {
     label:"Wednesday — Shoulders + HIIT (OHP, Laterals, Rear Delts + HIIT P2+)",
-    note:"Shoulders are a volume muscle — high reps, constant tension. HIIT kicks in from Phase 2 onwards after weights. Keep Meal 1 moderate; the big fuel goes post-session.",
+    note:"Workout starts 8:15 AM. Extra carbs pre-workout — 3 dates added to banana. Post-workout by 9:30, HIIT immediately after (Phase 2+). Shoulders are a volume muscle — eat enough.",
     meals:[
-      { n:1, time:"7:00 AM", label:"Pre-Workout", items:["1 banana + 3 dates (extra glycogen)","Black coffee"], p:1, c:48, f:0, cal:196 },
-      { n:2, time:"10:30 AM", label:"Post-Workout", items:["350g chicken breast (grilled)","120g white rice — dry wt, cooked","Tomato + cucumber salad"], p:84, c:95, f:10, cal:824 },
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana + 3 dates (extra glycogen)","Black coffee"], p:1, c:48, f:0, cal:196 },
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["350g chicken breast (grilled)","120g white rice — dry wt, cooked","Tomato + cucumber salad"], p:84, c:95, f:10, cal:824 },
       { n:3, time:"1:30 PM", label:"Lunch", items:["300g Lepo (lady fish) grilled","2 whole wheat chapatis","French beans + capsicum + onion sabzi (2 cups)"], p:60, c:36, f:9, cal:465 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","150g papaya (sliced)"], p:7, c:34, f:4, cal:196 },
       { n:5, time:"8:00 PM", label:"Dinner", items:["200g chicken thigh (boneless, grilled)","Stir-fry broccoli + carrot + capsicum (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:36, c:36, f:20, cal:464 }
@@ -1228,21 +1228,21 @@ const mealDays = [
   },
   {
     label:"Thursday — Arms + LISS (Biceps, Triceps + 25-min walk)",
-    note:"Lightest systemic load of the week — use it for extra LISS. Prawns post-workout: near-zero fat, 50g fast protein, done in 5 min. Don't skip the LISS on this day.",
+    note:"Workout starts 8:15 AM. Lightest day of the week — get the LISS in after weights, no excuses. Prawns at snack: near-zero fat, 50g protein, ready in 5 min.",
     meals:[
-      { n:1, time:"7:00 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
-      { n:2, time:"10:30 AM", label:"Post-Workout", items:["250g chicken breast (grilled)","100g basmati rice — dry wt","Cucumber + tomato salad"], p:60, c:78, f:7, cal:620 },
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["250g chicken breast (grilled)","100g basmati rice — dry wt","Cucumber + tomato salad"], p:60, c:78, f:7, cal:620 },
       { n:3, time:"1:00 PM", label:"Lunch", items:["300g Lepo (lady fish) grilled","2 whole wheat chapatis","Spinach + mushroom + garlic stir-fry (2 cups)"], p:60, c:36, f:9, cal:465 },
-      { n:4, time:"5:00 PM", label:"Post-HIIT Snack", items:["250g prawns — steamed or light masala","100g sweet potato (boiled)","Onion + tomato kachumber"], p:50, c:22, f:3, cal:336 },
+      { n:4, time:"5:00 PM", label:"Afternoon Snack", items:["250g prawns — steamed or light masala","100g sweet potato (boiled)","Onion + tomato kachumber"], p:50, c:22, f:3, cal:336 },
       { n:5, time:"8:00 PM", label:"Dinner", items:["200g chicken thigh (boneless, grilled)","Stir-fry broccoli + capsicum + French beans (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:36, c:36, f:20, cal:464 }
     ]
   },
   {
     label:"Friday — Legs (Squat, RDL, Press, Hip Thrust)",
-    note:"Heaviest session of the week. Extra carbs pre-workout — dates or extra banana. Eat the full post-workout rice meal. Bangda at lunch loads omega-3 for overnight recovery.",
+    note:"Workout starts 8:15 AM. Heaviest session of the week — eat Meal 1 at 7:30 with dates for extra glycogen. Full post-workout meal by 9:30 AM, no skimping. No cardio today.",
     meals:[
-      { n:1, time:"7:00 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
-      { n:2, time:"10:30 AM", label:"Post-Workout", items:["300g chicken breast (grilled)","120g basmati rice — dry wt","Cucumber + onion salad"], p:72, c:95, f:9, cal:781 },
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana + 3 dates (extra glycogen)","Black coffee"], p:1, c:48, f:0, cal:196 },
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast (grilled)","120g basmati rice — dry wt","Cucumber + onion salad"], p:72, c:95, f:9, cal:781 },
       { n:3, time:"1:30 PM", label:"Lunch", items:["200g Bangda (mackerel) — dry masala grilled","2 whole wheat chapatis","Moringa leaves or palak + onion stir-fry (2 cups)"], p:40, c:36, f:32, cal:550 },
       { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","1 apple or orange"], p:7, c:30, f:4, cal:184 },
       { n:5, time:"8:00 PM", label:"Dinner", items:["250g prawns — grilled or light masala","Stir-fry capsicum + spinach + mushroom (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:50, c:36, f:12, cal:454 }
@@ -2394,62 +2394,71 @@ function renderMeasures() {
 }
 
 // ==================== SHOPPING LIST ====================
-const weeklyShoppingList = {
-  "Proteins": [
-    "Lepo (Lady Fish / Kane) — ~1.4 kg for the week (Mon, Wed, Thu lunches + Sat mid-morning)",
-    "Bangda (Mackerel) — ~1 kg for the week (Tue morning, Fri lunch, Sat dinner, Sun morning)",
-    "Prawns (Kolmbi, regular) — ~1.2 kg for the week (Tue dinner, Thu snack, Fri dinner, Sat snack, Sun dinner)",
-    "Chicken Breast — ~1.6 kg (Mon–Fri post-workout + lunches)",
-    "Chicken Thigh (boneless) — ~700g (Mon, Wed, Thu dinner)",
-    "Low-fat Paneer — ~350g (Sat lunch + Sun lunch)",
-    "Eggs — 1 dozen (Sat/Sun breakfast + egg white omelette option)"
+// Weekly grocery list — quantities exact from meal plan, same every week (meal plan doesn't change between phases)
+const groceryWeeks = [
+  { label:"Weeks 1–4", phase:"Phase 1", badge:"P1", note:"Foundation phase. LISS on Mon + Thu only. Buy fish fresh on shopping day — Lepo and Bangda don't keep more than 2 days." },
+  { label:"Weeks 5–8", phase:"Phase 2", badge:"P2", note:"Intensify phase. HIIT added on Wed — you may feel slightly hungrier mid-week. Quantities stay the same; don't increase food." },
+  { label:"Weeks 9–12", phase:"Phase 3", badge:"P3", note:"Peak phase. Sat LISS added. Hunger will be highest here — stick to the plan and lean on vegetables to fill volume." }
+];
+
+const groceryList = {
+  "🐟 Proteins": [
+    { item:"Chicken Breast (boneless, skinless)", qty:"1.5 kg", detail:"Mon 300g · Tue 250g · Wed 350g · Thu 250g · Fri 300g" },
+    { item:"Chicken Thigh (boneless)", qty:"650g", detail:"Mon 250g · Wed 200g · Thu 200g" },
+    { item:"Lepo (Lady Fish / Kane)", qty:"1.2 kg", detail:"Mon lunch 300g · Wed lunch 300g · Thu lunch 300g · Sat 300g" },
+    { item:"Bangda (Mackerel)", qty:"800g", detail:"Tue 200g · Fri lunch 200g · Sat dinner 200g · Sun 200g" },
+    { item:"Prawns (Kolmbi, regular — shelled weight)", qty:"1.15 kg", detail:"Tue dinner 250g · Thu snack 250g · Fri dinner 250g · Sat 200g · Sun 200g" },
+    { item:"Low-fat Paneer", qty:"350g", detail:"Sat lunch 150g · Sun lunch 200g" },
+    { item:"Eggs", qty:"6 eggs", detail:"Sat breakfast 2 · Sun breakfast 2 · buffer 2" }
   ],
-  "Grains & Carbs": [
-    "Basmati / White Rice — 500g",
-    "Brown Rice — 200g",
-    "Whole Wheat Chapati (atta) — 1 kg bag",
-    "Sweet Potato — 200g (Thu snack)",
-    "Banana — 7 (one per training day pre-workout)",
-    "Dates — small pack (Wed pre-workout boost)"
+  "🌾 Grains & Carbs": [
+    { item:"Basmati / White Rice (dry weight)", qty:"460g", detail:"Mon 120g · Wed 120g · Thu 100g · Fri 120g" },
+    { item:"Brown Rice (dry weight)", qty:"100g", detail:"Tue lunch only" },
+    { item:"Whole Wheat Atta (for chapatis)", qty:"750g", detail:"~25 chapatis/week across 7 days — 30g atta per chapati" },
+    { item:"Moong Dal", qty:"100g", detail:"Sat lunch only" },
+    { item:"Sweet Potato", qty:"100g", detail:"Thu afternoon snack" }
   ],
-  "Vegetables": [
-    "Spinach (Palak) — 2 large bunches",
-    "Broccoli — 2 heads",
-    "Capsicum (mixed) — 500g",
-    "Onions — 1 kg",
-    "Tomatoes — 1 kg",
-    "Cucumber — 4–5",
-    "French Beans — 250g",
-    "Mushrooms — 200g",
-    "Carrot — 2–3",
-    "Brinjal — 1–2",
-    "Moringa leaves (drumstick leaves) — if available, 1 bunch",
-    "Garlic — 2 heads",
-    "Green Chili — 1 pack",
-    "Fresh Coriander — 2 bunches"
+  "🍌 Fruits": [
+    { item:"Bananas", qty:"8", detail:"Mon·Tue·Wed·Thu·Fri pre-workout (1 each) + Sun snack (1) + buffer 2" },
+    { item:"Dates", qty:"9 dates", detail:"Wed pre-workout 3 dates · Fri pre-workout 3 dates · buffer 3" },
+    { item:"Apple or Orange", qty:"3", detail:"Mon snack · Tue snack (orange) · Fri snack" },
+    { item:"Guavas", qty:"4–5", detail:"Alternative for Mon or Tue snack" },
+    { item:"Papaya", qty:"1 medium (~400g)", detail:"Wed snack 150g · Sun breakfast 150g" }
   ],
-  "Dairy & Fats": [
-    "Low-fat Curd (Dahi) — 1 kg tub",
-    "Ghee — small jar (1 tsp/dinner)",
-    "Coconut Oil — small bottle (for Goan dishes only)"
+  "🥬 Vegetables": [
+    { item:"Spinach (Palak)", qty:"500g", detail:"Mon lunch · Tue lunch · Thu lunch · Fri dinner · Sat lunch · Sun lunch" },
+    { item:"Broccoli", qty:"400g", detail:"Mon dinner · Tue dinner · Wed dinner · Thu dinner" },
+    { item:"Capsicum (mixed colours)", qty:"500g", detail:"Used Mon–Fri lunch and dinner stir-fries" },
+    { item:"Onions", qty:"1 kg", detail:"Daily use — stir-fries, salads, marinades" },
+    { item:"Tomatoes", qty:"1 kg", detail:"Daily salads + cooking" },
+    { item:"Cucumber", qty:"6–7", detail:"Daily salad — every training day post-workout" },
+    { item:"French Beans", qty:"300g", detail:"Mon dinner · Thu dinner · Sat dinner" },
+    { item:"Mushrooms", qty:"200g", detail:"Tue lunch · Fri dinner" },
+    { item:"Carrot", qty:"1 large (100g)", detail:"Wed dinner stir-fry" },
+    { item:"Brinjal (Eggplant)", qty:"1 medium", detail:"Sat dinner" },
+    { item:"Garlic", qty:"2 bulbs", detail:"Tue lunch · Sat lunch + marinades" },
+    { item:"Green Chili", qty:"1 small pack (6–8 pieces)", detail:"Multiple stir-fries + fish masala" },
+    { item:"Fresh Coriander", qty:"2 bunches", detail:"Fish garnish + chutneys" },
+    { item:"Curry Leaves", qty:"1 sprig", detail:"Prawn sukka masala" },
+    { item:"Moringa leaves (Drumstick leaves)", qty:"1 bunch if available", detail:"Fri lunch — optional, palak works too" }
   ],
-  "Fruits": [
-    "Apple or Orange — 4–5",
-    "Guavas — 6–8",
-    "Papaya — 1 medium"
+  "🥛 Dairy & Fats": [
+    { item:"Low-fat Curd (Dahi)", qty:"1 kg tub", detail:"Mon snack · Tue snack · Fri snack · Sun snack" },
+    { item:"Ghee", qty:"1 tsp × 5 dinners = 25g", detail:"Mon·Tue·Wed·Thu·Fri dinner chapatis — buy a 200g jar, lasts 2 weeks" },
+    { item:"Coconut Oil", qty:"~25 ml", detail:"Fish frying only — tiny quantities, 1 bottle lasts the 12 weeks" }
   ],
-  "Pantry / Spices": [
-    "Black Coffee / Instant Coffee",
-    "Turmeric (Haldi)",
-    "Kashmiri Red Chili Powder",
-    "Garam Masala",
-    "Cumin Seeds + Powder",
-    "Coriander Powder",
-    "Ginger-Garlic Paste",
-    "Rice Flour (for Bangda crispiness)",
-    "Curry Leaves — fresh pack",
-    "Moong Dal — 150g",
-    "Lemon / Lime — 6–8"
+  "🧂 Pantry & Spices": [
+    { item:"Black Coffee (instant or ground)", qty:"Weekly as needed", detail:"Pre-workout every morning — 5–7 serves/week" },
+    { item:"Turmeric (Haldi)", qty:"Restock if low", detail:"Used in every fish + chicken marinade" },
+    { item:"Kashmiri Red Chili Powder", qty:"Restock if low", detail:"Fish masala, chicken marinade" },
+    { item:"Garam Masala", qty:"Restock if low", detail:"Chicken marinade" },
+    { item:"Cumin Seeds + Cumin Powder", qty:"Restock if low", detail:"Tadka + marinades" },
+    { item:"Coriander Powder", qty:"Restock if low", detail:"Fish and prawn masala" },
+    { item:"Ginger-Garlic Paste", qty:"1 jar or fresh", detail:"Used 5–6 days/week" },
+    { item:"Rice Flour", qty:"50g", detail:"Bangda crispiness coating — tiny amount, 1 pack lasts months" },
+    { item:"Salt, Pepper", qty:"As needed", detail:"—" },
+    { item:"Lemon / Lime", qty:"8–10", detail:"Fish garnish + marinades — buy fresh 2×/week" },
+    { item:"Mustard Oil (small bottle)", qty:"~50 ml", detail:"Chicken tikka marinade only — lasts weeks" }
   ]
 };
 
@@ -2457,14 +2466,34 @@ function openShoppingList() {
   const modal = document.getElementById('shop-modal');
   const content = document.getElementById('shop-list-content');
   if (!modal || !content) return;
-  content.innerHTML = Object.entries(weeklyShoppingList).map(([cat, items]) => `
-    <div class="shop-category">${cat}</div>
-    ${items.map(item => `
-      <label class="shop-item">
-        <input type="checkbox" class="shop-check">
-        <span>${item}</span>
-      </label>`).join('')}
-  `).join('');
+
+  let selectedWeek = 0;
+
+  function renderList() {
+    const wk = groceryWeeks[selectedWeek];
+    content.innerHTML = `
+      <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+        ${groceryWeeks.map((w, i) => `
+          <button onclick="__shopWeek(${i})" style="padding:6px 14px;border-radius:20px;border:1.5px solid ${i===selectedWeek?'var(--blue)':'var(--border)'};background:${i===selectedWeek?'var(--blue)':'transparent'};color:${i===selectedWeek?'#fff':'var(--muted)'};font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s">${w.label}</button>
+        `).join('')}
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--muted);margin-bottom:16px">${wk.note}</div>
+      ${Object.entries(groceryList).map(([cat, items]) => `
+        <div class="shop-category">${cat}</div>
+        ${items.map(item => `
+          <label class="shop-item">
+            <input type="checkbox" class="shop-check">
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:600;color:var(--text)">${item.item}</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:2px">${item.qty} &nbsp;·&nbsp; ${item.detail}</div>
+            </div>
+          </label>`).join('')}
+      `).join('')}
+    `;
+  }
+
+  window.__shopWeek = function(i) { selectedWeek = i; renderList(); };
+  renderList();
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
