@@ -339,9 +339,12 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 
 @media (max-width: 768px) {
   /* Header */
-  .header { padding: 10px 14px; padding-top: calc(10px + env(safe-area-inset-top)); gap: 8px; }
+  .header { padding: 10px 14px; padding-top: calc(10px + env(safe-area-inset-top)); gap: 6px; flex-wrap: wrap; }
+  .logo { flex: 1; }
   .client-tag { display: none; }
-  .phase-pills { order: 3; width: 100%; gap: 4px; }
+  .hdr-today { display: none; }
+  .install-btn, .install-btn.show { display: none !important; }
+  .phase-pills { order: 3; width: 100%; gap: 4px; margin-left: 0; }
   .phase-pill { flex: 1; text-align: center; font-size: 11px; padding: 7px 4px; }
   .pl { display: none; }
   .ps { display: inline; }

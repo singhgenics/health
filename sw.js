@@ -1,4 +1,4 @@
-const CACHE = 'recompsys-v8';
+const CACHE = 'recompsys-v9';
 const ASSETS = [
   './',
   './index.html',
