@@ -1217,18 +1217,18 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
 // ==================== DATA ====================
 
 const phases = [
-  { id:1, name:"Phase 1", weeks:"1–4", calories:2800, deficit:-300, protein:240, carbs:246, fat:95, cardioMin:45, cardioDesc:"LISS ×2 (Mon + Fri)", phaseNote:"<strong>Phase 1 Focus:</strong> Lock in working weights on every compound. Push and Pull twice a week — prioritise quality reps on the big lifts. LISS on Mon and Fri. Legs once a week: go all-in when you do." },
-  { id:2, name:"Phase 2", weeks:"5–8", calories:2700, deficit:-400, protein:240, carbs:218, fat:95, cardioMin:65, cardioDesc:"LISS ×2 + HIIT ×1 (Thu)", phaseNote:"<strong>Phase 2 Focus:</strong> Add 1 set to every compound. Push weights 5–10% heavier. Add HIIT on Thursday after Push B. Legs stay once a week — add 2.5kg to squat weekly. Cut HIIT first if strength drops — never sacrifice the iron." },
-  { id:3, name:"Phase 3", weeks:"9–12", calories:2600, deficit:-500, protein:240, carbs:190, fat:95, cardioMin:90, cardioDesc:"LISS ×3 + HIIT ×1", phaseNote:"<strong>Phase 3 Focus:</strong> PR attempts on Bench, OHP, Squat and Weighted Pull-Ups in weeks 9 & 11. Drop sets on all isolation work. Add Sat LISS. This is the peak — protect the PRs, push the cardio." }
+  { id:1, name:"Phase 1", weeks:"1–4", calories:2800, deficit:-300, protein:240, carbs:246, fat:95, cardioMin:45, cardioDesc:"LISS ×2 (Mon + Fri)", phaseNote:"<strong>Phase 1 Focus:</strong> Lock in working weights on every compound. Push and Pull twice a week — prioritise quality reps on the big lifts. LISS on Mon and Fri after weights. Legs once a week: go all-in when you do. Build the cardio habit before adding volume." },
+  { id:2, name:"Phase 2", weeks:"5–8", calories:2700, deficit:-400, protein:240, carbs:218, fat:95, cardioMin:125, cardioDesc:"LISS ×4 + HIIT ×1 (Mon, Tue, Fri, Sat + Thu HIIT)", phaseNote:"<strong>Phase 2 Focus:</strong> Add 1 set to every compound. Push weights 5–10% heavier. Add LISS on Tue (20 min) and Sat (30 min). Add HIIT on Thursday after Push B. Cut HIIT first if strength drops — never sacrifice the iron." },
+  { id:3, name:"Phase 3", weeks:"9–12", calories:2600, deficit:-500, protein:240, carbs:190, fat:95, cardioMin:155, cardioDesc:"LISS ×4 + HIIT ×1 (Mon, Tue, Fri, Sat + Thu HIIT)", phaseNote:"<strong>Phase 3 Focus:</strong> PR attempts on Bench, OHP, Squat and Weighted Pull-Ups in weeks 9 & 11. Drop sets on all isolation work. Sat LISS extended to 45 min. This is the peak — protect the PRs, push the cardio." }
 ];
 
 const schedule = [
   { day:"Mon", short:"M", session:"Push A", focus:"Chest + Shoulders + Triceps", muscles:["Chest","Front Delts","Triceps"], cardio:{type:"LISS",p1:20,p2:25,p3:30} },
-  { day:"Tue", short:"T", session:"Pull A", focus:"Back Width + Biceps", muscles:["Lats","Upper Back","Biceps"], cardio:null },
+  { day:"Tue", short:"T", session:"Pull A", focus:"Back Width + Biceps", muscles:["Lats","Upper Back","Biceps"], cardio:{type:"LISS",p1:0,p2:20,p3:25} },
   { day:"Wed", short:"W", session:"Legs", focus:"Full Lower Body", muscles:["Quads","Hamstrings","Glutes","Calves"], cardio:null },
   { day:"Thu", short:"Th", session:"Push B", focus:"Shoulders + Chest + Triceps", muscles:["Shoulders","Traps","Chest","Triceps"], cardio:{type:"HIIT",p1:0,p2:20,p3:20} },
   { day:"Fri", short:"F", session:"Pull B", focus:"Back Thickness + Traps + Biceps", muscles:["Mid Back","Traps","Rear Delts","Biceps"], cardio:{type:"LISS",p1:25,p2:30,p3:35} },
-  { day:"Sat", short:"Sa", session:"LISS / Swim", focus:"Active Recovery", muscles:[], cardio:{type:"LISS",p1:0,p2:0,p3:45} },
+  { day:"Sat", short:"Sa", session:"LISS / Swim", focus:"Active Recovery", muscles:[], cardio:{type:"LISS",p1:0,p2:30,p3:45} },
   { day:"Sun", short:"Su", session:"Full Rest", focus:"Recovery", muscles:[], cardio:null }
 ];
 
@@ -1246,7 +1246,8 @@ const workouts = {
     ]
   },
   1: { // Tuesday — Pull A (Back Width + Biceps)
-    dayNote: "Pull A — lats and width take priority. Drive elbows to hip pockets, not hands to chest. If you feel it in your biceps more than your back, reduce weight and slow the eccentric. Biceps come last — strict form only.",
+    cardio: { type:"LISS", details:"Incline 4% · Speed 5.5–6 km/h", rounds:null },
+    dayNote: "Pull A — lats and width take priority. Drive elbows to hip pockets, not hands to chest. If you feel it in your biceps more than your back, reduce weight and slow the eccentric. Biceps come last — strict form only. LISS after weights from Phase 2.",
     exercises: [
       { name:"Weighted Pull-Ups", type:"compound", sets:[4,5,5], reps:"5–8", rest:180, cue:"Dead hang start. Pull elbows to hip pockets — not chin to bar. Control the descent fully.", p3note:"PR attempt weeks 9 & 11" },
       { name:"Barbell Bent-Over Row (overhand)", type:"compound", sets:[4,5,5], reps:"6–8", rest:180, cue:"Chest up, slight knee bend. Bar to lower sternum — drives mid-back thickness.", p3note:null },
@@ -1307,8 +1308,8 @@ const mealDays = [
     ]
   },
   {
-    label:"Tuesday — Pull A (Pull-Ups, Rows, Curls)",
-    note:"Workout starts 8:15 AM. Meal 1 at 7:30 AM, post-workout by 9:30 AM. No cardio today — full recovery for leg day tomorrow. Bangda post-workout is your omega-3 hit for the week.",
+    label:"Tuesday — Pull A + LISS P2+ (Pull-Ups, Rows, Curls + walk)",
+    note:"Workout starts 8:15 AM. Meal 1 at 7:30 AM, post-workout by 9:30 AM. Phase 1: no cardio today. Phase 2+: 20–25 min LISS after weights — back session is moderate CNS load, handles it well. Bangda post-workout is your omega-3 hit for the week.",
     meals:[
       { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
       { n:2, time:"9:30 AM", label:"Post-Workout", items:["200g Bangda (mackerel) — dry masala grilled","Cucumber + tomato + coriander salad (unlimited)"], p:40, c:6, f:26, cal:406 },
