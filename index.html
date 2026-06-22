@@ -1032,6 +1032,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 24px; }
     <div class="meal-day-btn" onclick="setMealDay(2)"><span class="pl">Wed — Legs</span><span class="ps">Wed</span></div>
     <div class="meal-day-btn" onclick="setMealDay(3)"><span class="pl">Thu — Push B + HIIT</span><span class="ps">Thu</span></div>
     <div class="meal-day-btn" onclick="setMealDay(4)"><span class="pl">Fri — Pull B + LISS</span><span class="ps">Fri</span></div>
+
     <div class="meal-day-btn" onclick="setMealDay(5)"><span class="pl">Sat — Rest / LISS</span><span class="ps">Sat</span></div>
     <div class="meal-day-btn" onclick="setMealDay(6)"><span class="pl">Sun — Rest</span><span class="ps">Sun</span></div>
   </div>
@@ -1297,63 +1298,63 @@ const workouts = {
 
 const mealDays = [
   {
-    label:"Monday — Push A + LISS (Bench, OHP, Laterals, Triceps + walk)",
-    note:"Workout starts 8:15 AM. Eat Meal 1 at 7:30 — 45 min before you lift. Post-workout meal by 9:30 AM. LISS after weights. Chest is the primary mover today — bench before everything else.",
+    label:"Monday — Push A + LISS",
+    note:"Push session + morning walk. Carbs go pre and post workout — that's it. If evening cravings hit, the answer is already in your fridge: 2 boiled eggs or a bowl of plain dahi. Keep both stocked. No packets, no biscuits.",
     meals:[
-      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee (unsweetened)"], p:1, c:27, f:0, cal:108 },
-      { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast (grilled)","120g basmati rice — dry wt, cooked","Cucumber + tomato + onion salad"], p:72, c:95, f:9, cal:781 },
-      { n:3, time:"1:30 PM", label:"Lunch", items:["300g Lepo (lady fish) — dry masala grilled","2 whole wheat chapatis","Stir-fried spinach + capsicum + onion (2 cups)"], p:60, c:36, f:9, cal:465 },
-      { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd (dahi)","1 apple or 2 guavas"], p:7, c:30, f:4, cal:184 },
-      { n:5, time:"8:00 PM", label:"Dinner", items:["250g chicken thigh (boneless, grilled)","Stir-fry broccoli + French beans + capsicum (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:45, c:36, f:22, cal:514 }
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee (no milk, no sugar)"], p:1, c:27, f:0, cal:108 },
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast — any home prep (bhuna, light curry, grilled)","120g basmati rice — dry wt, cooked","Cucumber + tomato + coriander salad (unlimited, no dressing)"], p:72, c:95, f:9, cal:781 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["200g Lepo or Bangda — home masala grilled (no deep fry)","2 whole wheat chapati","Palak + capsicum stir-fry (2 cups, any home sabzi)"], p:40, c:36, f:18, cal:460 },
+      { n:4, time:"5:00 PM", label:"Evening Snack", items:["3 boiled eggs — always keep a batch boiled in the fridge","200g low-fat curd (plain dahi, no sugar)"], p:25, c:4, f:15, cal:251 },
+      { n:5, time:"8:00 PM", label:"Dinner", items:["250g chicken thigh boneless — home curry (1 tsp oil only)","Mixed veg sabzi — broccoli / beans / capsicum (2 cups)","2 whole wheat chapati + 1 tsp ghee"], p:45, c:38, f:22, cal:526 }
     ]
   },
   {
-    label:"Tuesday — Pull A + LISS P2+ (Pull-Ups, Rows, Curls + walk)",
-    note:"Workout starts 8:15 AM. Meal 1 at 7:30 AM, post-workout by 9:30 AM. Phase 1: no cardio today. Phase 2+: 20–25 min LISS after weights — back session is moderate CNS load, handles it well. Bangda post-workout is your omega-3 hit for the week.",
+    label:"Tuesday — Pull A",
+    note:"Pull day — back and biceps, no cardio. Post-workout meal is the most important. Bangda at lunch is your weekly omega-3 hit for recovery. Afternoon is the classic munchies window — curd is already in the fridge. Eat that before you open anything else.",
+    meals:[
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee (no sugar)"], p:1, c:27, f:0, cal:108 },
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast — home bhuna or light curry","100g brown rice — dry wt, cooked","Tomato + onion + cucumber salad"], p:72, c:68, f:8, cal:636 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["200g Bangda (mackerel) — home dry masala grilled (no deep fry)","2 whole wheat chapati","Palak + garlic + mushroom stir-fry (2 cups)"], p:40, c:36, f:24, cal:524 },
+      { n:4, time:"5:00 PM", label:"Evening Snack", items:["250g low-fat curd (plain dahi — no sugar, no flavouring)","1 orange or 2 guavas"], p:9, c:26, f:5, cal:185 },
+      { n:5, time:"8:30 PM", label:"Dinner", items:["250g prawns — steamed or light home masala (not deep fried)","Capsicum + broccoli + onion stir-fry (2 cups)","2 whole wheat chapati + 1 tsp ghee"], p:50, c:38, f:12, cal:456 }
+    ]
+  },
+  {
+    label:"Wednesday — Legs",
+    note:"Heaviest session of the week — extra carbs are mandatory today. Add 3 dates to your banana. Cook the post-workout meal the night before if needed — post-leg hunger is real and it's exactly when junk food looks most tempting. Have your meal ready before you start lifting.",
+    meals:[
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana + 3 dates (extra glycogen for squats)","Black coffee"], p:1, c:48, f:0, cal:196 },
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["350g chicken breast — home bhuna or light curry","120g basmati rice — dry wt, cooked","Cucumber + onion + tomato salad"], p:84, c:95, f:10, cal:816 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["300g Lepo (lady fish) — home masala grilled","2 whole wheat chapati","French beans + capsicum + onion sabzi (2 cups)"], p:60, c:36, f:9, cal:465 },
+      { n:4, time:"5:00 PM", label:"Evening Snack", items:["250g low-fat curd","100g sweet potato — boiled (not fried, no butter)"], p:9, c:34, f:5, cal:221 },
+      { n:5, time:"8:00 PM", label:"Dinner", items:["300g chicken thigh boneless — home curry (light oil)","Mixed home sabzi — any 2 veg (2 cups)","2 whole wheat chapati + 1 tsp ghee"], p:54, c:38, f:24, cal:578 }
+    ]
+  },
+  {
+    label:"Thursday — Push B + HIIT",
+    note:"HIIT day — highest carb need of the week. Extra dates pre-workout, OHP is primary today. After HIIT the hunger spike is strong and it is exactly when processed carbs feel most appealing. Meal 4 is built for that moment. Eat it. That craving was always just real hunger — now you have a clean answer.",
+    meals:[
+      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana + 3 dates (extra glycogen for HIIT)","Black coffee"], p:1, c:48, f:0, cal:196 },
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["350g chicken breast — home style","120g white rice — dry wt, cooked","Tomato + coriander salad"], p:84, c:95, f:10, cal:816 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["300g Lepo grilled — any home masala prep","2 whole wheat chapati","Palak + garlic stir-fry (2 cups)"], p:60, c:36, f:9, cal:465 },
+      { n:4, time:"5:00 PM", label:"Post-HIIT Snack", items:["250g low-fat curd","1 banana — replaces the carb craving cleanly"], p:9, c:34, f:5, cal:221 },
+      { n:5, time:"8:00 PM", label:"Dinner", items:["250g chicken thigh — home curry (minimal oil)","Mixed veg sabzi (2 cups)","2 whole wheat chapati + 1 tsp ghee"], p:45, c:38, f:22, cal:526 }
+    ]
+  },
+  {
+    label:"Friday — Pull B + LISS",
+    note:"Last training day of the week. LISS after weights closes it. Tonight matters as much as the workout — plan Saturday and Sunday meals before you go to bed. What is in your fridge this weekend determines whether the new habit holds. Prawns and curd ready to go = weekend sorted.",
     meals:[
       { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
-      { n:2, time:"9:30 AM", label:"Post-Workout", items:["200g Bangda (mackerel) — dry masala grilled","Cucumber + tomato + coriander salad (unlimited)"], p:40, c:6, f:26, cal:406 },
-      { n:3, time:"1:00 PM", label:"Lunch", items:["250g chicken breast (grilled)","100g brown rice — dry wt","Stir-fried palak + garlic + mushroom (2 cups)"], p:62, c:68, f:8, cal:592 },
-      { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","1 orange or 2 guavas"], p:7, c:26, f:4, cal:168 },
-      { n:5, time:"8:30 PM", label:"Post-Training Dinner", items:["250g prawns — steamed or light masala","2 whole wheat chapatis + 1 tsp ghee","Capsicum + broccoli + onion stir-fry (2 cups)"], p:50, c:36, f:12, cal:454 }
+      { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast — home bhuna or grilled","100g basmati rice — dry wt, cooked","Cucumber + tomato salad"], p:72, c:78, f:8, cal:664 },
+      { n:3, time:"1:30 PM", label:"Lunch", items:["200g Bangda (mackerel) — home dry masala grilled","2 whole wheat chapati","Moringa leaves or palak + onion sabzi (2 cups)"], p:40, c:36, f:24, cal:516 },
+      { n:4, time:"5:00 PM", label:"Evening Snack", items:["3 boiled eggs","200g low-fat curd"], p:25, c:4, f:15, cal:251 },
+      { n:5, time:"8:00 PM", label:"Dinner", items:["250g prawns — light home masala or steamed","Capsicum + spinach stir-fry (2 cups)","2 whole wheat chapati + 1 tsp ghee"], p:50, c:38, f:12, cal:456 }
     ]
   },
   {
-    label:"Wednesday — Legs (Squat, RDL, Press, Hip Thrust)",
-    note:"Workout starts 8:15 AM. Heaviest session of the week — eat Meal 1 at 7:30 with dates for extra glycogen. Full post-workout meal by 9:30 AM, no skimping. No cardio today — CNS recovery is the priority.",
-    meals:[
-      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana + 3 dates (extra glycogen)","Black coffee"], p:1, c:48, f:0, cal:196 },
-      { n:2, time:"9:30 AM", label:"Post-Workout", items:["350g chicken breast (grilled)","120g white rice — dry wt, cooked","Tomato + cucumber salad"], p:84, c:95, f:10, cal:824 },
-      { n:3, time:"1:30 PM", label:"Lunch", items:["300g Lepo (lady fish) grilled","2 whole wheat chapatis","French beans + capsicum + onion sabzi (2 cups)"], p:60, c:36, f:9, cal:465 },
-      { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","150g papaya (sliced)"], p:7, c:34, f:4, cal:196 },
-      { n:5, time:"8:00 PM", label:"Dinner", items:["200g chicken thigh (boneless, grilled)","Stir-fry broccoli + carrot + capsicum (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:36, c:36, f:20, cal:464 }
-    ]
-  },
-  {
-    label:"Thursday — Push B + HIIT (OHP, Arnold, Laterals, Rear Delts + HIIT P2+)",
-    note:"Workout starts 8:15 AM. Extra carbs pre-workout — 3 dates added to banana. Shoulders lead today; OHP is the primary. HIIT after weights in Phase 2+. Don't skip rear delts — they balance the push volume.",
-    meals:[
-      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
-      { n:2, time:"9:30 AM", label:"Post-Workout", items:["250g chicken breast (grilled)","100g basmati rice — dry wt","Cucumber + tomato salad"], p:60, c:78, f:7, cal:620 },
-      { n:3, time:"1:00 PM", label:"Lunch", items:["300g Lepo (lady fish) grilled","2 whole wheat chapatis","Spinach + mushroom + garlic stir-fry (2 cups)"], p:60, c:36, f:9, cal:465 },
-      { n:4, time:"5:00 PM", label:"Afternoon Snack", items:["250g prawns — steamed or light masala","100g sweet potato (boiled)","Onion + tomato kachumber"], p:50, c:22, f:3, cal:336 },
-      { n:5, time:"8:00 PM", label:"Dinner", items:["200g chicken thigh (boneless, grilled)","Stir-fry broccoli + capsicum + French beans (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:36, c:36, f:20, cal:464 }
-    ]
-  },
-  {
-    label:"Friday — Pull B + LISS (Rows, Face Pulls, Shrugs, Curls + walk)",
-    note:"Workout starts 8:15 AM. Meal 1 at 7:30 AM, post-workout by 9:30 AM. Back thickness and trap work today — underhand rows hit lower lats differently from Tuesday. LISS after weights to close the week.",
-    meals:[
-      { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana + 3 dates (extra glycogen)","Black coffee"], p:1, c:48, f:0, cal:196 },
-      { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast (grilled)","120g basmati rice — dry wt","Cucumber + onion salad"], p:72, c:95, f:9, cal:781 },
-      { n:3, time:"1:30 PM", label:"Lunch", items:["200g Bangda (mackerel) — dry masala grilled","2 whole wheat chapatis","Moringa leaves or palak + onion stir-fry (2 cups)"], p:40, c:36, f:32, cal:550 },
-      { n:4, time:"5:00 PM", label:"Evening Snack", items:["200g low-fat curd","1 apple or orange"], p:7, c:30, f:4, cal:184 },
-      { n:5, time:"8:00 PM", label:"Dinner", items:["250g prawns — grilled or light masala","Stir-fry capsicum + spinach + mushroom (2 cups)","2 whole wheat chapatis + 1 tsp ghee"], p:50, c:36, f:12, cal:454 }
-    ]
-  },
-  {
-    label:"Saturday — LISS / Active Recovery (45-min walk or swim)",
-    note:"Lower carb, lower cal day. Lepo mid-morning keeps protein high without the fat hit. Bangda at dinner is your weekly omega-3 dose — keep it to 200g, skip the second chapati.",
+    label:"Saturday — Active Recovery / LISS",
+    note:"No weights — lower carbs today. Saturday is the highest-risk day for old habits. Cook all three main meals in the morning so you are never in a position where hunger and no food = processed junk. If cravings hit: boiled eggs, curd, roasted chana, or cut fruit. That is the entire snack menu.",
     meals:[
       { n:1, time:"8:00 AM", label:"Breakfast", items:["2 boiled eggs","Black coffee"], p:12, c:1, f:10, cal:142 },
       { n:2, time:"11:00 AM", label:"Mid-Morning", items:["300g Lepo (lady fish) grilled","Large salad: cucumber, tomato, onion, coriander (unlimited)"], p:60, c:6, f:9, cal:321 },
@@ -1364,7 +1365,7 @@ const mealDays = [
   },
   {
     label:"Sunday — Full Rest Day",
-    note:"Full rest — Bangda mid-morning is perfect here, rest day fat budget is wide open. Palak paneer at lunch is comfort food that still hits your targets.",
+    note:"Complete rest. Lower carbs, higher protein. Home-cooked comfort food is fine — palak paneer, egg curry, dal, any home sabzi. The rule is simple: if it was cooked at home with real ingredients, eat it. If it came in a packet, it does not belong in this plan.",
     meals:[
       { n:1, time:"8:30 AM", label:"Breakfast", items:["2 boiled eggs","150g papaya or 1 orange","Green tea"], p:12, c:29, f:10, cal:254 },
       { n:2, time:"11:30 AM", label:"Mid-Morning", items:["200g Bangda (mackerel) — dry masala grilled","Cucumber + tomato + coriander salad (unlimited)"], p:40, c:6, f:26, cal:406 },
