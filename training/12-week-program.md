@@ -1,16 +1,16 @@
 # 12-Week Training Program
-**5-Day Push/Pull/Legs Split — Advanced Bro Split Variant**
+**5-Day Bro Split — Chest / Back / Legs / Shoulders / Arms**
 
 ---
 
 ## Program Philosophy
 
-At 20 years of training, your primary gains come from **mechanical tension** (heavy compound work) and **metabolic stress** (volume, controlled rest). The split is designed so each muscle group is hit with high frequency:
-- Chest: 2× per week (Monday + supplementary Thursday)
-- Back: 2× per week (Tuesday + Friday)
-- Legs: 1× per week dedicated (can add Saturday light work if needed)
-- Shoulders: 2× per week (direct Thursday + indirect Monday)
-- Arms: 2–3× per week via compound pressing/pulling
+At 20 years of training, your primary gains come from **mechanical tension** (heavy compound work) and **metabolic stress** (volume, controlled rest). The split dedicates one day per muscle group so each gets full focus and can be pushed hard before the next hit, roughly a week later:
+- Chest: 1× per week (Day 1), dedicated
+- Back: 1× per week (Day 2), dedicated
+- Legs: 1× per week (Day 3), dedicated
+- Shoulders: 1× per week (Day 4), dedicated
+- Arms: 1× per week (Day 5), dedicated — direct biceps/triceps volume that compounds don't fully cover
 
 **Notation:** Sets × Rep Range | Rest Period
 
@@ -23,40 +23,39 @@ Establish your working weights, lock in technique, build volume base. Do NOT ego
 
 ---
 
-### Day 1 — Push A (Chest Dominant)
+### Day 1 — Chest
 
 | # | Exercise | Sets × Reps | Rest | Cues |
 |---|----------|-------------|------|------|
 | 1 | Barbell Bench Press | 4 × 4–6 | 3 min | Last set AMRAP (stop 1 rep short of failure) |
-| 2 | Incline Dumbbell Press | 4 × 8–10 | 90 sec | Full stretch at bottom, squeeze at top |
-| 3 | Cable Chest Fly (mid pulley) | 3 × 12–15 | 60 sec | Cross hands at peak contraction |
-| 4 | Seated Dumbbell Overhead Press | 3 × 10–12 | 90 sec | Don't flare elbows wide |
-| 5 | Cable Lateral Raise | 3 × 15–20 | 60 sec | Lead with elbow, not wrist |
-| 6 | Dips (weighted or bodyweight) | 3 × 8–12 | 90 sec | Slight forward lean for chest focus |
-| 7 | Cable Tricep Pushdown (straight bar) | 3 × 12–15 | 60 sec | Full extension, elbows locked to sides |
+| 2 | Incline Barbell Press | 4 × 8–10 | 90 sec | 30–45° incline, not too steep |
+| 3 | Incline Dumbbell Press | 3 × 8–10 | 90 sec | Full stretch at bottom, squeeze at top |
+| 4 | Flat Dumbbell / Cable Fly | 3 × 12–15 | 60 sec | Cross hands at peak contraction |
+| 5 | Dips (weighted or bodyweight) | 3 × 8–12 | 90 sec | Slight forward lean for chest focus |
+| 6 | Cable Crossover (low-to-high) | 3 × 12–15 | 60 sec | Squeeze and hold 1 sec at top |
 
-**Session duration:** ~65 min | **Total sets:** 23
+**Session duration:** ~65 min | **Total sets:** 20
 
 ---
 
-### Day 2 — Pull A (Back / Vertical Pull Dominant)
+### Day 2 — Back
 
 | # | Exercise | Sets × Reps | Rest | Cues |
 |---|----------|-------------|------|------|
-| 1 | Weighted Pull-Ups (or Lat Pulldown if needed) | 4 × 4–8 | 3 min | Dead hang start, pull elbows to hip pockets |
-| 2 | Barbell Bent-Over Row (overhand) | 4 × 5–7 | 3 min | Chest up, bar to lower sternum |
-| 3 | Cable Seated Row (wide-grip bar) | 3 × 10–12 | 90 sec | Drive elbows back and up |
-| 4 | Single-Arm Dumbbell Row | 3 × 10–12 ea | 60 sec | Elbow stays close to body |
-| 5 | Face Pulls (rope, high pulley) | 3 × 15–20 | 60 sec | Thumbs toward ears at end position |
-| 6 | Barbell Standing Curl | 3 × 8–10 | 90 sec | Supinate fully at top |
-| 7 | Hammer Curl (alternating) | 3 × 10–12 ea | 60 sec | Control the eccentric |
+| 1 | Conventional Deadlift | 4 × 4–6 | 4 min | Reset between reps, brace before pulling |
+| 2 | Weighted Pull-Ups (or Lat Pulldown if needed) | 4 × 4–8 | 3 min | Dead hang start, pull elbows to hip pockets |
+| 3 | Barbell Bent-Over Row (overhand) | 4 × 5–7 | 3 min | Chest up, bar to lower sternum |
+| 4 | Cable Seated Row (wide-grip bar) | 3 × 10–12 | 90 sec | Drive elbows back and up |
+| 5 | Single-Arm Dumbbell Row | 3 × 10–12 ea | 60 sec | Elbow stays close to body |
+| 6 | Lat Pulldown (close underhand grip) | 3 × 10–12 | 90 sec | Lean back slightly, pull to upper chest |
+| 7 | Face Pulls (rope, high pulley) | 3 × 15–20 | 60 sec | Thumbs toward ears at end position |
 
 **Post-session cardio:** 20 min LISS treadmill — incline 4%, speed 5.5–6 km/h (brisk walk)
-**Session duration:** ~75 min total (including cardio) | **Total lifting sets:** 23
+**Session duration:** ~85 min total (including cardio) | **Total lifting sets:** 25
 
 ---
 
-### Day 3 — Legs A (Quad Dominant)
+### Day 3 — Legs
 
 | # | Exercise | Sets × Reps | Rest | Cues |
 |---|----------|-------------|------|------|
@@ -67,43 +66,44 @@ Establish your working weights, lock in technique, build volume base. Do NOT ego
 | 5 | Romanian Deadlift (barbell) | 4 × 8–10 | 90 sec | Feel the hamstring stretch |
 | 6 | Lying Leg Curl | 3 × 12–15 | 60 sec | Don't let hips rise |
 | 7 | Standing Calf Raise | 4 × 15–20 | 60 sec | Full stretch at bottom — 1 sec pause |
+| 8 | Hanging Leg Raise | 3 × 12–15 | 60 sec | No momentum, posterior pelvic tilt at top |
+| 9 | Cable Crunch | 3 × 15 | 60 sec | Round the spine — don't just hinge at hip |
 
-**Session duration:** ~70 min | **Total sets:** 25
+**Session duration:** ~80 min | **Total sets:** 31
 
 ---
 
-### Day 4 — Push B (Shoulder Dominant)
+### Day 4 — Shoulders
 
 | # | Exercise | Sets × Reps | Rest | Cues |
 |---|----------|-------------|------|------|
 | 1 | Barbell Overhead Press (standing) | 4 × 4–6 | 3 min | Brace core, don't hyperextend lower back |
-| 2 | Incline Barbell Press | 4 × 8–10 | 90 sec | 30–45° incline, not too steep |
-| 3 | Arnold Press (seated) | 3 × 10–12 | 90 sec | Full rotation of wrist |
+| 2 | Arnold Press (seated) | 3 × 10–12 | 90 sec | Full rotation of wrist |
+| 3 | Seated Dumbbell Overhead Press | 3 × 10–12 | 90 sec | Don't flare elbows wide |
 | 4 | Dumbbell Lateral Raise (bilateral) | 4 × 15–20 | 60 sec | Slight internal rotation (pinkies up) |
-| 5 | Rear Delt Cable Fly (low pulley, bent over) | 3 × 15–20 | 60 sec | Keep arms almost straight |
-| 6 | Decline Dumbbell Press | 3 × 10–12 | 90 sec | Targets lower pec thickness |
-| 7 | EZ-Bar Skull Crusher | 3 × 8–12 | 90 sec | Bar to forehead, elbows stay in |
-| 8 | Overhead Rope Tricep Extension | 3 × 12–15 | 60 sec | Full stretch overhead |
+| 5 | Cable Lateral Raise | 3 × 15–20 | 60 sec | Lead with elbow, not wrist |
+| 6 | Rear Delt Cable Fly (low pulley, bent over) | 3 × 15–20 | 60 sec | Keep arms almost straight |
+| 7 | Barbell / Dumbbell Shrug | 3 × 10–12 | 90 sec | Straight up, no rolling |
 
 **Post-session cardio:** 20 min HIIT treadmill (see cardio protocol below)
-**Session duration:** ~80 min total | **Total lifting sets:** 27
+**Session duration:** ~80 min total | **Total lifting sets:** 23
 
 ---
 
-### Day 5 — Pull B (Horizontal Pull / Deadlift / Posterior Chain)
+### Day 5 — Arms
 
 | # | Exercise | Sets × Reps | Rest | Cues |
 |---|----------|-------------|------|------|
-| 1 | Conventional Deadlift | 4 × 3–5 | 4 min | Reset between reps, brace before pulling |
-| 2 | Chest-Supported Incline Row (dumbbells) | 3 × 10–12 | 90 sec | Eliminates lower back from the equation |
-| 3 | Cable Seated Row (close-grip V-bar) | 3 × 10–12 | 90 sec | Squeeze shoulder blades at peak |
-| 4 | Lat Pulldown (close underhand grip) | 3 × 10–12 | 90 sec | Lean back slightly, pull to upper chest |
-| 5 | EZ-Bar Preacher Curl | 3 × 8–10 | 90 sec | Full extension at bottom |
-| 6 | Incline Dumbbell Curl | 3 × 10–12 | 60 sec | Shoulder behind torso — full bicep stretch |
-| 7 | Hanging Leg Raise | 3 × 12–15 | 60 sec | No momentum, posterior pelvic tilt at top |
-| 8 | Cable Crunch | 3 × 15 | 60 sec | Round the spine — don't just hinge at hip |
+| 1 | Barbell Standing Curl | 4 × 8–10 | 90 sec | Supinate fully at top |
+| 2 | EZ-Bar Skull Crusher | 4 × 8–12 | 90 sec | Bar to forehead, elbows stay in |
+| 3 | Close-Grip Bench Press | 3 × 8–10 | 90 sec | Elbows tucked, triceps do the work |
+| 4 | Incline Dumbbell Curl | 3 × 10–12 | 60 sec | Shoulder behind torso — full bicep stretch |
+| 5 | Overhead Rope Tricep Extension | 3 × 12–15 | 60 sec | Full stretch overhead |
+| 6 | EZ-Bar Preacher Curl | 3 × 8–10 | 90 sec | Full extension at bottom |
+| 7 | Cable Tricep Pushdown (straight bar) | 3 × 12–15 | 60 sec | Full extension, elbows locked to sides |
+| 8 | Hammer Curl (alternating) | 3 × 10–12 ea | 60 sec | Control the eccentric |
 
-**Session duration:** ~70 min | **Total sets:** 27
+**Session duration:** ~75 min | **Total sets:** 26
 
 ---
 
@@ -119,7 +119,7 @@ Establish your working weights, lock in technique, build volume base. Do NOT ego
 - Main lifts (Set 1–2): 3–5 reps (heavier)
 - Main lifts (Set 3–5): 6–8 reps (hypertrophy sets)
 
-**Example — Day 1 Push A, Phase 2 Bench Press:**
+**Example — Day 1 Chest, Phase 2 Bench Press:**
 - Set 1: 3 reps @ 90% effort
 - Set 2: 3 reps @ 87% effort
 - Sets 3–5: 6–8 reps @ 78–82% effort
@@ -128,8 +128,8 @@ All other exercises remain structurally the same — push the weights and squeez
 
 **New addition — Finisher superset (Days 1, 2, 4, 5):**
 Add 2 rounds of a superset at the end of each session. Choose from:
-- Push sessions: Cable lateral raise × 20 + push-up to failure
-- Pull sessions: Face pull × 20 + band pull-apart × 20
+- Chest/Shoulders days: Cable lateral raise × 20 + push-up to failure
+- Back/Arms days: Face pull × 20 + band pull-apart × 20
 
 ---
 
@@ -159,7 +159,7 @@ Add 2 rounds of a superset at the end of each session. Choose from:
 
 | Day | Type | Duration | Parameters |
 |-----|------|----------|------------|
-| Tuesday (post-Pull A) | LISS | 20 min | Incline 4%, Speed 5.5–6 km/h |
+| Day 2 (post-Back) | LISS | 20 min | Incline 4%, Speed 5.5–6 km/h |
 | Saturday | LISS | 35 min | Incline 3%, Speed 5.5–6.5 km/h, fasted preferred |
 
 **Heart rate target for LISS:** 60–65% max HR = ~111–120 BPM (max HR = 187 BPM)
@@ -168,16 +168,16 @@ Add 2 rounds of a superset at the end of each session. Choose from:
 
 | Day | Type | Duration | Parameters |
 |-----|------|----------|------------|
-| Tuesday (post-Pull A) | LISS | 25 min | Incline 5%, Speed 6 km/h |
-| Thursday (post-Push B) | HIIT | 20 min | See HIIT protocol below |
+| Day 2 (post-Back) | LISS | 25 min | Incline 5%, Speed 6 km/h |
+| Day 4 (post-Shoulders) | HIIT | 20 min | See HIIT protocol below |
 | Saturday | LISS | 40 min | Incline 3–4%, Speed 6 km/h, fasted |
 
 ### Phase 3 (Weeks 9–12) — Total ~80 min/week
 
 | Day | Type | Duration | Parameters |
 |-----|------|----------|------------|
-| Tuesday (post-Pull A) | LISS | 30 min | Incline 6%, Speed 6–6.5 km/h |
-| Thursday (post-Push B) | HIIT | 20 min | Intensified (see below) |
+| Day 2 (post-Back) | LISS | 30 min | Incline 6%, Speed 6–6.5 km/h |
+| Day 4 (post-Shoulders) | HIIT | 20 min | Intensified (see below) |
 | Saturday | LISS | 45 min | Incline 4%, Speed 6 km/h, fasted |
 | Sunday (optional) | LISS | 30 min | Incline 2%, Speed 5.5 km/h — low effort recovery walk |
 
