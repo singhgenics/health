@@ -1043,11 +1043,11 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 28px; }
   </div>
 
   <div class="meal-day-nav">
-    <div class="meal-day-btn active" onclick="setMealDay(0)"><span class="pl">Mon — Push A + LISS</span><span class="ps">Mon</span></div>
-    <div class="meal-day-btn" onclick="setMealDay(1)"><span class="pl">Tue — Pull A</span><span class="ps">Tue</span></div>
+    <div class="meal-day-btn active" onclick="setMealDay(0)"><span class="pl">Mon — Chest + LISS</span><span class="ps">Mon</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(1)"><span class="pl">Tue — Back</span><span class="ps">Tue</span></div>
     <div class="meal-day-btn" onclick="setMealDay(2)"><span class="pl">Wed — Legs</span><span class="ps">Wed</span></div>
-    <div class="meal-day-btn" onclick="setMealDay(3)"><span class="pl">Thu — Push B + HIIT</span><span class="ps">Thu</span></div>
-    <div class="meal-day-btn" onclick="setMealDay(4)"><span class="pl">Fri — Pull B + LISS</span><span class="ps">Fri</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(3)"><span class="pl">Thu — Shoulders + HIIT</span><span class="ps">Thu</span></div>
+    <div class="meal-day-btn" onclick="setMealDay(4)"><span class="pl">Fri — Arms + LISS</span><span class="ps">Fri</span></div>
 
     <div class="meal-day-btn" onclick="setMealDay(5)"><span class="pl">Sat — Rest / LISS</span><span class="ps">Sat</span></div>
     <div class="meal-day-btn" onclick="setMealDay(6)"><span class="pl">Sun — Rest</span><span class="ps">Sun</span></div>
@@ -1234,44 +1234,44 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 28px; }
 // ==================== DATA ====================
 
 const phases = [
-  { id:1, name:"Phase 1", weeks:"1–4", calories:2800, deficit:-300, protein:240, carbs:246, fat:95, cardioMin:45, cardioDesc:"LISS ×2 (Mon + Fri)", phaseNote:"<strong>Phase 1 Focus:</strong> Lock in working weights on every compound. Push and Pull twice a week — prioritise quality reps on the big lifts. LISS on Mon and Fri after weights. Legs once a week: go all-in when you do. Build the cardio habit before adding volume." },
-  { id:2, name:"Phase 2", weeks:"5–8", calories:2700, deficit:-400, protein:240, carbs:218, fat:95, cardioMin:125, cardioDesc:"LISS ×4 + HIIT ×1 (Mon, Tue, Fri, Sat + Thu HIIT)", phaseNote:"<strong>Phase 2 Focus:</strong> Add 1 set to every compound. Push weights 5–10% heavier. Add LISS on Tue (20 min) and Sat (30 min). Add HIIT on Thursday after Push B. Cut HIIT first if strength drops — never sacrifice the iron." },
-  { id:3, name:"Phase 3", weeks:"9–12", calories:2600, deficit:-500, protein:240, carbs:190, fat:95, cardioMin:155, cardioDesc:"LISS ×4 + HIIT ×1 (Mon, Tue, Fri, Sat + Thu HIIT)", phaseNote:"<strong>Phase 3 Focus:</strong> PR attempts on Bench, OHP, Squat and Weighted Pull-Ups in weeks 9 & 11. Drop sets on all isolation work. Sat LISS extended to 45 min. This is the peak — protect the PRs, push the cardio." }
+  { id:1, name:"Phase 1", weeks:"1–4", calories:2800, deficit:-300, protein:240, carbs:246, fat:95, cardioMin:45, cardioDesc:"LISS ×2 (Mon + Fri)", phaseNote:"<strong>Phase 1 Focus:</strong> Lock in working weights on every compound. Chest, Back, Legs, Shoulders and Arms each get one dedicated day — prioritise quality reps on the big lifts. LISS on Mon and Fri after weights. Legs once a week: go all-in when you do. Build the cardio habit before adding volume." },
+  { id:2, name:"Phase 2", weeks:"5–8", calories:2700, deficit:-400, protein:240, carbs:218, fat:95, cardioMin:125, cardioDesc:"LISS ×4 + HIIT ×1 (Mon, Tue, Fri, Sat + Thu HIIT)", phaseNote:"<strong>Phase 2 Focus:</strong> Add 1 set to every compound. Push weights 5–10% heavier. Add LISS on Tue (20 min) and Sat (30 min). Add HIIT on Thursday after Shoulders. Cut HIIT first if strength drops — never sacrifice the iron." },
+  { id:3, name:"Phase 3", weeks:"9–12", calories:2600, deficit:-500, protein:240, carbs:190, fat:95, cardioMin:155, cardioDesc:"LISS ×4 + HIIT ×1 (Mon, Tue, Fri, Sat + Thu HIIT)", phaseNote:"<strong>Phase 3 Focus:</strong> PR attempts on Bench, OHP, Squat and Deadlift in weeks 9 & 11. Drop sets on all isolation work. Sat LISS extended to 45 min. This is the peak — protect the PRs, push the cardio." }
 ];
 
 const schedule = [
-  { day:"Mon", short:"M", session:"Push A", focus:"Chest + Shoulders + Triceps", muscles:["Chest","Front Delts","Triceps"], cardio:{type:"LISS",p1:20,p2:25,p3:30} },
-  { day:"Tue", short:"T", session:"Pull A", focus:"Back Width + Biceps", muscles:["Lats","Upper Back","Biceps"], cardio:{type:"LISS",p1:0,p2:20,p3:25} },
+  { day:"Mon", short:"M", session:"Chest", focus:"Full Chest Focus", muscles:["Chest","Triceps"], cardio:{type:"LISS",p1:20,p2:25,p3:30} },
+  { day:"Tue", short:"T", session:"Back", focus:"Full Back Focus", muscles:["Lats","Upper & Mid Back","Traps"], cardio:{type:"LISS",p1:0,p2:20,p3:25} },
   { day:"Wed", short:"W", session:"Legs", focus:"Full Lower Body", muscles:["Quads","Hamstrings","Glutes","Calves"], cardio:null },
-  { day:"Thu", short:"Th", session:"Push B", focus:"Shoulders + Chest + Triceps", muscles:["Shoulders","Traps","Chest","Triceps"], cardio:{type:"HIIT",p1:0,p2:20,p3:20} },
-  { day:"Fri", short:"F", session:"Pull B", focus:"Back Thickness + Traps + Biceps", muscles:["Mid Back","Traps","Rear Delts","Biceps"], cardio:{type:"LISS",p1:25,p2:30,p3:35} },
+  { day:"Thu", short:"Th", session:"Shoulders", focus:"Full Shoulder Focus", muscles:["Front Delts","Side Delts","Rear Delts","Traps"], cardio:{type:"HIIT",p1:0,p2:20,p3:20} },
+  { day:"Fri", short:"F", session:"Arms", focus:"Biceps + Triceps", muscles:["Biceps","Triceps"], cardio:{type:"LISS",p1:25,p2:30,p3:35} },
   { day:"Sat", short:"Sa", session:"LISS / Swim", focus:"Active Recovery", muscles:[], cardio:{type:"LISS",p1:0,p2:30,p3:45} },
   { day:"Sun", short:"Su", session:"Full Rest", focus:"Recovery", muscles:[], cardio:null }
 ];
 
 const workouts = {
-  0: { // Monday — Push A (Chest Dominant)
+  0: { // Monday — Chest
     cardio: { type:"LISS", details:"Incline 4% · Speed 5.5–6 km/h", rounds:null },
-    dayNote: "Push A — chest leads, shoulders and triceps finish the job. LISS after weights. Bench is the primary; OHP and laterals are secondary today — save the heavy shoulder work for Thursday.",
+    dayNote: "Chest day — full dedicated volume for the pecs, no splitting energy with shoulders or triceps work. Bench is the priority lift; everything after builds around it. LISS after weights.",
     exercises: [
       { name:"Barbell Bench Press", type:"compound", sets:[4,5,5], reps:"5–7", rest:180, cue:"Retract scapula, feet flat, bar over nipple line. Last set AMRAP — stop 1 rep short of failure.", p3note:"PR attempt weeks 9 & 11" },
-      { name:"Incline Dumbbell Press", type:"compound", sets:[3,4,4], reps:"8–10", rest:90, cue:"30° incline — not too steep. Full stretch at bottom, hard squeeze at top.", p3note:"Drop set on final set" },
-      { name:"Cable Chest Fly (mid pulley)", type:"isolation", sets:[3,3,3], reps:"12–15", rest:60, cue:"Cross hands at peak — hold 1 sec squeeze. Constant tension the whole range.", p3note:"Drop set" },
-      { name:"Barbell Overhead Press (standing)", type:"compound", sets:[3,4,4], reps:"8–10", rest:90, cue:"Brace hard, bar slightly in front of face at lockout. Secondary today — leave gas in tank for Thursday's heavy OHP.", p3note:null },
-      { name:"Dumbbell Lateral Raise (bilateral)", type:"isolation", sets:[3,4,4], reps:"12–20", rest:60, cue:"Lead with elbows, slight internal rotation (pinkies up). Stop at shoulder height — not above.", p3note:"Drop set P3" },
-      { name:"Cable Tricep Pushdown (rope)", type:"isolation", sets:[3,4,4], reps:"12–15", rest:60, cue:"Full extension at bottom, spread rope apart. Elbows locked to sides the whole set.", p3note:"Drop set" }
+      { name:"Incline Barbell Press", type:"compound", sets:[4,4,5], reps:"8–10", rest:90, cue:"30–45° incline — hits the upper chest fibres flat bench can't reach. Don't turn it into a shoulder press.", p3note:"Drop set on final set" },
+      { name:"Incline Dumbbell Press", type:"compound", sets:[3,4,4], reps:"8–10", rest:90, cue:"30° incline — not too steep. Full stretch at bottom, hard squeeze at top.", p3note:null },
+      { name:"Cable / Dumbbell Chest Fly", type:"isolation", sets:[3,3,3], reps:"12–15", rest:60, cue:"Cross hands at peak — hold 1 sec squeeze. Constant tension the whole range.", p3note:"Drop set" },
+      { name:"Dips (weighted or bodyweight)", type:"compound", sets:[3,4,4], reps:"8–12", rest:90, cue:"Slight forward lean shifts the emphasis onto chest. Control the descent — don't bounce at the bottom.", p3note:null },
+      { name:"Cable Crossover (low-to-high)", type:"isolation", sets:[3,3,4], reps:"12–15", rest:60, cue:"Squeeze and hold 1 sec at the top — the crossover finishes what pressing can't.", p3note:"Drop set" }
     ]
   },
-  1: { // Tuesday — Pull A (Back Width + Biceps)
+  1: { // Tuesday — Back
     cardio: { type:"LISS", details:"Incline 4% · Speed 5.5–6 km/h", rounds:null },
-    dayNote: "Pull A — lats and width take priority. Drive elbows to hip pockets, not hands to chest. If you feel it in your biceps more than your back, reduce weight and slow the eccentric. Biceps come last — strict form only. LISS after weights from Phase 2.",
+    dayNote: "Back day — full width and thickness work with no chest or shoulder overlap. Deadlift is the priority lift; everything after builds volume. LISS after weights from Phase 2.",
     exercises: [
-      { name:"Weighted Pull-Ups", type:"compound", sets:[4,5,5], reps:"5–8", rest:180, cue:"Dead hang start. Pull elbows to hip pockets — not chin to bar. Control the descent fully.", p3note:"PR attempt weeks 9 & 11" },
-      { name:"Barbell Bent-Over Row (overhand)", type:"compound", sets:[4,5,5], reps:"6–8", rest:180, cue:"Chest up, slight knee bend. Bar to lower sternum — drives mid-back thickness.", p3note:null },
-      { name:"Chest-Supported Incline Row (DB)", type:"compound", sets:[3,3,3], reps:"10–12", rest:90, cue:"Eliminates lower back from the equation — pure lat contraction. Elbows flared 45°.", p3note:null },
-      { name:"Straight-Arm Lat Pulldown (cable)", type:"isolation", sets:[3,3,3], reps:"12–15", rest:60, cue:"Arms stay straight — this is a lat isolation. Hinge from shoulder, squeeze at bottom.", p3note:"Drop set" },
-      { name:"EZ-Bar Standing Curl", type:"compound", sets:[3,4,5], reps:"8–10", rest:90, cue:"Supinate fully at top. Dead-stop at bottom each rep. No swinging — if you're swinging, drop weight.", p3note:"Drop set on final set" },
-      { name:"Hammer Curl (alternating)", type:"isolation", sets:[3,3,3], reps:"10–12 each", rest:60, cue:"Targets brachialis — the muscle under the bicep that pushes it up. Control the descent.", p3note:null }
+      { name:"Conventional Deadlift", type:"compound", sets:[4,4,5], reps:"4–6", rest:240, cue:"Reset between reps, brace hard before pulling. Bar drags straight up the shins.", p3note:"PR attempt weeks 9 & 11" },
+      { name:"Weighted Pull-Ups", type:"compound", sets:[4,5,5], reps:"5–8", rest:180, cue:"Dead hang start. Pull elbows to hip pockets — not chin to bar. Control the descent fully.", p3note:null },
+      { name:"Barbell Bent-Over Row (overhand)", type:"compound", sets:[4,5,5], reps:"6–8", rest:180, cue:"Chest up, slight knee bend. Bar to lower sternum — drives mid-back thickness.", p3note:"Drop set on final set" },
+      { name:"Cable Seated Row (wide-grip bar)", type:"compound", sets:[3,3,4], reps:"10–12", rest:90, cue:"Drive elbows back and up, squeeze the shoulder blades together at peak.", p3note:null },
+      { name:"Lat Pulldown (close underhand grip)", type:"isolation", sets:[3,3,3], reps:"10–12", rest:90, cue:"Lean back slightly, pull to upper chest. Full stretch at the top of each rep.", p3note:"Drop set" },
+      { name:"Face Pulls (rope, high pulley)", type:"isolation", sets:[3,3,3], reps:"15–20", rest:60, cue:"Thumbs to ears at end position. External rotation — essential for shoulder health.", p3note:"Drop set" }
     ]
   },
   2: { // Wednesday — Legs
@@ -1286,36 +1286,36 @@ const workouts = {
       { name:"Standing Calf Raise", type:"isolation", sets:[4,4,4], reps:"15–20", rest:60, cue:"Full stretch at bottom — 1 sec pause. Don't bounce. Calves only grow with full ROM.", p3note:null }
     ]
   },
-  3: { // Thursday — Push B (Shoulder Dominant)
+  3: { // Thursday — Shoulders
     cardio: { type:"HIIT", details:"30s sprint (10.5–12 km/h) / 90s walk × 8 rounds", rounds:8 },
-    dayNote: "Push B — shoulders lead today, chest and triceps support. HIIT after weights in Phase 2+. Don't ego-lift the laterals — 10kg with perfect form builds wider shoulders than 20kg with body english.",
+    dayNote: "Shoulders day — full dedicated delt volume with traps folded in, no chest or arm work stealing energy. OHP is the priority lift; laterals and rear delts build the width. HIIT after weights.",
     exercises: [
       { name:"Barbell Overhead Press (standing)", type:"compound", sets:[4,5,5], reps:"5–7", rest:180, cue:"Brace hard, bar slightly in front of face at lockout. Don't hyperextend lower back. This is the primary today — go heavy.", p3note:"PR attempt weeks 9 & 11" },
       { name:"Dumbbell Arnold Press", type:"compound", sets:[3,3,4], reps:"10–12", rest:90, cue:"Full rotation — palms face you at bottom, face forward at top. Controlled and deliberate.", p3note:null },
+      { name:"Dumbbell Lateral Raise (bilateral)", type:"isolation", sets:[3,4,4], reps:"12–20", rest:60, cue:"Lead with elbows, slight internal rotation (pinkies up). Stop at shoulder height — not above.", p3note:"Drop set P3" },
       { name:"Cable Lateral Raise (single arm)", type:"isolation", sets:[3,3,3], reps:"15–20 each", rest:60, cue:"Cable gives constant tension the whole range — dumbbells don't. Same elbow-lead cue.", p3note:"Drop set" },
       { name:"Rear Delt Cable Fly (low pulley)", type:"isolation", sets:[3,4,4], reps:"15–20", rest:60, cue:"Arms nearly straight, pull to head height. Most neglected muscle that kills shoulder balance.", p3note:"Drop set" },
-      { name:"Decline Barbell Press", type:"compound", sets:[3,3,4], reps:"8–10", rest:90, cue:"Targets lower pec thickness. Control the descent — don't bounce off chest.", p3note:null },
-      { name:"Overhead Rope Tricep Extension", type:"isolation", sets:[3,4,4], reps:"12–15", rest:60, cue:"Full overhead stretch — long head only gets hit here. Control the eccentric.", p3note:"Drop set" }
+      { name:"Barbell / Dumbbell Shrug", type:"isolation", sets:[3,3,3], reps:"10–12", rest:90, cue:"Straight up — no shoulder rolling. Hold 1 sec squeeze at top.", p3note:null }
     ]
   },
-  4: { // Friday — Pull B (Back Thickness + Traps + Biceps)
+  4: { // Friday — Arms
     cardio: { type:"LISS", details:"Incline 4% · Speed 5.5–6 km/h", rounds:null },
-    dayNote: "Pull B — back thickness, traps, and rear delts take priority. Underhand row hits lower lats and biceps differently from Tuesday's overhand. LISS after weights to close the training week.",
+    dayNote: "Arms day — direct biceps and triceps volume the pressing and pulling days don't fully cover. LISS after weights to close the training week.",
     exercises: [
-      { name:"Barbell Bent-Over Row (underhand)", type:"compound", sets:[4,5,5], reps:"6–8", rest:180, cue:"Supinated grip shifts load to lower lats and biceps. Bar to belly button — lower than overhand. Full dead stop each rep.", p3note:null },
-      { name:"Cable Seated Row (close V-bar)", type:"compound", sets:[4,4,5], reps:"8–10", rest:90, cue:"Drive elbows straight back. Squeeze shoulder blades together at peak for 1 sec.", p3note:null },
-      { name:"Face Pulls (rope, high pulley)", type:"isolation", sets:[3,3,3], reps:"15–20", rest:60, cue:"Thumbs to ears at end position. External rotation — essential for shoulder health and PPL balance.", p3note:"Drop set" },
-      { name:"Barbell Shrug", type:"isolation", sets:[3,3,3], reps:"12–15", rest:60, cue:"Straight up — no shoulder rolling. Hold 1 sec squeeze at top.", p3note:null },
+      { name:"Barbell Standing Curl", type:"compound", sets:[3,4,5], reps:"8–10", rest:90, cue:"Supinate fully at top. Dead-stop at bottom each rep. No swinging — if you're swinging, drop weight.", p3note:"Drop set on final set" },
+      { name:"EZ-Bar Skull Crusher", type:"compound", sets:[4,4,5], reps:"8–12", rest:90, cue:"Bar to forehead, elbows stay tucked and locked — only the forearm moves.", p3note:"Drop set" },
+      { name:"Close-Grip Bench Press", type:"compound", sets:[3,3,4], reps:"8–10", rest:90, cue:"Elbows tucked tight to the sides — triceps do the pressing, not the chest.", p3note:null },
       { name:"Incline Dumbbell Curl", type:"isolation", sets:[3,3,3], reps:"10–12", rest:60, cue:"Shoulder behind torso — full bicep stretch at bottom. 3-sec eccentric.", p3note:"Drop set" },
-      { name:"Cable Bicep Curl (straight bar)", type:"isolation", sets:[3,3,4], reps:"12–15", rest:60, cue:"Full extension at bottom, supinate and squeeze at top. Don't lean back — strict form only.", p3note:"Drop set" }
+      { name:"Overhead Rope Tricep Extension", type:"isolation", sets:[3,4,4], reps:"12–15", rest:60, cue:"Full overhead stretch — long head only gets hit here. Control the eccentric.", p3note:"Drop set" },
+      { name:"Hammer Curl (alternating)", type:"isolation", sets:[3,3,3], reps:"10–12 each", rest:60, cue:"Targets brachialis — the muscle under the bicep that pushes it up. Control the descent.", p3note:null }
     ]
   }
 };
 
 const mealDays = [
   {
-    label:"Monday — Push A + LISS",
-    note:"Push session + morning walk. Carbs go pre and post workout — that's it. If evening cravings hit, the answer is already in your fridge: 2 boiled eggs or a bowl of plain dahi. Keep both stocked. No packets, no biscuits.",
+    label:"Monday — Chest + LISS",
+    note:"Chest session + morning walk. Carbs go pre and post workout — that's it. If evening cravings hit, the answer is already in your fridge: 2 boiled eggs or a bowl of plain dahi. Keep both stocked. No packets, no biscuits.",
     meals:[
       { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee (no milk, no sugar)"], p:1, c:27, f:0, cal:108 },
       { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast — any home prep (bhuna, light curry, grilled)","120g basmati rice — dry wt, cooked","Cucumber + tomato + coriander salad (unlimited, no dressing)"], p:72, c:95, f:9, cal:781 },
@@ -1325,8 +1325,8 @@ const mealDays = [
     ]
   },
   {
-    label:"Tuesday — Pull A",
-    note:"Pull day — back and biceps, no cardio. Post-workout meal is the most important. Bangda at lunch is your weekly omega-3 hit for recovery. Afternoon is the classic munchies window — curd is already in the fridge. Eat that before you open anything else.",
+    label:"Tuesday — Back",
+    note:"Back day — full back volume, no cardio in Phase 1. Post-workout meal is the most important. Bangda at lunch is your weekly omega-3 hit for recovery. Afternoon is the classic munchies window — curd is already in the fridge. Eat that before you open anything else.",
     meals:[
       { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee (no sugar)"], p:1, c:27, f:0, cal:108 },
       { n:2, time:"9:30 AM", label:"Post-Workout", items:["300g chicken breast — home bhuna or light curry","100g brown rice — dry wt, cooked","Tomato + onion + cucumber salad"], p:72, c:68, f:8, cal:636 },
@@ -1347,7 +1347,7 @@ const mealDays = [
     ]
   },
   {
-    label:"Thursday — Push B + HIIT",
+    label:"Thursday — Shoulders + HIIT",
     note:"HIIT day — highest carb need of the week. Extra dates pre-workout, OHP is primary today. After HIIT the hunger spike is strong and it is exactly when processed carbs feel most appealing. Meal 4 is built for that moment. Eat it. That craving was always just real hunger — now you have a clean answer.",
     meals:[
       { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana + 3 dates (extra glycogen for HIIT)","Black coffee"], p:1, c:48, f:0, cal:196 },
@@ -1358,7 +1358,7 @@ const mealDays = [
     ]
   },
   {
-    label:"Friday — Pull B + LISS",
+    label:"Friday — Arms + LISS",
     note:"Last training day of the week. LISS after weights closes it. Tonight matters as much as the workout — plan Saturday and Sunday meals before you go to bed. What is in your fridge this weekend determines whether the new habit holds. Prawns and curd ready to go = weekend sorted.",
     meals:[
       { n:1, time:"7:30 AM", label:"Pre-Workout", items:["1 banana","Black coffee"], p:1, c:27, f:0, cal:108 },
@@ -1602,7 +1602,7 @@ function buildBadges(ex, phase) {
 function renderDayNav() {
   const nav = document.getElementById('day-nav');
   const days = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
-  const subs = ['Push A','Pull A','Legs','Push B','Pull B'];
+  const subs = ['Chest','Back','Legs','Shoulders','Arms'];
   nav.innerHTML = days.map((d,i) => `
     <div class="day-btn ${i===currentDay?'active':''}" onclick="setDay(${i})">
       <div class="db-day">${d}</div>
