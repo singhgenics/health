@@ -31,11 +31,11 @@
 
 | Day | Session | Cardio |
 |-----|---------|--------|
-| Monday | Push A — Chest Focus | None |
-| Tuesday | Pull A — Back / Vertical | 20 min LISS post-session |
-| Wednesday | Legs A — Quad Dominant | None |
-| Thursday | Push B — Shoulder Focus | 20 min HIIT post-session |
-| Friday | Pull B — Deadlift / Posterior Chain | None |
+| Monday | Chest | None |
+| Tuesday | Back | 20 min LISS post-session |
+| Wednesday | Legs | None |
+| Thursday | Shoulders | 20 min HIIT post-session |
+| Friday | Arms | None |
 | Saturday | Rest / Active Recovery | 40 min LISS (fasted walk/jog) |
 | Sunday | Full Rest | None |
 
