@@ -11,6 +11,9 @@
 <meta name="apple-mobile-web-app-title" content="RecompSys">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
   (function(){
     var t = localStorage.getItem('theme') || 'light';
@@ -40,16 +43,20 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 button, a, [onclick] { touch-action: manipulation; }
-body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.5; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--text); font-family: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.5; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+.section-title, .stat-card .value, .wh-title, .logo, .timer-count, .total-cal .tc-val, .cardio-stat .cs-val { font-family: 'Barlow Condensed', -apple-system, sans-serif; letter-spacing: -0.02em; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+:focus:not(:focus-visible) { outline: none; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
 
 /* HEADER */
 .header { background: rgba(28,25,23,0.96); border-bottom: none; box-shadow: 0 1px 0 rgba(255,255,255,0.07), 0 2px 12px rgba(0,0,0,0.4); padding: 16px 28px; padding-top: calc(16px + env(safe-area-inset-top)); display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; backdrop-filter: saturate(180%) blur(24px); -webkit-backdrop-filter: saturate(180%) blur(24px); }
 .header::before { content: none; }
-.logo { font-size: 17px; font-weight: 900; color: var(--text); white-space: nowrap; letter-spacing: -.04em; }
+.logo { font-size: 19px; font-weight: 900; color: var(--text); white-space: nowrap; letter-spacing: .02em; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; }
 .logo span { background: linear-gradient(135deg, #FF385C, #FC642D); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .client-tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 980px; padding: 4px 14px; font-size: 12px; color: var(--muted); white-space: nowrap; }
 .phase-pills { display: flex; gap: 6px; margin-left: auto; }
-.phase-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 980px; padding: 7px 18px; font-size: 12px; font-weight: 700; cursor: pointer; color: var(--muted); transition: all .25s cubic-bezier(0.25,0.1,0.25,1); white-space: nowrap; user-select: none; }
+.phase-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 980px; padding: 0 18px; font-size: 12px; font-weight: 700; cursor: pointer; color: var(--muted); transition: all .25s cubic-bezier(0.25,0.1,0.25,1); white-space: nowrap; user-select: none; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
 .ps { display: none; }
 .phase-pill.active { background: var(--blue); border-color: transparent; color: #fff; box-shadow: 0 3px 12px var(--glow-blue); }
 .phase-pill:hover:not(.active) { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.18); color: var(--text); }
@@ -133,7 +140,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 28px; }
 
 /* TRAINING TAB */
 .day-nav { display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 4px; }
-.day-btn { background: var(--card); border: 1.5px solid var(--border); border-radius: 16px; padding: 12px 16px; cursor: pointer; text-align: center; transition: all .2s ease; min-width: 100px; user-select: none; }
+.day-btn { background: var(--card); border: 1.5px solid var(--border); border-radius: 16px; padding: 12px 16px; cursor: pointer; text-align: center; transition: all .2s ease; min-width: 100px; min-height: 56px; user-select: none; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .day-btn.active { background: var(--blue); border-color: transparent; box-shadow: 0 4px 16px var(--glow-blue); }
 .day-btn:hover:not(.active) { border-color: var(--blue); transform: translateY(-1px); }
 .day-btn:active { transform: scale(.95) !important; transition-duration: .09s !important; }
@@ -182,7 +189,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 28px; }
 /* NUTRITION TAB */
 .meal-day-nav { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
 .meal-day-nav::-webkit-scrollbar { display: none; }
-.meal-day-btn { background: var(--card); border: 1.5px solid var(--border); border-radius: 16px; padding: 10px 18px; cursor: pointer; font-size: 13px; font-weight: 700; transition: all .2s ease; flex-shrink: 0; white-space: nowrap; user-select: none; }
+.meal-day-btn { background: var(--card); border: 1.5px solid var(--border); border-radius: 16px; padding: 0 18px; cursor: pointer; font-size: 13px; font-weight: 700; transition: all .2s ease; flex-shrink: 0; white-space: nowrap; user-select: none; min-height: 44px; display: inline-flex; align-items: center; }
 .meal-day-btn.active { background: var(--blue); border-color: transparent; color: #fff; box-shadow: 0 4px 14px var(--glow-blue); }
 .meal-day-btn:hover:not(.active) { border-color: var(--blue); transform: translateY(-1px); }
 .meal-day-btn:active { transform: scale(.94) !important; transition-duration: .09s !important; }
@@ -309,7 +316,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 28px; }
 .timer-skip:active { transform: scale(.96); }
 
 /* UTILS */
-.section-title { font-size: 26px; font-weight: 800; margin-bottom: 20px; letter-spacing: -.04em; line-height: 1.15; }
+.section-title { font-size: 28px; font-weight: 800; margin-bottom: 20px; letter-spacing: -.02em; line-height: 1.15; font-family: 'Barlow Condensed', sans-serif; }
 .section-divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
 .badge { display: inline-block; padding: 3px 10px; border-radius: 980px; font-size: 11px; font-weight: 700; }
 .badge-blue { background: rgba(255,56,92,0.1); color: var(--blue); }
@@ -766,35 +773,36 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 28px; }
 }
 .install-toast.show { transform: translateX(-50%) translateY(0); }
 
-/* ===== APPLE SCROLL REVEAL ===== */
+/* ===== SCROLL REVEAL ===== */
 @keyframes appleReveal {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 @keyframes appleRevealSide {
-  from { opacity: 0; transform: translateX(-20px); }
+  from { opacity: 0; transform: translateX(-18px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 .reveal { opacity: 0; }
 .reveal.visible {
-  animation: appleReveal 0.62s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: appleReveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .reveal-side.visible {
-  animation: appleRevealSide 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: appleRevealSide 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .reveal:nth-child(1).visible  { animation-delay: 0s; }
-.reveal:nth-child(2).visible  { animation-delay: 0.05s; }
-.reveal:nth-child(3).visible  { animation-delay: 0.10s; }
-.reveal:nth-child(4).visible  { animation-delay: 0.15s; }
-.reveal:nth-child(5).visible  { animation-delay: 0.20s; }
+.reveal:nth-child(2).visible  { animation-delay: 0.06s; }
+.reveal:nth-child(3).visible  { animation-delay: 0.12s; }
+.reveal:nth-child(4).visible  { animation-delay: 0.18s; }
+.reveal:nth-child(5).visible  { animation-delay: 0.24s; }
+.reveal:nth-child(6).visible  { animation-delay: 0.30s; }
 
-/* ===== APPLE TAB TRANSITION ===== */
-.tab-content.active { animation: appleReveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) both; }
+/* ===== TAB TRANSITION ===== */
+.tab-content.active { animation: appleReveal 0.38s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-/* ===== APPLE INPUT FOCUS ===== */
+/* ===== INPUT FOCUS ===== */
 .log-input:focus, .sc-select:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(0,113,227,0.2);
+  box-shadow: 0 0 0 3px var(--glow-blue);
   outline: none;
 }
 .log-input { border-radius: 10px; }
